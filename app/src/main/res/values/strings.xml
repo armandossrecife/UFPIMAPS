@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">UFPIMAPS</string>
 
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">Âncoras</string>
+    <string name="title_section2">Mapa Normal</string>
+    <string name="title_section3">Mapa Satélite</string>
+    <string name="title_section4">Mapa Híbrido</string>
+    <string name="title_section5">Avalie-nos!</string>
+    <string name="title_section6">Sobre</string>
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
