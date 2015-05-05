@@ -45,17 +45,28 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         Fragment objFragment = null;
+        Bundle args = new Bundle();
+        System.out.println("Posicao: " + position);
         switch (position){
             case 0:
             case 1:
+                objFragment = (Fragment) new MapaNormalFragment();
+                args.putInt("tipoDeMapa",0);
+                objFragment.setArguments(args);
+                break;
             case 2:
                 objFragment = (Fragment) new MapaNormalFragment();
+                args.putInt("tipoDeMapa",1);
+                objFragment.setArguments(args);
                 break;
             case 3:
+                objFragment = (Fragment) new MapaNormalFragment();
+                args.putInt("tipoDeMapa",2);
+                objFragment.setArguments(args);
+                break;
             case 4:
             case 5:
-            case 6:
-                objFragment = new MapaNormalFragment();
+                //objFragment = (Fragment) new MapaNormalFragment();
                 break;
         }
 
