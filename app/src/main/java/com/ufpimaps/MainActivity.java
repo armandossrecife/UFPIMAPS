@@ -46,14 +46,22 @@ public class MainActivity extends ActionBarActivity
     public void onNavigationDrawerItemSelected(int position) {
         Fragment objFragment = null;
         switch (position){
-            case 0: case 1: case 2:case 3:case 4:case 5: case 6:
-                objFragment = new MapaFragment();
+            case 0:
+            case 1:
+            case 2:
+                objFragment = (Fragment) new MapaNormalFragment();
+                break;
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                objFragment = new MapaNormalFragment();
                 break;
         }
 
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
+        getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, objFragment)
                 .commit();
     }

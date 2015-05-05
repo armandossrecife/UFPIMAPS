@@ -18,4 +18,10 @@
     <string name="action_settings2">Sobre</string>
 
     <string name="API_KEY">AIzaSyDXLEO_RXbR8x4NUAjWb7hGNCnMQ5KCWro</string>
+
+    <!--
+    Lista das API-KEYS utilizadas:
+
+    Hugo Piauilino: AIzaSyDXLEO_RXbR8x4NUAjWb7hGNCnMQ5KCWro
+     -->
 </resources>
