@@ -1,4 +1,4 @@
-package com.ufpimaps;
+package com.ufpimaps.views;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,11 +13,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.ufpimaps.R;
 
 /**
  * Created by HugoPiauilino on 30/04/15.
  */
-public class MapaNormalFragment extends android.support.v4.app.Fragment implements OnMapReadyCallback {
+public class MapaFragment extends android.support.v4.app.Fragment implements OnMapReadyCallback {
 
     MapView mapView;
 

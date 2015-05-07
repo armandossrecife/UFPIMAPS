@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import com.ufpimaps.views.MapaFragment;
 
 
 public class MainActivity extends ActionBarActivity
@@ -49,24 +50,25 @@ public class MainActivity extends ActionBarActivity
         System.out.println("Posicao: " + position);
         switch (position){
             case 0:
+
             case 1:
-                objFragment = (Fragment) new MapaNormalFragment();
+                objFragment = new MapaFragment();
                 args.putInt("tipoDeMapa",0);
                 objFragment.setArguments(args);
                 break;
             case 2:
-                objFragment = (Fragment) new MapaNormalFragment();
+                objFragment = new MapaFragment();
                 args.putInt("tipoDeMapa",1);
                 objFragment.setArguments(args);
                 break;
             case 3:
-                objFragment = (Fragment) new MapaNormalFragment();
+                objFragment = new MapaFragment();
                 args.putInt("tipoDeMapa",2);
                 objFragment.setArguments(args);
                 break;
             case 4:
             case 5:
-                //objFragment = (Fragment) new MapaNormalFragment();
+                //objFragment = (Fragment) new MapaFragment();
                 break;
         }
 
