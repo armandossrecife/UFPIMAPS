@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.ufpimaps.views.AboutFragment;
 import com.ufpimaps.views.MapaFragment;
 
 
@@ -68,7 +70,7 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 4:
             case 5:
-                //objFragment = (Fragment) new MapaFragment();
+                objFragment = (Fragment) new AboutFragment();
                 break;
         }
 

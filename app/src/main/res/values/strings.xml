@@ -8,6 +8,16 @@
     <string name="title_section5">Avalie-nos!</string>
     <string name="title_section6">Sobre</string>
 
+    <string name="desenvolvedores">Desenvolvido por:</string>
+    <string name="desenvolvedorRoney">Roney Lira</string>
+    <string name="desenvolvedorSaulo">Saulo de Társio</string>
+    <string name="desenvolvedorArmando">Armando Soares</string>
+    <string name="departamento">Departamento de Computação - UFPI</string>
+    <string name="departamento2">Núcleo de Tecnologia da Informação - NTI</string>
+    <string name="logoUFPIMaps">UFPI Maps</string>
+    <string name="versao">Versão 1.0.0</string>
+    <string name="buttonColaboradores">Colaboradores</string>
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -18,6 +28,9 @@
     <string name="action_settings2">Sobre</string>
 
     <string name="API_KEY">AIzaSyDXLEO_RXbR8x4NUAjWb7hGNCnMQ5KCWro</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--
     Lista das API-KEYS utilizadas:

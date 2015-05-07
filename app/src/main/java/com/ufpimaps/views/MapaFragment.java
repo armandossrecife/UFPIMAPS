@@ -31,7 +31,7 @@ public class MapaFragment extends android.support.v4.app.Fragment implements OnM
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.mapa_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_map, container, false);
 
         mapView = (MapView) view.findViewById(R.id.map);
 
