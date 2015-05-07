@@ -1,0 +1,33 @@
+package com.ufpimaps.views;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.ViewGroup;
+import android.view.Window;
+
+import com.ufpimaps.R;
+
+/**
+ * Created by HugoPiauilino on 07/05/15.
+ */
+public class ColaboradoresActivity extends Activity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_colaboradores_screen);
+        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+}

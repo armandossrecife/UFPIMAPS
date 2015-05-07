@@ -70,7 +70,7 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 4:
             case 5:
-                objFragment = (Fragment) new AboutFragment();
+                objFragment = new AboutFragment();
                 break;
         }
 

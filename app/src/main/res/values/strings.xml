@@ -17,6 +17,16 @@
     <string name="logoUFPIMaps">UFPI Maps</string>
     <string name="versao">Versão 1.0.0</string>
     <string name="buttonColaboradores">Colaboradores</string>
+    <string name="colaborador1">Giovanni Emanuel</string>
+    <string name="colaborador2">Jardeson Barbosa</string>
+    <string name="colaborador3">Roberson Costa</string>
+    <string name="colaborador4">Selles Gustavo</string>
+    <string name="funcaoColaborador">Bacharelandos em Ciência da Computação - UFPI</string>
+    <string name="resumoProjeto">O UFPI Maps é um projeto idealizado na disciplina de
+        Engenharia de Software I, ministrada pelo Prof. Ms. Armando Soares que visa encontrar
+        fisicamente as unidades administrativas e operacionais da UFPI.</string>
+    <string name="title_activity_colaboradores_screen">ColaboradoresScreen</string>
+
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

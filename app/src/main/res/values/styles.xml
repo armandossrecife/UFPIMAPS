@@ -5,4 +5,8 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="DialogBox" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/drawer_shadow</item>
+    </style>
+
 </resources>
