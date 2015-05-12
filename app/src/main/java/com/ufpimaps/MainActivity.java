@@ -13,12 +13,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ufpimaps.models.ExampleItemFragment;
 import com.ufpimaps.views.AboutFragment;
 import com.ufpimaps.views.MapaFragment;
 
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, ExampleItemFragment.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -47,12 +48,14 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment objFragment = null;
         Bundle args = new Bundle();
         System.out.println("Posicao: " + position);
         switch (position){
             case 0:
-
+                objFragment = new ExampleItemFragment();
+                break;
             case 1:
                 objFragment = new MapaFragment();
                 args.putInt("tipoDeMapa",0);
@@ -74,11 +77,11 @@ public class MainActivity extends ActionBarActivity
                 break;
         }
 
-        // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
+
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, objFragment)
                 .commit();
+
     }
 
     public void onSectionAttached(int number) {
@@ -138,6 +141,11 @@ public class MainActivity extends ActionBarActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onFragmentInteraction(String id) {
+
     }
 
     /**
