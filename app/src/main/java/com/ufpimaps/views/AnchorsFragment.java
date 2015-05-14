@@ -14,7 +14,8 @@ import android.widget.Toast;
 
 import com.ufpimaps.R;
 
-import com.ufpimaps.models.dummy.DummyContent;
+import com.ufpimaps.models.Anchor;
+import com.ufpimaps.models.AnchorsList;
 
 import java.util.List;
 
@@ -77,9 +78,8 @@ public class AnchorsFragment extends android.support.v4.app.Fragment implements 
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        // TODO: Change Adapter to display your content
-        mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
+        mAdapter = new ArrayAdapter<Anchor>(getActivity(),
+                android.R.layout.simple_list_item_1, android.R.id.text1, AnchorsList.ITEMS);
 
     }
 
@@ -124,8 +124,8 @@ public class AnchorsFragment extends android.support.v4.app.Fragment implements 
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
-            Toast.makeText(getActivity(), DummyContent.ITEMS.get(position).id.toString() + " clicado!", Toast.LENGTH_SHORT).show();
+            mListener.onFragmentInteraction(AnchorsList.ITEMS.get(position).id);
+            Toast.makeText(getActivity(), AnchorsList.ITEMS.get(position).id.toString() + " clicado!", Toast.LENGTH_SHORT).show();
         }
     }
 
