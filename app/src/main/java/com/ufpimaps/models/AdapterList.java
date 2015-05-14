@@ -3,6 +3,7 @@ package com.ufpimaps.models;
 /**
  * Created by HugoPiauilino on 12/05/15.
  */
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +16,12 @@ import com.ufpimaps.R;
 
 import java.util.List;
 
-public class ExampleListAdapter extends ArrayAdapter {
+public class AdapterList extends ArrayAdapter {
 
     private Context context;
     private boolean useList = true;
 
-    public ExampleListAdapter(Context context, List items) {
+    public AdapterList(Context context, List items) {
         super(context, android.R.layout.simple_list_item_1, items);
         this.context = context;
     }
@@ -28,12 +29,11 @@ public class ExampleListAdapter extends ArrayAdapter {
     /**
      * Holder for the list items.
      */
-    private class ViewHolder{
+    private class ViewHolder {
         TextView titleText;
     }
 
     /**
-     *
      * @param position
      * @param convertView
      * @param parent
@@ -41,22 +41,14 @@ public class ExampleListAdapter extends ArrayAdapter {
      */
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
-        ExampleListItem item = (ExampleListItem)getItem(position);
+        ItemList item = (ItemList) getItem(position);
         View viewToUse = null;
-
-        // This block exists to inflate the settings list item conditionally based on whether
-        // we want to support a grid or list view.
         LayoutInflater mInflater = (LayoutInflater) context
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if (convertView == null) {
-            if(useList){
-                viewToUse = mInflater.inflate(R.layout.example_list_item, null);
-            } else {
-                viewToUse = mInflater.inflate(R.layout.example_grid_item, null);
-            }
-
+            viewToUse = mInflater.inflate(R.layout.list_item, null);
             holder = new ViewHolder();
-            holder.titleText = (TextView)viewToUse.findViewById(R.id.titleTextView);
+            holder.titleText = (TextView) viewToUse.findViewById(R.id.titleTextView);
             viewToUse.setTag(holder);
         } else {
             viewToUse = convertView;

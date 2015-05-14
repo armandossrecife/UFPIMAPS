@@ -10,13 +10,13 @@ import com.ufpimaps.R;
 /**
  * Created by HugoPiauilino on 07/05/15.
  */
-public class ColaboradoresActivity extends Activity{
+public class CollaboratorsActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_colaboradores_screen);
+        setContentView(R.layout.activity_collaborators);
         getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
     }

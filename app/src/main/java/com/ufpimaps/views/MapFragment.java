@@ -18,7 +18,7 @@ import com.ufpimaps.R;
 /**
  * Created by HugoPiauilino on 30/04/15.
  */
-public class MapaFragment extends android.support.v4.app.Fragment implements OnMapReadyCallback {
+public class MapFragment extends android.support.v4.app.Fragment implements OnMapReadyCallback {
 
     MapView mapView;
 

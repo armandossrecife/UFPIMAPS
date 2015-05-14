@@ -13,13 +13,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ufpimaps.models.ExampleItemFragment;
+import com.ufpimaps.views.AnchorsFragment;
 import com.ufpimaps.views.AboutFragment;
-import com.ufpimaps.views.MapaFragment;
+import com.ufpimaps.views.MapFragment;
 
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, ExampleItemFragment.OnFragmentInteractionListener {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, AnchorsFragment.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -54,20 +54,20 @@ public class MainActivity extends ActionBarActivity
         System.out.println("Posicao: " + position);
         switch (position){
             case 0:
-                objFragment = new ExampleItemFragment();
+                objFragment = new AnchorsFragment();
                 break;
             case 1:
-                objFragment = new MapaFragment();
+                objFragment = new MapFragment();
                 args.putInt("tipoDeMapa",0);
                 objFragment.setArguments(args);
                 break;
             case 2:
-                objFragment = new MapaFragment();
+                objFragment = new MapFragment();
                 args.putInt("tipoDeMapa",1);
                 objFragment.setArguments(args);
                 break;
             case 3:
-                objFragment = new MapaFragment();
+                objFragment = new MapFragment();
                 args.putInt("tipoDeMapa",2);
                 objFragment.setArguments(args);
                 break;

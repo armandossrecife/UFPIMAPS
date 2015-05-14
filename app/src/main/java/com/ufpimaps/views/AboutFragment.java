@@ -10,8 +10,15 @@ import android.widget.Button;
 
 import com.ufpimaps.R;
 
+/**
+ * Classe que retorna um fragmento para a main activity contendo a view Sobre
+ */
+
 public class AboutFragment extends android.support.v4.app.Fragment {
 
+    /**
+     * Botao colaboradores
+     */
     private Button colaboradoresButton;
 
     @Nullable
@@ -22,7 +29,7 @@ public class AboutFragment extends android.support.v4.app.Fragment {
         colaboradoresButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ColaboradoresActivity.class);
+                Intent intent = new Intent(getActivity(), CollaboratorsActivity.class);
                 startActivity(intent);
             }
         });

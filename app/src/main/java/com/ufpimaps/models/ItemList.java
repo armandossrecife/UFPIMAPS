@@ -3,7 +3,7 @@ package com.ufpimaps.models;
 /**
  * Created by HugoPiauilino on 12/05/15.
  */
-public class ExampleListItem {
+public class ItemList {
 
     private String itemTitle;
 
@@ -15,7 +15,7 @@ public class ExampleListItem {
         this.itemTitle = itemTitle;
     }
 
-    public ExampleListItem(String title){
+    public ItemList(String title){
         this.itemTitle = title;
     }
 }
