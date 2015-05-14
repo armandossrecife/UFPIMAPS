@@ -7,6 +7,8 @@
     <string name="title_section4">Mapa Híbrido</string>
     <string name="title_section5">Avalie-nos!</string>
     <string name="title_section6">Sobre</string>
+    <string name="feedback">Avalie-nos!</string>
+
 
     <string name="desenvolvedores">Desenvolvido por:</string>
     <string name="desenvolvedorRoney">Roney Lira</string>
@@ -26,7 +28,8 @@
         Engenharia de Software I, ministrada pelo Prof. Ms. Armando Soares que visa encontrar
         fisicamente as unidades administrativas e operacionais da UFPI.</string>
     <string name="title_activity_colaboradores_screen">ColaboradoresScreen</string>
-
+    <string name="feedback_text">Deixe seu comentário sobre o nosso app!!</string>
+    <string name="sendFeedback">Enviar</string>
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

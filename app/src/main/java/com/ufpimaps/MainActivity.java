@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.ufpimaps.views.AnchorsFragment;
 import com.ufpimaps.views.AboutFragment;
+import com.ufpimaps.views.FeedbackFragment;
 import com.ufpimaps.views.MapFragment;
 
 
@@ -72,6 +73,8 @@ public class MainActivity extends ActionBarActivity
                 objFragment.setArguments(args);
                 break;
             case 4:
+                objFragment = new FeedbackFragment();
+                break;
             case 5:
                 objFragment = new AboutFragment();
                 break;
