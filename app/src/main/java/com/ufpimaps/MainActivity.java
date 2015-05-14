@@ -17,6 +17,7 @@ import com.ufpimaps.views.AnchorsFragment;
 import com.ufpimaps.views.AboutFragment;
 import com.ufpimaps.views.FeedbackFragment;
 import com.ufpimaps.views.MapFragment;
+import com.ufpimaps.views.TraceRouteFragment;
 
 
 public class MainActivity extends ActionBarActivity
@@ -36,7 +37,6 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -52,25 +52,16 @@ public class MainActivity extends ActionBarActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment objFragment = null;
         Bundle args = new Bundle();
-        System.out.println("Posicao: " + position);
         switch (position){
             case 0:
                 objFragment = new AnchorsFragment();
                 break;
             case 1:
-            case 2:
-                objFragment = new MapFragment();
-                args.putInt("tipoDeMapa",0);
-                objFragment.setArguments(args);
+                objFragment = new TraceRouteFragment();
                 break;
-            case 3:
+            case 2:case 3:case 4:
                 objFragment = new MapFragment();
-                args.putInt("tipoDeMapa",1);
-                objFragment.setArguments(args);
-                break;
-            case 4:
-                objFragment = new MapFragment();
-                args.putInt("tipoDeMapa",2);
+                args.putInt("tipoDeMapa", position);
                 objFragment.setArguments(args);
                 break;
             case 5:
@@ -80,7 +71,6 @@ public class MainActivity extends ActionBarActivity
                 objFragment = new AboutFragment();
                 break;
         }
-
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, objFragment)

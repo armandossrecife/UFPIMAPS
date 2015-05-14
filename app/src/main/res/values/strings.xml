@@ -41,7 +41,10 @@
     <string name="action_settings2">Sobre</string>
 
     <string name="API_KEY">AIzaSyDXLEO_RXbR8x4NUAjWb7hGNCnMQ5KCWro</string>
-    <string name="title_section_tracar_rotas">Traçar Rotas</string>
+    <string name="title_section_tracar_rotas">Traçar Rota</string>
+    <string name="origin_title">Origem</string>
+    <string name="destination_title">Destino</string>
+
 
     <!--
     Lista das API-KEYS utilizadas:

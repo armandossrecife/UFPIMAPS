@@ -50,7 +50,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
             googleMap.getUiSettings().setZoomControlsEnabled(true);
 
-            tipoDeMapa = getArguments().getInt("tipoDeMapa");
+            tipoDeMapa = getArguments().getInt("tipoDeMapa")-2;
 
             if(tipoDeMapa == 0) {
                 googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -100,4 +100,5 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 .build();                   // Creates a CameraPosition from the builder
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
+
 }
