@@ -29,6 +29,8 @@ public class MainActivity extends ActionBarActivity
      */
     private CharSequence mTitle;
 
+    private String ajudaJose;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,6 +155,9 @@ public class MainActivity extends ActionBarActivity
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+        public PlaceholderFragment() {
+        }
+
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -163,9 +168,6 @@ public class MainActivity extends ActionBarActivity
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
             return fragment;
-        }
-
-        public PlaceholderFragment() {
         }
 
         @Override
