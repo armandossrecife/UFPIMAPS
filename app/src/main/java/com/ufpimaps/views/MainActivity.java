@@ -1,4 +1,4 @@
-package com.ufpimaps;
+package com.ufpimaps.views;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,11 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ufpimaps.views.AnchorsFragment;
-import com.ufpimaps.views.AboutFragment;
-import com.ufpimaps.views.FeedbackFragment;
-import com.ufpimaps.views.MapFragment;
-import com.ufpimaps.views.TraceRouteFragment;
+import com.ufpimaps.R;
 
 
 public class MainActivity extends ActionBarActivity
@@ -37,8 +33,10 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+
         mTitle = getTitle();
 
         // Set up the drawer.
@@ -50,30 +48,30 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment objFragment = null;
+        Fragment mainFragment = null;
         Bundle args = new Bundle();
         switch (position){
             case 0:
-                objFragment = new AnchorsFragment();
+                mainFragment = new AnchorsFragment();
                 break;
             case 1:
-                objFragment = new TraceRouteFragment();
+                mainFragment = new TraceRouteFragment();
                 break;
             case 2:case 3:case 4:
-                objFragment = new MapFragment();
+                mainFragment = new MapFragment();
                 args.putInt("tipoDeMapa", position);
-                objFragment.setArguments(args);
+                mainFragment.setArguments(args);
                 break;
             case 5:
-                objFragment = new FeedbackFragment();
+                mainFragment = new FeedbackFragment();
                 break;
             case 6:
-                objFragment = new AboutFragment();
+                mainFragment = new AboutFragment();
                 break;
         }
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, objFragment)
+                .replace(R.id.container, mainFragment)
                 .commit();
 
     }
@@ -81,7 +79,7 @@ public class MainActivity extends ActionBarActivity
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.title_section1);
+                mTitle = getString(R.string.title_section_ancoras);
                 break;
             case 2:
                 mTitle = getString(R.string.title_section_tracar_rotas);

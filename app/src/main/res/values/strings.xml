@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">UFPIMAPS</string>
 
-    <string name="title_section1">Âncoras</string>
+    <string name="title_section_ancoras">Âncoras</string>
     <string name="title_section_mapa_normal">Mapa Normal</string>
     <string name="title_section_mapa_satelite">Mapa Satélite</string>
     <string name="title_section_mapa_hibrido">Mapa Híbrido</string>
