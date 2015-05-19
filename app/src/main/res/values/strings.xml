@@ -2,11 +2,14 @@
     <string name="app_name">UFPIMAPS</string>
 
     <string name="title_section_ancoras">Âncoras</string>
+    <string name="title_section_tracar_rotas">Traçar Rota</string>
     <string name="title_section_mapa_normal">Mapa Normal</string>
     <string name="title_section_mapa_satelite">Mapa Satélite</string>
     <string name="title_section_mapa_hibrido">Mapa Híbrido</string>
     <string name="title_section_feedback">Avalie-nos!</string>
     <string name="title_section_about">Sobre</string>
+
+
     <string name="feedback">Avalie-nos!</string>
 
 
@@ -40,8 +43,8 @@
     <string name="action_settings">Avalie-nos!</string>
     <string name="action_settings2">Sobre</string>
 
-    <string name="API_KEY">AIzaSyBPshPKTzfkPkt-Pu2sNt62x0Ar5FAmA-s</string>
-    <string name="title_section_tracar_rotas">Traçar Rota</string>
+    <string name="API_KEY">AIzaSyDXLEO_RXbR8x4NUAjWb7hGNCnMQ5KCWro</string>
+
     <string name="origin_title">Origem</string>
     <string name="destination_title">Destino</string>
 

@@ -20,17 +20,13 @@ import com.ufpimaps.R;
  */
 public class MapFragment extends android.support.v4.app.Fragment implements OnMapReadyCallback {
 
+    private static final LatLng ufpiLocation = new LatLng(-5.057772, -42.797009);
     MapView mapView;
-
     GoogleMap googleMap;
-
-    private static final LatLng ufpiLocation = new LatLng(-5.057772,-42.797009);
-
     private int tipoDeMapa = 0;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_map, container, false);
 
         mapView = (MapView) view.findViewById(R.id.map);
@@ -41,7 +37,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
         MapsInitializer.initialize(getActivity());
 
-        if(mapView != null) {
+        if (mapView != null) {
             googleMap = mapView.getMap();
 
             googleMap.getUiSettings().setMyLocationButtonEnabled(true);
@@ -50,14 +46,22 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
             googleMap.getUiSettings().setZoomControlsEnabled(true);
 
-            tipoDeMapa = getArguments().getInt("tipoDeMapa")-2;
+            try {
+                tipoDeMapa = getArguments().getInt("tipoDeMapa") - 2;
+            } catch (NullPointerException e) {
+                tipoDeMapa = 1;
+            }
 
-            if(tipoDeMapa == 0) {
-                googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-            }else if (tipoDeMapa == 1){
-                googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-            }else if (tipoDeMapa == 2) {
-                googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+            switch (tipoDeMapa) {
+                case 1:
+                    googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                    break;
+                case 2:
+                    googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                    break;
+                case 3:
+                    googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                    break;
             }
         }
 
@@ -66,22 +70,21 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     }
 
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         mapView.onResume();
 
         super.onResume();
     }
+
     @Override
-    public void onDestroy()
-    {
+    public void onDestroy() {
         super.onDestroy();
 
         mapView.onDestroy();
     }
+
     @Override
-    public void onLowMemory()
-    {
+    public void onLowMemory() {
         super.onLowMemory();
 
         mapView.onLowMemory();

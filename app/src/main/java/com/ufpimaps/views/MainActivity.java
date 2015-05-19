@@ -15,43 +15,97 @@ import android.view.ViewGroup;
 
 import com.ufpimaps.R;
 
+/**
+ * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
+ * Drawer ao Navigation Drawer
+ */
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, AnchorsFragment.OnFragmentInteractionListener {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks,
+        AnchorsFragment.OnFragmentInteractionListener {
 
     /**
-     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
+     * Fragmento gerenciador dos comportamentos, interacoes e apresentacao do Navigation Drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
     /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
+     * Objeto que armazena o titulo da ultima tela utilizada.
      */
     private CharSequence mTitle;
 
-    private String ajudaJose;
+    /**
+     * Gerenciador de Fragmentos
+     */
+    private FragmentManager fragmentManager = getSupportFragmentManager();
+
+    /**
+     * Fragmento generico que origina os fragmentos gerado pelo Navigation Drawer.
+     */
+    private Fragment mainFragment = null;
+
+    /**
+     * Pacote que armazena os argumentos enviados a um fragmento quando necessario
+     */
+
+    private Bundle args = new Bundle();
+
+    /**
+     * Metodo executado na criacao da activity main (principal) e seta todos os parametros
+     * necessarios para a sua execucao
+     *
+     * @param savedInstanceState
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        /**
+         * Inicia a super classe onCreate da Activity
+         */
+
         super.onCreate(savedInstanceState);
+
+        /**
+         * Seta a View principal
+         */
+
         setContentView(R.layout.activity_main);
+
+        /**
+         * Inicializa o fragmento do Navigation Drawer com o layout pre definido
+         */
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
+        /**
+         * Recebe o titulo da ultima tela armazenada
+         */
         mTitle = getTitle();
 
-        // Set up the drawer.
-        mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer,
+        /**
+         * Metodo que seta o Drawer
+         */
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        /**
+         * Metodo que seta o primeira fragmento que ira aparecer quando a aplicacao for inicializada.
+         */
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, new MapFragment())
+                .commit();
     }
+
+    /**
+     * Metodo que recebe indica o item selecionado no Navigation Drawer e substitui o fragmento
+     * que e representado por essa posicao
+     * @param position Posicao selecionada no Navigation Drawer
+     */
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment mainFragment = null;
-        Bundle args = new Bundle();
         switch (position){
             case 0:
                 mainFragment = new AnchorsFragment();
@@ -71,6 +125,10 @@ public class MainActivity extends ActionBarActivity
                 mainFragment = new AboutFragment();
                 break;
         }
+
+        /**
+         * Troca o fragmento atual pelo fragmento selecionado no Navigation Drawer
+         */
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, mainFragment)
