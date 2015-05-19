@@ -90,6 +90,11 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         mapView.onLowMemory();
     }
 
+    /**
+     * Seta uma ancora no ponto central da UFPI
+     *
+     * @param googleMap
+     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         googleMap.addMarker(new MarkerOptions()
