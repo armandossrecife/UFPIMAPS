@@ -9,18 +9,17 @@
     <string name="title_section_feedback">Avalie-nos!</string>
     <string name="title_section_about">Sobre</string>
 
-
-    <string name="feedback">Avalie-nos!</string>
-
-
     <string name="desenvolvedores">Desenvolvido por:</string>
     <string name="desenvolvedorRoney">Roney Lira</string>
     <string name="desenvolvedorSaulo">Saulo de Társio</string>
     <string name="desenvolvedorArmando">Armando Soares</string>
+
     <string name="departamento">Departamento de Computação - UFPI</string>
     <string name="departamento2">Núcleo de Tecnologia da Informação - NTI</string>
+
     <string name="logoUFPIMaps">UFPI Maps</string>
     <string name="versao">Versão 1.0.0</string>
+
     <string name="buttonColaboradores">Colaboradores</string>
     <string name="colaborador1">Giovanni Emanuel</string>
     <string name="colaborador2">Jardeson Barbosa</string>
@@ -30,8 +29,11 @@
     <string name="resumoProjeto">O UFPI Maps é um projeto idealizado na disciplina de
         Engenharia de Software I, ministrada pelo Prof. Ms. Armando Soares que visa encontrar
         fisicamente as unidades administrativas e operacionais da UFPI.</string>
+
     <string name="title_activity_colaboradores_screen">ColaboradoresScreen</string>
+
     <string name="feedback_text">Deixe seu comentário sobre o nosso app!!</string>
+
     <string name="sendFeedback">Enviar</string>
 
 
