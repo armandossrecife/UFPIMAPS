@@ -1,17 +1,13 @@
 package com.ufpimaps.views;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.ufpimaps.R;
 
@@ -19,7 +15,6 @@ import com.ufpimaps.R;
  * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
  * Drawer ao Navigation Drawer
  */
-
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         AnchorsFragment.OnFragmentInteractionListener {
@@ -47,7 +42,6 @@ public class MainActivity extends ActionBarActivity
     /**
      * Pacote que armazena os argumentos enviados a um fragmento quando necessario
      */
-
     private Bundle args = new Bundle();
 
     /**
@@ -56,26 +50,22 @@ public class MainActivity extends ActionBarActivity
      *
      * @param savedInstanceState
      */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         /**
          * Inicia a super classe onCreate da Activity
          */
-
         super.onCreate(savedInstanceState);
 
         /**
          * Seta a View principal
          */
-
         setContentView(R.layout.activity_main);
 
         /**
          * Inicializa o fragmento do Navigation Drawer com o layout pre definido
          */
-
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
@@ -103,7 +93,6 @@ public class MainActivity extends ActionBarActivity
      * que e representado por essa posicao
      * @param position Posicao selecionada no Navigation Drawer
      */
-
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         switch (position){
@@ -115,7 +104,7 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 2:case 3:case 4:
                 mainFragment = new MapFragment();
-                args.putInt("tipoDeMapa", position);
+                args.putInt("mapType", position);
                 mainFragment.setArguments(args);
                 break;
             case 5:
@@ -129,29 +118,33 @@ public class MainActivity extends ActionBarActivity
         /**
          * Troca o fragmento atual pelo fragmento selecionado no Navigation Drawer
          */
-
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, mainFragment)
                 .commit();
 
     }
 
+    /**
+     * Seta os titulos das secoes do navigation drawer
+     *
+     * @param number Numero da Secao de cada titulo
+     */
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.title_section_ancoras);
+                mTitle = getString(R.string.title_section_anchors);
                 break;
             case 2:
-                mTitle = getString(R.string.title_section_tracar_rotas);
+                mTitle = getString(R.string.title_section_trace_routes);
                 break;
             case 3:
-                mTitle = getString(R.string.title_section_mapa_normal);
+                mTitle = getString(R.string.title_section_normal_map);
                 break;
             case 4:
-                mTitle = getString(R.string.title_section_mapa_satelite);
+                mTitle = getString(R.string.title_section_satelite_map);
                 break;
             case 5:
-                mTitle = getString(R.string.title_section_mapa_hibrido);
+                mTitle = getString(R.string.title_section_hibrid_map);
                 break;
             case 6:
                 mTitle = getString(R.string.title_section_feedback);
@@ -162,6 +155,9 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
+    /**
+     * Metodo para restaurar a action bar
+     */
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
@@ -170,6 +166,11 @@ public class MainActivity extends ActionBarActivity
     }
 
 
+    /**
+     * Metodo para a Criar o Menu de Opcoes na Action Bar
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
@@ -183,6 +184,11 @@ public class MainActivity extends ActionBarActivity
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * Metodo que retorna o item selecionado no Menu de Opcoes na Action Bar
+     * @param item Item selecionado
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -198,49 +204,15 @@ public class MainActivity extends ActionBarActivity
         return super.onOptionsItemSelected(item);
     }
 
+
+    /**
+     * Metodo que recebe as interacoes do fragment
+     * @param id
+     */
     @Override
     public void onFragmentInteraction(String id) {
 
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
-        }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((MainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
-        }
-    }
 
 }

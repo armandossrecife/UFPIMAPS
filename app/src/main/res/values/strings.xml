@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">UFPIMAPS</string>
 
-    <string name="title_section_ancoras">Âncoras</string>
-    <string name="title_section_tracar_rotas">Traçar Rota</string>
-    <string name="title_section_mapa_normal">Mapa Normal</string>
-    <string name="title_section_mapa_satelite">Mapa Satélite</string>
-    <string name="title_section_mapa_hibrido">Mapa Híbrido</string>
+    <string name="title_section_anchors">Âncoras</string>
+    <string name="title_section_trace_routes">Traçar Rota</string>
+    <string name="title_section_normal_map">Mapa Normal</string>
+    <string name="title_section_satelite_map">Mapa Satélite</string>
+    <string name="title_section_hibrid_map">Mapa Híbrido</string>
     <string name="title_section_feedback">Avalie-nos!</string>
     <string name="title_section_about">Sobre</string>
 

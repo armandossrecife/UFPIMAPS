@@ -14,22 +14,22 @@
     android:id="@+id/originTitle"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-        android:text="@string/origin_title"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="false"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="false" />
+        android:layout_alignParentTop="true"
+        android:text="@string/origin_title" />
 
     <EditText
         android:id="@+id/originEditText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/originTitle"
         android:layout_marginTop="47dp"
         android:ems="10"
-        android:inputType="textMultiLine"
-        android:layout_below="@+id/originTitle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:inputType="textMultiLine">
 
         <requestFocus />
     </EditText>
@@ -38,22 +38,22 @@
         android:id="@+id/destinationTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/destination_title"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_below="@+id/originEditText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="85dp" />
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@+id/originEditText"
+        android:layout_marginTop="85dp"
+        android:text="@string/destination_title" />
 
     <EditText
         android:id="@+id/destinationEditText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="textMultiLine">
 
         <requestFocus />
     </EditText>
@@ -62,9 +62,9 @@
         android:id="@+id/trace_route_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title_section_tracar_rotas"
         android:layout_below="@+id/destinationEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="51dp" />
+        android:layout_marginTop="51dp"
+        android:text="@string/title_section_trace_routes" />
 
 </RelativeLayout>

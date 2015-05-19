@@ -47,7 +47,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
             googleMap.getUiSettings().setZoomControlsEnabled(true);
 
             try {
-                tipoDeMapa = getArguments().getInt("tipoDeMapa") - 2;
+                tipoDeMapa = getArguments().getInt("mapType") - 2;
             } catch (NullPointerException e) {
                 tipoDeMapa = 1;
             }
