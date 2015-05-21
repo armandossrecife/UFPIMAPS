@@ -1,18 +1,24 @@
 package com.ufpimaps.views;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ufpimaps.R;
 import com.ufpimaps.models.GeoPointsDatabase;
-import com.ufpimaps.models.Node;
+
+import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_DESCRIPTION;
+import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_ID;
+import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LATITUDE;
+import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LONGITUDE;
+import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.TABLE_NODE;
 
 /**
  * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
@@ -46,6 +52,13 @@ public class MainActivity extends ActionBarActivity
      * Pacote que armazena os argumentos enviados a um fragmento quando necessario
      */
     private Bundle args = new Bundle();
+
+    /**
+     * Objeto que manipula o banco de dados interno
+     */
+
+    private GeoPointsDatabase geoPointsDatabase = new GeoPointsDatabase(this);
+
 
     /**
      * Metodo executado na criacao da activity main (principal) e seta todos os parametros
@@ -84,12 +97,10 @@ public class MainActivity extends ActionBarActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
         /**
-         * Metodos para a criacao do Banco de Geopoints
+         * Popular o banco de dados interno
          */
 
-        GeoPointsDatabase db = new GeoPointsDatabase(this);
-        Log.d("Ler: ", "Lendo...");
-        db.addNode(new Node("Rotula Central", 1.2, 2.3));
+        populateDB();
 
         /**
          * Metodo que seta o primeira fragmento que ira aparecer quando a aplicacao for inicializada.
@@ -225,5 +236,18 @@ public class MainActivity extends ActionBarActivity
 
     }
 
+    public void populateDB() {
+        // Gets the data repository in write mode
+        SQLiteDatabase db = geoPointsDatabase.getWritableDatabase();
 
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NODE_ID, 1);
+        values.put(COLUMN_NODE_DESCRIPTION, "Manutenção - NTI");
+        values.put(COLUMN_NODE_LATITUDE, -5.055527);
+        values.put(COLUMN_NODE_LONGITUDE, -42.788745);
+        db.insert(TABLE_NODE, null, values);
+
+        db.close();
+    }
 }
