@@ -6,10 +6,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ufpimaps.R;
+import com.ufpimaps.models.GeoPointsDatabase;
+import com.ufpimaps.models.Node;
 
 /**
  * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
@@ -79,6 +82,14 @@ public class MainActivity extends ActionBarActivity
          */
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        /**
+         * Metodos para a criacao do Banco de Geopoints
+         */
+
+        GeoPointsDatabase db = new GeoPointsDatabase(this);
+        Log.d("Ler: ", "Lendo...");
+        db.addNode(new Node("Rotula Central", 1.2, 2.3));
 
         /**
          * Metodo que seta o primeira fragmento que ira aparecer quando a aplicacao for inicializada.
