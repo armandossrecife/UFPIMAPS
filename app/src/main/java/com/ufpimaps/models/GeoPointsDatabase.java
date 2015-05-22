@@ -5,8 +5,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.List;
-
 import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_DESCRIPTION;
 import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_ID;
 import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LATITUDE;
@@ -117,8 +115,19 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
-    public List<Node> getAllNodes() {
-        return null;
+    public void populateDB() {
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NODE_ID, 1);
+        values.put(COLUMN_NODE_DESCRIPTION, "Manutenção - NTI");
+        values.put(COLUMN_NODE_LATITUDE, -5.055527);
+        values.put(COLUMN_NODE_LONGITUDE, -42.788745);
+        db.insert(TABLE_NODE, null, values);
+
+        db.close();
     }
+
 }
 
