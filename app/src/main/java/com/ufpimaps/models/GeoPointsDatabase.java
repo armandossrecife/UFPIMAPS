@@ -2,8 +2,12 @@ package com.ufpimaps.models;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_DESCRIPTION;
 import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_ID;
@@ -115,7 +119,30 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void populateDB() {
+    public List<Node> getAllNodes() {
+        List<Node> nodeList = new ArrayList<>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_NODE;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Node node = new Node();
+                node.setIdNode(Integer.parseInt(cursor.getString(0)));
+                node.setDescription(cursor.getString(2));
+                nodeList.add(node);
+
+            } while (cursor.moveToNext());
+        }
+
+        // return node list
+        return nodeList;
+    }
+
+    public void populateDatabase() {
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 

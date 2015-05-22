@@ -5,11 +5,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ufpimaps.R;
 import com.ufpimaps.models.GeoPointsDatabase;
+import com.ufpimaps.models.Node;
+
+import java.util.List;
 
 /**
  * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
@@ -91,7 +95,11 @@ public class MainActivity extends ActionBarActivity
          * Popular o banco de dados interno
          */
 
-        geoPointsDatabase.populateDB();
+        geoPointsDatabase.populateDatabase();
+        List<Node> nodes = geoPointsDatabase.getAllNodes();
+        for (Node n : nodes) {
+            Log.d("Nó " + n.getIdNode(), "Desc:" + n.getDescription());
+        }
 
         /**
          * Metodo que seta o primeira fragmento que ira aparecer quando a aplicacao for inicializada.
@@ -99,6 +107,8 @@ public class MainActivity extends ActionBarActivity
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, new MapFragment())
                 .commit();
+
+
     }
 
     /**
