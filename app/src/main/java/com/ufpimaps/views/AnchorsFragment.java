@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ufpimaps.R;
-
 import com.ufpimaps.models.Anchor;
 import com.ufpimaps.models.AnchorsList;
 
@@ -30,12 +29,11 @@ import java.util.List;
  */
 public class AnchorsFragment extends android.support.v4.app.Fragment implements AbsListView.OnItemClickListener {
 
-    private List exampleListItemList; // at the top of your fragment list
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    private List exampleListItemList; // at the top of your fragment list
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -53,6 +51,13 @@ public class AnchorsFragment extends android.support.v4.app.Fragment implements 
      */
     private ListAdapter mAdapter;
 
+    /**
+     * Mandatory empty constructor for the fragment manager to instantiate the
+     * fragment (e.g. upon screen orientation changes).
+     */
+    public AnchorsFragment() {
+    }
+
     // TODO: Rename and change types of parameters
     public static AnchorsFragment newInstance(String param1, String param2) {
         AnchorsFragment fragment = new AnchorsFragment();
@@ -61,13 +66,6 @@ public class AnchorsFragment extends android.support.v4.app.Fragment implements 
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public AnchorsFragment() {
     }
 
     @Override
@@ -90,7 +88,7 @@ public class AnchorsFragment extends android.support.v4.app.Fragment implements 
 
         // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
-        ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
+        mListView.setAdapter(mAdapter);
 
         // Set OnItemClickListener so we can be notified on item clicks
         mListView.setOnItemClickListener(this);
@@ -124,8 +122,8 @@ public class AnchorsFragment extends android.support.v4.app.Fragment implements 
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onFragmentInteraction(AnchorsList.ITEMS.get(position).id);
-            Toast.makeText(getActivity(), AnchorsList.ITEMS.get(position).id.toString() + " clicado!", Toast.LENGTH_SHORT).show();
+            mListener.onFragmentInteraction(AnchorsList.ITEMS.get(position).getId());
+            Toast.makeText(getActivity(), AnchorsList.ITEMS.get(position).getId().toString() + " clicado!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -154,7 +152,7 @@ public class AnchorsFragment extends android.support.v4.app.Fragment implements 
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(String id);
+        void onFragmentInteraction(String id);
     }
 
 }

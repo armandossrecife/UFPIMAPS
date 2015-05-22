@@ -32,6 +32,6 @@ public class AnchorsList {
 
     private static void addItem(Anchor item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
+        ITEM_MAP.put(item.getId(), item);
     }
 }

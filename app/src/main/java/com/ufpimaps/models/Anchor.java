@@ -7,8 +7,9 @@ package com.ufpimaps.models;
  * Classe que representa uma Ancora
  */
 public class Anchor {
-    public String id;
-    public String content;
+
+    private String id;
+    private String content;
 
     public Anchor(String id, String content) {
         this.id = id;
@@ -18,5 +19,21 @@ public class Anchor {
     @Override
     public String toString() {
         return content;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
