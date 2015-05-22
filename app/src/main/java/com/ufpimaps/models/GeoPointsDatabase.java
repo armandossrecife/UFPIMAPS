@@ -7,12 +7,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.List;
 
-import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_DESCRIPTION;
-import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_ID;
-import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LATITUDE;
-import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LONGITUDE;
-import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.TABLE_NODE;
-import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry._ID;
+import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_DESCRIPTION;
+import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_ID;
+import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LATITUDE;
+import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LONGITUDE;
+import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.TABLE_NODE;
+import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry._ID;
 
 /**
  * Created by HugoPiauilino on 21/05/15.

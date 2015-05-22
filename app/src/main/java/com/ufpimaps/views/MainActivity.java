@@ -14,11 +14,11 @@ import android.view.MenuItem;
 import com.ufpimaps.R;
 import com.ufpimaps.models.GeoPointsDatabase;
 
-import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_DESCRIPTION;
-import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_ID;
-import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LATITUDE;
-import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LONGITUDE;
-import static com.ufpimaps.models.GeoPointsContract.GeoPointsEntry.TABLE_NODE;
+import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_DESCRIPTION;
+import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_ID;
+import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LATITUDE;
+import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LONGITUDE;
+import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.TABLE_NODE;
 
 /**
  * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
