@@ -52,7 +52,7 @@ public class AlertScreen extends Activity{
                         finish();
                     }
                 })
-                .setNegativeButton("N�o", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Não", new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
