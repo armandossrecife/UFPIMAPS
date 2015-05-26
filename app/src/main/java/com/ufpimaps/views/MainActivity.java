@@ -1,14 +1,18 @@
 package com.ufpimaps.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.ufpimaps.R;
+import com.ufpimaps.controllers.TestConnection;
 import com.ufpimaps.models.GeoPointsDatabase;
 
 /**
@@ -18,6 +22,7 @@ import com.ufpimaps.models.GeoPointsDatabase;
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         AnchorsFragment.OnFragmentInteractionListener {
+
 
     /**
      * Fragmento gerenciador dos comportamentos, interacoes e apresentacao do Navigation Drawer.
@@ -50,6 +55,11 @@ public class MainActivity extends ActionBarActivity
 
     private GeoPointsDatabase geoPointsDatabase = new GeoPointsDatabase(this);
 
+    public static final int TELA_ALERTA_TENTATIVA_1 = 1;
+    public static final int TELA_ALERTA_TENTATIVA_2 = 2;
+
+    private TestConnection testaConexao;
+
 
     /**
      * Metodo executado na criacao da activity main (principal) e seta todos os parametros
@@ -70,6 +80,9 @@ public class MainActivity extends ActionBarActivity
          */
         setContentView(R.layout.activity_main);
 
+        testaConexao = new TestConnection(this);
+
+
         /**
          * Inicializa o fragmento do Navigation Drawer com o layout pre definido
          */
@@ -87,6 +100,13 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
+        if(testaConexao.isConnected()){
+            Log.v("TestaConexao" , "Está conectado");
+            geraMapa();
+        }else{
+            Intent iniciarWifi = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS);
+            criarTelaDeAlerta("Sem conexão", "Inciar Conexão WiFi?", iniciarWifi, null, 1);
+        }
         /**
          * Popular o banco de dados interno
          */
@@ -97,16 +117,60 @@ public class MainActivity extends ActionBarActivity
         //    Log.d("Nó " + n.getIdNode(), "Desc:" + n.getDescription());
         //}
 
+
+    }
+
+    private void criarTelaDeAlerta(String titulo, String mensagem, Intent acaoPositiva, Intent acaoNegativa, int tentativa){
+        Intent iniciarTelaDeAlerta = new Intent(this, AlertScreen.class );
+        iniciarTelaDeAlerta.putExtra("titulo", titulo);
+        iniciarTelaDeAlerta.putExtra("mensagem", mensagem);
+        iniciarTelaDeAlerta.putExtra("acaoPositiva", acaoPositiva);
+        iniciarTelaDeAlerta.putExtra("acaoNegativa", acaoNegativa);
+        startActivityForResult(iniciarTelaDeAlerta, tentativa);
+    }
+
+    @Override
+    protected void onActivityResult(int tipoDeConexaoRequisitada, int resultado, Intent dadosRetornados) {
+        super.onActivityResult(tipoDeConexaoRequisitada, resultado, dadosRetornados);
+
+        if(tipoDeConexaoRequisitada == TELA_ALERTA_TENTATIVA_1){
+            if(resultado == RESULT_OK){
+                if(testaConexao.isConnected()){
+                    geraMapa();
+                }else{
+                    Toast.makeText(this, "Sem conexão Wifi", Toast.LENGTH_LONG).show();
+                    Intent iniciarRedesMoveis = new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS);
+                    criarTelaDeAlerta("Sem Conexão", "Iniciar Conexão via Redes Móveis?", iniciarRedesMoveis, null, TELA_ALERTA_TENTATIVA_2);
+                }
+            }else{
+                Toast.makeText(this, "Sem conexão Wifi", Toast.LENGTH_LONG).show();
+                Intent iniciarRedesMoveis = new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS);
+                criarTelaDeAlerta("Sem Conexão", "Iniciar Conexão via Redes Móveis?", iniciarRedesMoveis, null, TELA_ALERTA_TENTATIVA_2);
+            }
+        }else if(tipoDeConexaoRequisitada == TELA_ALERTA_TENTATIVA_2){
+            if(resultado == RESULT_OK){
+                if(testaConexao.isConnected()){
+                    geraMapa();
+                }else{
+                    Toast.makeText(this, "Sem conexão com a internet", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            }else{
+                Toast.makeText(this, "Sem conexão com a internet", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        }
+
+    }
+
+    private void geraMapa(){
         /**
          * Metodo que seta o primeira fragmento que ira aparecer quando a aplicacao for inicializada.
          */
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, new MapFragment())
                 .commit();
-
-
     }
-
     /**
      * Metodo que recebe indica o item selecionado no Navigation Drawer e substitui o fragmento
      * que e representado por essa posicao
