@@ -37,6 +37,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
     private static final String TEXT_TYPE = " TEXT";
     private static final String DOUBLE_TYPE = " REAL";
     private static final String INTEGER_TYPE = " INTEGER";
+    private static final String PRIMARY_KEY = " PRIMARY KEY";
     private static final String COMMA_SEP = ",";
     /**
      *
@@ -44,7 +45,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + TABLE_NODE + " (" +
-                    COLUMN_NODE_ID + " INTEGER PRIMARY KEY," + COMMA_SEP +
+                    COLUMN_NODE_ID + INTEGER_TYPE + PRIMARY_KEY + COMMA_SEP +
                     COLUMN_NODE_DESCRIPTION + TEXT_TYPE + COMMA_SEP +
                     COLUMN_NODE_LATITUDE + DOUBLE_TYPE + COMMA_SEP +
                     COLUMN_NODE_LONGITUDE + DOUBLE_TYPE +
@@ -147,11 +148,13 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         values.put(COLUMN_NODE_LATITUDE, -5.055527);
         values.put(COLUMN_NODE_LONGITUDE, -42.788745);
         db.insert(TABLE_NODE, null, values);
+
         values.put(COLUMN_NODE_ID, 2);
         values.put(COLUMN_NODE_DESCRIPTION, "Redes - NTI");
         values.put(COLUMN_NODE_LATITUDE, -5.055527);
         values.put(COLUMN_NODE_LONGITUDE, -42.788745);
         db.insert(TABLE_NODE, null, values);
+
         values.put(COLUMN_NODE_ID, 3);
         values.put(COLUMN_NODE_DESCRIPTION, "Coordenação - NTI");
         values.put(COLUMN_NODE_LATITUDE, -5.055927);
