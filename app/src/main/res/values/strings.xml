@@ -17,7 +17,7 @@
     <string name="departamento">Departamento de Computação - UFPI</string>
     <string name="departamento2">Núcleo de Tecnologia da Informação - NTI</string>
 
-    <string name="logoUFPIMaps">UFPI Maps</string>
+    <string name="logo_ufpi_maps">UFPI Maps</string>
     <string name="versao">Versão 1.0.0</string>
 
     <string name="buttonColaboradores">Colaboradores</string>
@@ -45,7 +45,7 @@
     <string name="action_settings">Avalie-nos!</string>
     <string name="action_settings2">Sobre</string>
 
-    <string name="API_KEY">AIzaSyBPshPKTzfkPkt-Pu2sNt62x0Ar5FAmA-s</string>
+    <string name="api_key">AIzaSyDXLEO_RXbR8x4NUAjWb7hGNCnMQ5KCWro</string>
 
     <string name="origin_title">Origem</string>
     <string name="destination_title">Destino</string>

@@ -67,7 +67,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:contentDescription="@string/logoUFPIMaps"
+        android:contentDescription="@string/logo_ufpi_maps"
         android:src="@mipmap/ic_launcher" />
 
     <TextView

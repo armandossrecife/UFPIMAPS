@@ -1,6 +1,8 @@
 package com.ufpimaps.views;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +14,14 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.ufpimaps.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by HugoPiauilino on 30/04/15.
@@ -21,9 +29,25 @@ import com.ufpimaps.R;
 public class MapFragment extends android.support.v4.app.Fragment implements OnMapReadyCallback {
 
     private static final LatLng ufpiLocation = new LatLng(-5.057772, -42.797009);
-    MapView mapView;
-    GoogleMap googleMap;
+    private MapView mapView;
+    private GoogleMap googleMap;
     private int tipoDeMapa = 0;
+    private Marker marker;
+    private Polyline polyline;
+    private List<LatLng> list;
+
+    public static double distance(LatLng StartP, LatLng EndP) {
+        double lat1 = StartP.latitude;
+        double lat2 = EndP.latitude;
+        double lon1 = StartP.longitude;
+        double lon2 = EndP.longitude;
+        double dLat = Math.toRadians(lat2 - lat1);
+        double dLon = Math.toRadians(lon2 - lon1);
+        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        double c = 2 * Math.asin(Math.sqrt(a));
+        return 6366000 * c;
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -64,6 +88,14 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                     break;
             }
         }
+
+        list = new ArrayList<LatLng>();
+        list.add(new LatLng(-5.055527, -42.788745));
+        list.add(new LatLng(-5.056282, -42.78844));
+
+        drawRoute();
+
+        getDistance();
 
         return view;
 
@@ -107,6 +139,42 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 .tilt(30)                   // Sets the tilt of the camera to 30 degrees
                 .build();                   // Creates a CameraPosition from the builder
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+    }
+
+    public void customAddMarker(LatLng latLng, String title, String snippet) {
+        MarkerOptions options = new MarkerOptions();
+        options.position(latLng).title(title).snippet(snippet).draggable(true);
+        marker = googleMap.addMarker(options);
+    }
+
+    public void drawRoute() {
+        PolylineOptions polylineOptions = null;
+
+        if (polylineOptions == null) {
+            polylineOptions = new PolylineOptions();
+            for (int i = 0; i < list.size(); i++) {
+                polylineOptions.add(list.get(i));
+            }
+
+            polylineOptions.color(Color.BLACK);
+
+            polyline = googleMap.addPolyline(polylineOptions);
+        } else {
+            polyline.setPoints(list);
+        }
+
+    }
+
+    public void getDistance() {
+        double distance = 0;
+
+        for (int i = 0, tam = list.size(); i < tam; i++) {
+            if (i < tam - 1) {
+                distance += distance(list.get(i), list.get(i + 1));
+            }
+        }
+
+        Log.i("Distancia", String.valueOf(distance));
     }
 
 }
