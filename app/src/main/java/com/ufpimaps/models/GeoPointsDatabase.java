@@ -9,31 +9,27 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_DESCRIPTION;
-import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_ID;
-import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LATITUDE;
-import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.COLUMN_NODE_LONGITUDE;
-import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry.TABLE_NODE;
-import static com.ufpimaps.controllers.GeoPointsContract.GeoPointsEntry._ID;
-
 /**
  * Created by HugoPiauilino on 21/05/15.
  * Classe que armazena os principais geopoints da ufpi para agilizar a busca no aplicativo
  */
 public class GeoPointsDatabase extends SQLiteOpenHelper {
 
+    public static final String TABLE_NODE = "node";
+    public static final String COLUMN_NODE_ID = "idnode";
+    public static final String COLUMN_NODE_DESCRIPTION = "description";
+    public static final String COLUMN_NODE_LATITUDE = "latitude";
+    public static final String COLUMN_NODE_LONGITUDE = "longitude";
     /**
      * Se o Schema do Banco de Dados for modificado, incrementar DATABASE_VERSION
      */
 
     private static final int DATABASE_VERSION = 1;
-
     /**
      * Nome do banco de dados que armazena os GeoPoints
      */
 
     private static final String DATABASE_NAME = "GeoPointsDatabase.db";
-
     /**
      *
      */
@@ -42,15 +38,13 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
     private static final String DOUBLE_TYPE = " REAL";
     private static final String INTEGER_TYPE = " INTEGER";
     private static final String COMMA_SEP = ",";
-
     /**
      *
      */
 
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + TABLE_NODE + " (" +
-                    _ID + " INTEGER PRIMARY KEY," +
-                    COLUMN_NODE_ID + INTEGER_TYPE + COMMA_SEP +
+                    COLUMN_NODE_ID + " INTEGER PRIMARY KEY," + COMMA_SEP +
                     COLUMN_NODE_DESCRIPTION + TEXT_TYPE + COMMA_SEP +
                     COLUMN_NODE_LATITUDE + DOUBLE_TYPE + COMMA_SEP +
                     COLUMN_NODE_LONGITUDE + DOUBLE_TYPE +
