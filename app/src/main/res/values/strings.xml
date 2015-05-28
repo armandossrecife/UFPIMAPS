@@ -20,7 +20,7 @@
     <string name="logo_ufpi_maps">UFPI Maps</string>
     <string name="versao">Versão 1.0.0</string>
 
-    <string name="buttonColaboradores">Colaboradores</string>
+    <string name="button_colaboradores">Colaboradores</string>
     <string name="colaborador1">Giovanni Emanuel</string>
     <string name="colaborador2">Jardeson Barbosa</string>
     <string name="colaborador3">Roberson Costa</string>
@@ -34,7 +34,7 @@
 
     <string name="feedback_text">Deixe seu comentário sobre o nosso app!!</string>
 
-    <string name="sendFeedback">Enviar</string>
+    <string name="send_feedback">Enviar</string>
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -51,13 +51,11 @@
     <string name="destination_title">Destino</string>
     <string name="title_activity_alert_screen">Alert Screen</string>
 
-
     <!--
     Lista das API-KEYS utilizadas:
 
     Hugo Piauilino: AIzaSyDXLEO_RXbR8x4NUAjWb7hGNCnMQ5KCWro
     Francisco Carlos Silva Junior: AIzaSyCKei5S6Nwf_u0FBhuiaAxntIZuKGcXYpQ
     Jose Lins: AIzaSyBPshPKTzfkPkt-Pu2sNt62x0Ar5FAmA-s
-
      -->
 </resources>
