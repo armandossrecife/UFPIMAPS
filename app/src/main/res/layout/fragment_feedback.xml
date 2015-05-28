@@ -40,6 +40,6 @@ tools:context="com.ufpimaps.views.FeedbackFragment" >
     android:layout_below="@+id/editText1"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="50dp"
-    android:text="@string/sendFeedback" />
+    android:text="@string/send_feedback" />
 
 </RelativeLayout>

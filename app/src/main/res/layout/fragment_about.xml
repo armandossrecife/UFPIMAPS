@@ -58,7 +58,7 @@
         android:layout_alignLeft="@+id/logoUFPIMaps"
         android:layout_alignRight="@+id/logoUFPIMaps"
         android:layout_below="@+id/textView5"
-        android:text="@string/buttonColaboradores" />
+        android:text="@string/button_colaboradores" />
 
     <ImageView
         android:id="@+id/logoUFPIMaps"

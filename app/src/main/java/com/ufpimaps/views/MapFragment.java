@@ -1,6 +1,7 @@
 package com.ufpimaps.views;
 
 import android.graphics.Color;
+import android.net.http.AndroidHttpClient;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +21,14 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.ufpimaps.R;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +44,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     private Marker marker;
     private Polyline polyline;
     private List<LatLng> list;
+    private long distance;
 
     public static double distance(LatLng StartP, LatLng EndP) {
         double lat1 = StartP.latitude;
@@ -93,9 +103,10 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         list.add(new LatLng(-5.055527, -42.788745));
         list.add(new LatLng(-5.056282, -42.78844));
 
-        drawRoute();
+        getRoute(new LatLng(-5.055527, -42.788745), new LatLng(-5.056282, -42.78844));
+        //drawRoute();
 
-        getDistance();
+        //getDistance();
 
         return view;
 
@@ -106,6 +117,8 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         mapView.onResume();
 
         super.onResume();
+
+        getRoute(new LatLng(-5.055527, -42.788745), new LatLng(-5.056282, -42.78844));
     }
 
     @Override
@@ -156,7 +169,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 polylineOptions.add(list.get(i));
             }
 
-            polylineOptions.color(Color.BLACK);
+            polylineOptions.color(Color.BLACK).width(4);
 
             polyline = googleMap.addPolyline(polylineOptions);
         } else {
@@ -175,6 +188,104 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         }
 
         Log.i("Distancia", String.valueOf(distance));
+    }
+
+    public void getRoute(final LatLng origin, final LatLng destination) {
+        new Thread() {
+            public void run() {
+                        /*String url= "http://maps.googleapis.com/maps/api/directions/json?origin="
+								+ origin+"&destination="
+								+ destination+"&sensor=false";*/
+                String url = "http://maps.googleapis.com/maps/api/directions/json?origin="
+                        + origin.latitude + "," + origin.longitude + "&destination="
+                        + destination.latitude + "," + destination.longitude + "&sensor=false";
+
+
+                HttpResponse response;
+                HttpGet request;
+                AndroidHttpClient client = AndroidHttpClient.newInstance("route");
+
+                request = new HttpGet(url);
+                try {
+                    response = client.execute(request);
+                    final String answer = EntityUtils.toString(response.getEntity());
+
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            try {
+                                //Log.i("Script", answer);
+                                list = buildJSONRoute(answer);
+                                drawRoute();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    public List<LatLng> buildJSONRoute(String json) throws JSONException {
+        JSONObject result = new JSONObject(json);
+        JSONArray routes = result.getJSONArray("routes");
+
+        distance = routes.getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("distance").getInt("value");
+
+        JSONArray steps = routes.getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONArray("steps");
+        List<LatLng> lines = new ArrayList<LatLng>();
+
+        for (int i = 0; i < steps.length(); i++) {
+            Log.i("Script", "STEP: LAT: " + steps.getJSONObject(i).getJSONObject("start_location").getDouble("lat") + " | LNG: " + steps.getJSONObject(i).getJSONObject("start_location").getDouble("lng"));
+
+
+            String polyline = steps.getJSONObject(i).getJSONObject("polyline").getString("points");
+
+            for (LatLng p : decodePolyline(polyline)) {
+                lines.add(p);
+            }
+
+            Log.i("Script", "STEP: LAT: " + steps.getJSONObject(i).getJSONObject("end_location").getDouble("lat") + " | LNG: " + steps.getJSONObject(i).getJSONObject("end_location").getDouble("lng"));
+        }
+
+        return (lines);
+    }
+
+    // DECODE POLYLINE
+    private List<LatLng> decodePolyline(String encoded) {
+
+        List<LatLng> listPoints = new ArrayList<LatLng>();
+        int index = 0, len = encoded.length();
+        int lat = 0, lng = 0;
+
+        while (index < len) {
+            int b, shift = 0, result = 0;
+            do {
+                b = encoded.charAt(index++) - 63;
+                result |= (b & 0x1f) << shift;
+                shift += 5;
+            } while (b >= 0x20);
+            int dlat = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+            lat += dlat;
+
+            shift = 0;
+            result = 0;
+            do {
+                b = encoded.charAt(index++) - 63;
+                result |= (b & 0x1f) << shift;
+                shift += 5;
+            } while (b >= 0x20);
+            int dlng = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+            lng += dlng;
+
+            LatLng p = new LatLng((((double) lat / 1E5)), (((double) lng / 1E5)));
+            Log.i("Script", "POL: LAT: " + p.latitude + " | LNG: " + p.longitude);
+            listPoints.add(p);
+        }
+        return listPoints;
     }
 
 }
