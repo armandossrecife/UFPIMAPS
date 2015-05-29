@@ -11,10 +11,10 @@ public class AlertScreen extends Activity{
 
     Context context;
 
-    String titulo;
-    String mensagem;
-    Intent acaoPositiva;
-    Intent acaoNegativa;
+    private String titulo;
+    private String mensagem;
+    private Intent acaoPositiva;
+    private Intent acaoNegativa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
