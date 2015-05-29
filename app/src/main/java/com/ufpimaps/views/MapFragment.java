@@ -240,7 +240,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         List<LatLng> lines = new ArrayList<LatLng>();
 
         for (int i = 0; i < steps.length(); i++) {
-            Log.i("Script", "STEP: LAT: " + steps.getJSONObject(i).getJSONObject("start_location").getDouble("lat") + " | LNG: " + steps.getJSONObject(i).getJSONObject("start_location").getDouble("lng"));
+            //Log.i("Script", "STEP: LAT: " + steps.getJSONObject(i).getJSONObject("start_location").getDouble("lat") + " | LNG: " + steps.getJSONObject(i).getJSONObject("start_location").getDouble("lng"));
 
 
             String polyline = steps.getJSONObject(i).getJSONObject("polyline").getString("points");
@@ -249,7 +249,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 lines.add(p);
             }
 
-            Log.i("Script", "STEP: LAT: " + steps.getJSONObject(i).getJSONObject("end_location").getDouble("lat") + " | LNG: " + steps.getJSONObject(i).getJSONObject("end_location").getDouble("lng"));
+            //Log.i("Script", "STEP: LAT: " + steps.getJSONObject(i).getJSONObject("end_location").getDouble("lat") + " | LNG: " + steps.getJSONObject(i).getJSONObject("end_location").getDouble("lng"));
         }
 
         return (lines);

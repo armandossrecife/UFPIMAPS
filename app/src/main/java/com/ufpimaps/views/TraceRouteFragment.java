@@ -64,13 +64,15 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment implemen
                 String origin = originEditText.getText().toString();
                 String destination = destinationEditText.getText().toString();
                 if (origin.equals("") == true) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Origem não Informado!", Toast.LENGTH_LONG);
+                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Origem não Informado!", Toast.LENGTH_SHORT).show();
                 } else if (destination.equals("") == true) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Destino não Informado!", Toast.LENGTH_LONG);
-                } else if (((MainActivity) getActivity()).getGeoPointsDatabase().hasNode(origin)) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Origem não Cadastrado!", Toast.LENGTH_LONG);
-                } else if (((MainActivity) getActivity()).getGeoPointsDatabase().hasNode(destination)) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Destino não Cadastrado!", Toast.LENGTH_LONG);
+                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Destino não Informado!", Toast.LENGTH_SHORT).show();
+                } else if (!((MainActivity) getActivity()).getGeoPointsDatabase().hasNode(origin)) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Origem não Cadastrado!", Toast.LENGTH_SHORT).show();
+                } else if (!((MainActivity) getActivity()).getGeoPointsDatabase().hasNode(destination)) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Destino não Cadastrado!", Toast.LENGTH_SHORT).show();
+                } else if (origin.equals(destination)) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Origem é igual ao Ponto de Destino!", Toast.LENGTH_LONG).show();
                 }
             }
         });
