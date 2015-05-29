@@ -159,6 +159,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 
+        db.execSQL(SQL_DELETE_ENTRIES);
         ContentValues values = new ContentValues();
 
         values.put(COLUMN_NODE_ID, 1);
