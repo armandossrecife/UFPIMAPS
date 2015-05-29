@@ -52,14 +52,15 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment implemen
     @Override
     public void devolverGeopoints(String[] geopoints) {
         search = geopoints;
-        for(int i = search.length-1 ; i > 0 ; i--){
-            Log.v("Banco", geopoints[i]);
-        }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, search);
 
         originEditText.setAdapter(adapter);
         destinationEditText.setAdapter(adapter);
+
+        if(originEditText.getText().toString().equals("") == false && destinationEditText.getText().toString().equals("") == false){
+
+        }
 
 
         traceRouteButton = (Button) traceRouteView.findViewById(R.id.trace_route_button);
