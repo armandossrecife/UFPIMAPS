@@ -73,6 +73,13 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment implemen
                     Toast.makeText(getActivity().getApplicationContext(), "Ponto de Destino não Cadastrado!", Toast.LENGTH_SHORT).show();
                 } else if (origin.equals(destination)) {
                     Toast.makeText(getActivity().getApplicationContext(), "Ponto de Origem é igual ao Ponto de Destino!", Toast.LENGTH_LONG).show();
+                }else{
+                    Bundle argumentos = new Bundle();
+                    argumentos.putString("origem", origin);
+                    argumentos.putString("destino", destination);
+                    MapFragment mapa = new MapFragment();
+                    ((MainActivity)getActivity()).setMainFragment(mapa);
+                    mapa.setArguments(argumentos);
                 }
             }
         });
