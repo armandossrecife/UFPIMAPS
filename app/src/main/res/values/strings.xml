@@ -58,4 +58,16 @@
     Francisco Carlos Silva Junior: AIzaSyCKei5S6Nwf_u0FBhuiaAxntIZuKGcXYpQ
     Jose Lins: AIzaSyBPshPKTzfkPkt-Pu2sNt62x0Ar5FAmA-s
      -->
+
+    <string-array name="countries_array">
+        <item>Afghanistan</item>
+        <item>Albania</item>
+        <item>Algeria</item>
+        <item>American Samoa</item>
+        <item>Andorra</item>
+        <item>Angola</item>
+        <item>Anguilla</item>
+        <item>Antarctica</item>
+    </string-array>
+
 </resources>

@@ -20,7 +20,7 @@
         android:layout_alignParentTop="true"
         android:text="@string/origin_title" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/originEditText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -29,10 +29,11 @@
         android:layout_below="@+id/originTitle"
         android:layout_marginTop="47dp"
         android:ems="10"
-        android:inputType="textMultiLine">
-
+        android:imeOptions="actionSearch"
+        android:inputType="textCapSentences|textAutoCorrect">
         <requestFocus />
-    </EditText>
+    </AutoCompleteTextView>
+
 
     <TextView
         android:id="@+id/destinationTitle"
@@ -45,7 +46,7 @@
         android:layout_marginTop="85dp"
         android:text="@string/destination_title" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/destinationEditText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -56,7 +57,7 @@
         android:inputType="textMultiLine">
 
         <requestFocus />
-    </EditText>
+    </AutoCompleteTextView>
 
     <Button
         android:id="@+id/trace_route_button"
