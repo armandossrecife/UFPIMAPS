@@ -140,7 +140,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
     public ArrayList<String> getNodesDescriptions(){
 
         ArrayList<String> nodesDescriptionsList = new ArrayList<String>();
-        String selectQuery = "SELECT  * FROM " + TABLE_NODE;
+        String selectQuery = "SELECT * FROM " + TABLE_NODE;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -153,6 +153,14 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         }
 
         return nodesDescriptionsList;
+    }
+
+    public boolean hasNode(String description) {
+        String selectQuery = "SELECT * FROM " + TABLE_NODE + " WHERE " + COLUMN_NODE_DESCRIPTION + " = /'" + description + "/'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        return cursor.moveToFirst();
     }
 
     public void populateDatabase() {

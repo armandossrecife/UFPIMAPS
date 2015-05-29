@@ -3,13 +3,13 @@ package com.ufpimaps.views;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.ufpimaps.R;
 import com.ufpimaps.interfaces.InterfaceGetGeopoints;
@@ -27,7 +27,6 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment implemen
 
     private AutoCompleteTextView originEditText;
     private AutoCompleteTextView destinationEditText;
-
     private String[] search;
     private View traceRouteView;
 
@@ -58,17 +57,21 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment implemen
         originEditText.setAdapter(adapter);
         destinationEditText.setAdapter(adapter);
 
-        if(originEditText.getText().toString().equals("") == false && destinationEditText.getText().toString().equals("") == false){
-
-        }
-
-
         traceRouteButton = (Button) traceRouteView.findViewById(R.id.trace_route_button);
         traceRouteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(getActivity(), CollaboratorsActivity.class);
-                //startActivity(intent);
+                String origin = originEditText.getText().toString();
+                String destination = destinationEditText.getText().toString();
+                if (origin.equals("") == true) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Origem não Informado!", Toast.LENGTH_LONG);
+                } else if (destination.equals("") == true) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Destino não Informado!", Toast.LENGTH_LONG);
+                } else if (((MainActivity) getActivity()).getGeoPointsDatabase().hasNode(origin)) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Origem não Cadastrado!", Toast.LENGTH_LONG);
+                } else if (((MainActivity) getActivity()).getGeoPointsDatabase().hasNode(destination)) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Ponto de Destino não Cadastrado!", Toast.LENGTH_LONG);
+                }
             }
         });
     }
