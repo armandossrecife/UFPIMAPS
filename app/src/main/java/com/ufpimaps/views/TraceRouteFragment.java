@@ -1,6 +1,6 @@
 package com.ufpimaps.views;
 
-import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -13,7 +13,6 @@ import android.widget.Button;
 
 import com.ufpimaps.R;
 import com.ufpimaps.interfaces.InterfaceGetGeopoints;
-import com.ufpimaps.models.GeoPointsDatabase;
 import com.ufpimaps.system.AsyncTaskGetGeopoints;
 
 /**
@@ -38,7 +37,11 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment implemen
         traceRouteView = inflater.inflate(R.layout.fragment_trace_route, container, false);
 
         originEditText = (AutoCompleteTextView) traceRouteView.findViewById(R.id.originEditText);
+        originEditText.setTextColor(Color.BLACK);
+        originEditText.setThreshold(1);
         destinationEditText = (AutoCompleteTextView) traceRouteView.findViewById(R.id.destinationEditText);
+        destinationEditText.setTextColor(Color.BLACK);
+        destinationEditText.setThreshold(1);
 
         AsyncTaskGetGeopoints buscarDescricoes = new AsyncTaskGetGeopoints(this, ((MainActivity)getActivity()).getGeoPointsDatabase());
         buscarDescricoes.execute();

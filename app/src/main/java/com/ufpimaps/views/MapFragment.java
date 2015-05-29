@@ -209,6 +209,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 try {
                     response = client.execute(request);
                     final String answer = EntityUtils.toString(response.getEntity());
+                    client.close();
 
                     getActivity().runOnUiThread(new Runnable() {
                         public void run() {

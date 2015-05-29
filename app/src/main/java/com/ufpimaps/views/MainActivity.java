@@ -24,40 +24,34 @@ public class MainActivity extends ActionBarActivity
         AnchorsFragment.OnFragmentInteractionListener {
 
 
-    /**
-     * Fragmento gerenciador dos comportamentos, interacoes e apresentacao do Navigation Drawer.
-     */
-    private NavigationDrawerFragment mNavigationDrawerFragment;
-
-    /**
-     * Objeto que armazena o titulo da ultima tela utilizada.
-     */
-    private CharSequence mTitle;
+    public static final int TELA_ALERTA_TENTATIVA_1 = 1;
+    public static final int TELA_ALERTA_TENTATIVA_2 = 2;
 
     /**
      * Gerenciador de Fragmentos
      */
     //private FragmentManager fragmentManager = getSupportFragmentManager();
-
+    /**
+     * Fragmento gerenciador dos comportamentos, interacoes e apresentacao do Navigation Drawer.
+     */
+    private NavigationDrawerFragment mNavigationDrawerFragment;
+    /**
+     * Objeto que armazena o titulo da ultima tela utilizada.
+     */
+    private CharSequence mTitle;
     /**
      * Fragmento generico que origina os fragmentos gerado pelo Navigation Drawer.
      */
     private Fragment mainFragment = null;
-
     /**
      * Pacote que armazena os argumentos enviados a um fragmento quando necessario
      */
     private Bundle args = new Bundle();
-
     /**
      * Objeto que manipula o banco de dados interno
      */
 
     private GeoPointsDatabase geoPointsDatabase = new GeoPointsDatabase(this);
-
-    public static final int TELA_ALERTA_TENTATIVA_1 = 1;
-    public static final int TELA_ALERTA_TENTATIVA_2 = 2;
-
     private TestConnection testaConexao;
 
 
@@ -110,8 +104,7 @@ public class MainActivity extends ActionBarActivity
         /**
          * Popular o banco de dados interno
          */
-
-        geoPointsDatabase.populateDatabase();
+        //geoPointsDatabase.populateDatabase();
         //List<Node> nodes = geoPointsDatabase.getAllNodes();
         //for (Node n : nodes) {
         //    Log.d("Nó " + n.getIdNode(), "Desc:" + n.getDescription());

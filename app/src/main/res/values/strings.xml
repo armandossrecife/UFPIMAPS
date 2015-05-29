@@ -45,7 +45,7 @@
     <string name="action_settings">Avalie-nos!</string>
     <string name="action_settings2">Sobre</string>
 
-    <string name="api_key">AIzaSyBcpv6KmLg3IcwKCU5TlkVFd3Ik9d-Uc4Q</string>
+    <string name="api_key">AIzaSyDXLEO_RXbR8x4NUAjWb7hGNCnMQ5KCWro</string>
 
     <string name="origin_title">Origem</string>
     <string name="destination_title">Destino</string>
@@ -58,16 +58,5 @@
     Francisco Carlos Silva Junior: AIzaSyCKei5S6Nwf_u0FBhuiaAxntIZuKGcXYpQ
     Jose Lins: AIzaSyBcpv6KmLg3IcwKCU5TlkVFd3Ik9d-Uc4Q
      -->
-
-    <string-array name="countries_array">
-        <item>Afghanistan</item>
-        <item>Albania</item>
-        <item>Algeria</item>
-        <item>American Samoa</item>
-        <item>Andorra</item>
-        <item>Angola</item>
-        <item>Anguilla</item>
-        <item>Antarctica</item>
-    </string-array>
 
 </resources>
