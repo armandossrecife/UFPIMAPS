@@ -1,7 +1,9 @@
 package com.ufpimaps.views;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +12,14 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 import com.ufpimaps.R;
+import com.ufpimaps.interfaces.InterfaceGetGeopoints;
+import com.ufpimaps.models.GeoPointsDatabase;
+import com.ufpimaps.system.AsyncTaskGetGeopoints;
+
 /**
  * Created by HugoPiauilino on 14/05/15.
  */
-public class TraceRouteFragment extends android.support.v4.app.Fragment {
+public class TraceRouteFragment extends android.support.v4.app.Fragment implements InterfaceGetGeopoints{
 
     /**
      * Botao trace route
@@ -24,17 +30,28 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment {
     private AutoCompleteTextView destinationEditText;
 
     private String[] search;
-
+    private View traceRouteView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View traceRouteView = inflater.inflate(R.layout.fragment_trace_route, container, false);
+        traceRouteView = inflater.inflate(R.layout.fragment_trace_route, container, false);
 
         originEditText = (AutoCompleteTextView) traceRouteView.findViewById(R.id.originEditText);
         destinationEditText = (AutoCompleteTextView) traceRouteView.findViewById(R.id.destinationEditText);
 
-        search = getResources().getStringArray(R.array.countries_array);
+        AsyncTaskGetGeopoints buscarDescricoes = new AsyncTaskGetGeopoints(this, ((MainActivity)getActivity()).getGeoPointsDatabase());
+        buscarDescricoes.execute();
+
+        return traceRouteView;
+    }
+
+    @Override
+    public void devolverGeopoints(String[] geopoints) {
+        search = geopoints;
+        for(int i = search.length-1 ; i > 0 ; i--){
+            Log.v("Banco", geopoints[i]);
+        }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, search);
 
@@ -50,6 +67,5 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment {
                 //startActivity(intent);
             }
         });
-        return traceRouteView;
     }
 }
