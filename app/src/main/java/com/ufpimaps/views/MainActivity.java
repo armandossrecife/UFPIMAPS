@@ -111,7 +111,7 @@ public class MainActivity extends ActionBarActivity
          * Popular o banco de dados interno
          */
 
-        //geoPointsDatabase.populateDatabase();
+        geoPointsDatabase.populateDatabase();
         //List<Node> nodes = geoPointsDatabase.getAllNodes();
         //for (Node n : nodes) {
         //    Log.d("Nó " + n.getIdNode(), "Desc:" + n.getDescription());
@@ -295,5 +295,9 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onFragmentInteraction(String id) {
 
+    }
+
+    protected GeoPointsDatabase getGeoPointsDatabase(){
+        return geoPointsDatabase;
     }
 }
