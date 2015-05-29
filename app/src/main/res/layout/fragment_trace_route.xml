@@ -29,7 +29,7 @@
         android:layout_below="@+id/originTitle"
         android:layout_marginTop="47dp"
         android:ems="10"
-        android:imeOptions="actionSearch"
+        android:imeOptions="actionNext"
         android:inputType="textCapSentences|textAutoCorrect"
         android:textColor="@android:color/black">
 
