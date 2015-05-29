@@ -137,6 +137,24 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         return nodeList;
     }
 
+    public ArrayList<String> getNodesDescriptions(){
+
+        ArrayList<String> nodesDescriptionsList = new ArrayList<String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_NODE;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                nodesDescriptionsList.add(cursor.getString(1));
+            } while (cursor.moveToNext());
+        }
+
+        return nodesDescriptionsList;
+    }
+
     public void populateDatabase() {
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
