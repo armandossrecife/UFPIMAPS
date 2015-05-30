@@ -1,6 +1,5 @@
 package com.ufpimaps.views;
 
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,10 +13,8 @@ import android.widget.Toast;
 
 import com.ufpimaps.R;
 import com.ufpimaps.controllers.TestConnection;
-import com.ufpimaps.interfaces.InterfaceGetListOfGeoPoints;
 import com.ufpimaps.models.ApplicationObject;
 import com.ufpimaps.models.GeoPointsDatabase;
-import com.ufpimaps.system.AsyncTaskTraceRoute;
 
 /**
  * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
@@ -114,6 +111,9 @@ public class MainActivity extends ActionBarActivity
         //    Log.d("Nó " + n.getIdNode(), "Desc:" + n.getDescription());
         //}
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
 
     }
 
@@ -209,6 +209,7 @@ public class MainActivity extends ActionBarActivity
      *
      * @param number Numero da Secao de cada titulo
      */
+    /*
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
@@ -234,7 +235,7 @@ public class MainActivity extends ActionBarActivity
                 break;
         }
     }
-
+*/
     /**
      * Metodo para restaurar a action bar
      */
