@@ -36,6 +36,7 @@ public class MainActivity extends ActionBarActivity
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
     private ArrayAdapter<String> mAdapter;
+    private int mCurrentSelectedPosition = 0;
     //-----------------------------------------------------------
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
@@ -100,6 +101,13 @@ public class MainActivity extends ActionBarActivity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectItem(position);
+            }
+        });
+
         /**
          * Inicializa o fragmento do Navigation Drawer com o layout pre definido
          */
@@ -146,6 +154,7 @@ public class MainActivity extends ActionBarActivity
         };
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, titles);
         mDrawerList.setAdapter(mAdapter);
+        mDrawerList.setItemChecked(mCurrentSelectedPosition, true);
 
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -200,6 +209,7 @@ public class MainActivity extends ActionBarActivity
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
+        mDrawerList.setItemChecked(mCurrentSelectedPosition, true);
 
         mDrawerToggle.setDrawerIndicatorEnabled(true);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
@@ -282,13 +292,13 @@ public class MainActivity extends ActionBarActivity
                 mainFragment = new AboutFragment();
                 break;
         }
-
         /**
          * Troca o fragmento atual pelo fragmento selecionado no Navigation Drawer
          */
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, mainFragment)
                 .commit();
+
 
     }
 
@@ -427,5 +437,17 @@ public class MainActivity extends ActionBarActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void selectItem(int position) {
+        int mCurrentSelectedPosition = position;
+        if (mDrawerList != null) {
+            mDrawerList.setItemChecked(position, true);
+        }
+        if (mDrawerLayout != null) {
+            mDrawerLayout.closeDrawers(/*mFragmentContainerView*/);
+        }
+        onNavigationDrawerItemSelected(position);
+    }
+
 
 }
