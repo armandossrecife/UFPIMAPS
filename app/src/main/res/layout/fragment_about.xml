@@ -8,6 +8,26 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ufpimaps.views.AboutFragment">
 
+    <ImageView
+        android:id="@+id/logoUFPIMaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/logo_ufpi_maps"
+        android:src="@mipmap/ic_ufpi_maps_app" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logoUFPIMaps"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/versao"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -24,15 +44,15 @@
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:text="@string/desenvolvedorRoney" />
+        android:text="@string/desenvolvedor_armando" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/textView3"
-        android:text="@string/desenvolvedorSaulo" />
+        android:layout_centerHorizontal="true"
+        android:text="@string/desenvolvedor_hugo" />
 
     <TextView
         android:id="@+id/textView5"
@@ -40,7 +60,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true"
-        android:text="@string/desenvolvedorArmando" />
+        android:text="@string/desenvolvedor_jose" />
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView5"
+        android:layout_centerHorizontal="true"
+        android:text="@string/desenvolvedor_francisco" />
 
     <TextView
         android:id="@+id/textView7"
@@ -48,6 +77,23 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView6"
         android:layout_centerHorizontal="true"
+        android:text="@string/desenvolvedor_saulo" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView7"
+        android:layout_centerHorizontal="true"
+        android:text="@string/desenvolvedor_roney" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonColaboradores"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp"
         android:text="@string/departamento2" />
 
     <Button
@@ -55,38 +101,17 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/logoUFPIMaps"
-        android:layout_alignRight="@+id/logoUFPIMaps"
-        android:layout_below="@+id/textView5"
+        android:layout_below="@+id/textView8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
         android:text="@string/button_colaboradores" />
 
-    <ImageView
-        android:id="@+id/logoUFPIMaps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/logo_ufpi_maps"
-        android:src="@mipmap/ic_launcher" />
-
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_below="@+id/logoUFPIMaps"
-        android:layout_marginTop="15dp"
-        android:text="@string/versao"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonColaboradores"
+        android:layout_below="@+id/textView9"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
         android:text="@string/departamento" />
 
 </RelativeLayout>

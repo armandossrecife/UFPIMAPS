@@ -10,9 +10,12 @@
     <string name="title_section_about">Sobre</string>
 
     <string name="desenvolvedores">Desenvolvido por:</string>
-    <string name="desenvolvedorRoney">Roney Lira</string>
-    <string name="desenvolvedorSaulo">Saulo de Társio</string>
-    <string name="desenvolvedorArmando">Armando Soares</string>
+    <string name="desenvolvedor_roney">Roney Lira</string>
+    <string name="desenvolvedor_saulo">Saulo de Társio</string>
+    <string name="desenvolvedor_armando">Armando Soares</string>
+    <string name="desenvolvedor_hugo">Hugo Piauilino</string>
+    <string name="desenvolvedor_jose">José de Oliveira</string>
+    <string name="desenvolvedor_francisco">Francisco Carlos</string>
 
     <string name="departamento">Departamento de Computação - UFPI</string>
     <string name="departamento2">Núcleo de Tecnologia da Informação - NTI</string>
@@ -50,6 +53,7 @@
     <string name="origin_title">Origem</string>
     <string name="destination_title">Destino</string>
     <string name="title_activity_alert_screen">Alert Screen</string>
+
 
     <!--
     Lista das API-KEYS utilizadas:
