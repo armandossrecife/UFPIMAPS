@@ -1,8 +1,11 @@
 package com.ufpimaps.views;
 
+import android.app.FragmentTransaction;
 import android.graphics.Color;
+import android.net.http.AndroidHttpClient;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +14,26 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.ufpimaps.R;
 import com.ufpimaps.interfaces.InterfaceGetGeopoints;
+import com.ufpimaps.models.ApplicationObject;
+import com.ufpimaps.models.Node;
 import com.ufpimaps.system.AsyncTaskGetGeopoints;
+import com.ufpimaps.system.AsyncTaskTraceRoute;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by HugoPiauilino on 14/05/15.
@@ -74,14 +94,13 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment implemen
                 } else if (origin.equals(destination)) {
                     Toast.makeText(getActivity().getApplicationContext(), "Ponto de Origem é igual ao Ponto de Destino!", Toast.LENGTH_LONG).show();
                 }else{
-                    Bundle argumentos = new Bundle();
-                    argumentos.putString("origem", origin);
-                    argumentos.putString("destino", destination);
-                    MapFragment mapa = new MapFragment();
-                    ((MainActivity)getActivity()).setMainFragment(mapa);
-                    mapa.setArguments(argumentos);
+                    ((MainActivity)getActivity()).onNavigationDrawerItemSelected(2);
+                    AsyncTaskTraceRoute tracarRota = new AsyncTaskTraceRoute(((MainActivity)getActivity()).getGeoPointsDatabase(), ((ApplicationObject) getActivity().getApplicationContext()).mapa);
+                    tracarRota.execute(origin, destination);
                 }
             }
         });
     }
+
+
 }
