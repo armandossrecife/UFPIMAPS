@@ -293,4 +293,8 @@ public class MainActivity extends ActionBarActivity
     protected GeoPointsDatabase getGeoPointsDatabase(){
         return geoPointsDatabase;
     }
+
+    protected void setMainFragment(Fragment fragment){
+        mainFragment = fragment;
+    }
 }
