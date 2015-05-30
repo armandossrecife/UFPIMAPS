@@ -1,5 +1,6 @@
 package com.ufpimaps.views;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,7 +14,10 @@ import android.widget.Toast;
 
 import com.ufpimaps.R;
 import com.ufpimaps.controllers.TestConnection;
+import com.ufpimaps.interfaces.InterfaceGetListOfGeoPoints;
+import com.ufpimaps.models.ApplicationObject;
 import com.ufpimaps.models.GeoPointsDatabase;
+import com.ufpimaps.system.AsyncTaskTraceRoute;
 
 /**
  * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
@@ -21,7 +25,7 @@ import com.ufpimaps.models.GeoPointsDatabase;
  */
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        AnchorsFragment.OnFragmentInteractionListener {
+        AnchorsFragment.OnFragmentInteractionListener{
 
 
     public static final int TELA_ALERTA_TENTATIVA_1 = 1;
@@ -179,7 +183,7 @@ public class MainActivity extends ActionBarActivity
                 mainFragment = new TraceRouteFragment();
                 break;
             case 2:case 3:case 4:
-                mainFragment = new MapFragment();
+                mainFragment = ((ApplicationObject)getApplication()).mapa;//new MapFragment();
                 args.putInt("mapType", position);
                 mainFragment.setArguments(args);
                 break;
@@ -294,7 +298,4 @@ public class MainActivity extends ActionBarActivity
         return geoPointsDatabase;
     }
 
-    protected void setMainFragment(Fragment fragment){
-        mainFragment = fragment;
-    }
 }
