@@ -52,7 +52,7 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment implemen
     public void devolverGeopoints(String[] geopoints) {
         search = geopoints;
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, search);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getBaseContext(), android.R.layout.simple_list_item_1, search);
 
         originEditText.setAdapter(adapter);
         destinationEditText.setAdapter(adapter);
