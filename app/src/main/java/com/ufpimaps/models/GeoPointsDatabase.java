@@ -127,7 +127,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
             do {
                 Node node = new Node();
                 node.setIdNode(Integer.parseInt(cursor.getString(0)));
-                node.setDescription(cursor.getString(2));
+                node.setDescription(cursor.getString(1));
                 nodeList.add(node);
 
             } while (cursor.moveToNext());
@@ -161,6 +161,26 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         return cursor.moveToFirst();
+    }
+
+    public Node selectByDescription(String description){
+        String selectQuery = "SELECT * FROM " + TABLE_NODE + " WHERE " + COLUMN_NODE_DESCRIPTION + " = '" + description + "'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            Node node = new Node();
+            node.setIdNode(Integer.parseInt(cursor.getString(0)));
+            node.setDescription(cursor.getString(1));
+            Localization localization = new Localization(cursor.getDouble(2),cursor.getDouble(3));
+            node.setLocalization(localization);
+            return node;
+
+        }
+        return null;
+
     }
 
     public void populateDatabase() {
