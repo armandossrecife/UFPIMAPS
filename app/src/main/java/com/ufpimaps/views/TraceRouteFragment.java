@@ -17,16 +17,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ufpimaps.R;
-import com.ufpimaps.interfaces.InterfaceGetGeopoints;
 import com.ufpimaps.models.ApplicationObject;
-import com.ufpimaps.system.AsyncTaskGetGeopoints;
+import com.ufpimaps.models.GeoPointsDatabase;
 import com.ufpimaps.system.AsyncTaskTraceRoute;
+
+import java.util.ArrayList;
 
 /**
  * Created by HugoPiauilino on 14/05/15.
  * Classe que cria o Fragment da View Tracar Rotas
  */
-public class TraceRouteFragment extends android.support.v4.app.Fragment implements InterfaceGetGeopoints{
+public class TraceRouteFragment extends android.support.v4.app.Fragment {
 
     /**
      * View do Trace Route Fragment
@@ -38,12 +39,10 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment implemen
      * Button que dispara a acao de tracar uma rota entre dois pontos escolhidos
      */
     private Button traceRouteButton;
-
     private AutoCompleteTextView originEditText;
     private AutoCompleteTextView destinationEditText;
-
-
     private String[] search;
+    private GeoPointsDatabase bancoDeDados;
 
     @Nullable
     @Override
@@ -54,16 +53,22 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment implemen
         originEditText.setThreshold(1);
         destinationEditText = (AutoCompleteTextView) traceRouteView.findViewById(R.id.destinationEditText);
         destinationEditText.setThreshold(1);
-
-        AsyncTaskGetGeopoints buscarDescricoes = new AsyncTaskGetGeopoints(this, ((MainActivity)getActivity()).getGeoPointsDatabase());
-        buscarDescricoes.execute();
+        bancoDeDados = ((MainActivity)getActivity()).getGeoPointsDatabase();
 
         return traceRouteView;
     }
 
     @Override
-    public void devolverGeopoints(String[] geopoints) {
-        search = geopoints;
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        ArrayList<String> descricoes = bancoDeDados.getNodesDescriptions();
+        search = new String[descricoes.size()];
+        search = descricoes.toArray(search);
+
+        testarGeopoints();
+    }
+
+    public void testarGeopoints() {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getBaseContext(), android.R.layout.simple_list_item_1, search);
 
@@ -99,7 +104,7 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment implemen
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    Log.v("Search", "Clicado!");
+                    //Toast.makeText(getActivity().getBaseContext(),"Search Clicado!",Toast.LENGTH_LONG).show();
                     traceRouteButton.callOnClick();
                 }
                 return false;

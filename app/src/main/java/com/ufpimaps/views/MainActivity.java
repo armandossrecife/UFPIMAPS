@@ -170,8 +170,12 @@ public class MainActivity extends ActionBarActivity
                     case 3:
                     case 4:
                         mainFragment = ((ApplicationObject) getApplication()).mapa;//new MapFragment();
-                        args.putInt("mapType", position);
-                        mainFragment.setArguments(args);
+                        if (((ApplicationObject) getApplication()).mapa.getArguments() == null) {
+                            args.putInt("mapType", position);
+                            mainFragment.setArguments(args);
+                        } else {
+                            ((ApplicationObject) getApplication()).mapa.getArguments().putInt("mapType", position);
+                        }
                         break;
                     case 5:
                         mainFragment = new FeedbackFragment();
@@ -281,9 +285,13 @@ public class MainActivity extends ActionBarActivity
                 mainFragment = new TraceRouteFragment();
                 break;
             case 2:case 3:case 4:
-                mainFragment = ((ApplicationObject)getApplication()).mapa;//new MapFragment();
-                args.putInt("mapType", position);
-                mainFragment.setArguments(args);
+                mainFragment = ((ApplicationObject) getApplication()).mapa;//new MapFragment();
+                if (((ApplicationObject) getApplication()).mapa.getArguments() == null) {
+                    args.putInt("mapType", position);
+                    mainFragment.setArguments(args);
+                } else {
+                    ((ApplicationObject) getApplication()).mapa.getArguments().putInt("mapType", position);
+                }
                 break;
             case 5:
                 mainFragment = new FeedbackFragment();
