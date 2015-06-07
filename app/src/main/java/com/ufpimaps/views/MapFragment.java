@@ -1,9 +1,7 @@
 package com.ufpimaps.views;
 
 import android.graphics.Color;
-import android.net.http.AndroidHttpClient;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,18 +19,7 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.ufpimaps.R;
 import com.ufpimaps.interfaces.InterfaceGetListOfGeoPoints;
-import com.ufpimaps.models.Node;
-import com.ufpimaps.system.AsyncTaskTraceRoute;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -179,10 +166,11 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
         if (polylineOptions == null) {
             polylineOptions = new PolylineOptions();
+            customAddMarker(list.get(0), "Inicio", "Ponto Inicial");
             for (int i = 0; i < list.size(); i++) {
                 polylineOptions.add(list.get(i));
             }
-
+            customAddMarker(list.get(list.size() - 1), "Final", "Ponto Final");
             polylineOptions.color(Color.BLACK).width(4);
 
             polyline = googleMap.addPolyline(polylineOptions);
