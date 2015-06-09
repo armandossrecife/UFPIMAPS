@@ -1,18 +1,14 @@
 package com.ufpimaps.system;
 
-import android.graphics.Color;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
-import com.ufpimaps.interfaces.InterfaceGetListOfGeoPoints;
+import com.ufpimaps.interfaces.InterfaceGetListOfGeopoints;
 import com.ufpimaps.models.GeoPointsDatabase;
 import com.ufpimaps.models.Node;
-import com.ufpimaps.views.MainActivity;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -28,14 +24,14 @@ import java.util.List;
 /**
  * Created by zenote on 29/05/2015.
  */
-public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String>{
+public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
 
     private long distance;
     private GoogleMap googleMap;
     private GeoPointsDatabase bancoDeDados;
-    private InterfaceGetListOfGeoPoints interfaceMapFragment;
+    private InterfaceGetListOfGeopoints interfaceMapFragment;
 
-    public AsyncTaskTraceRoute(GeoPointsDatabase bancoDeDados, InterfaceGetListOfGeoPoints interfaceMapFragment){
+    public AsyncTaskTraceRoute(GeoPointsDatabase bancoDeDados, InterfaceGetListOfGeopoints interfaceMapFragment) {
         this.bancoDeDados = bancoDeDados;
         this.interfaceMapFragment = interfaceMapFragment;
     }
@@ -51,7 +47,7 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String>{
 
         final Node origem = bancoDeDados.selectByDescription(descricoes[0]);
         final Node destino = bancoDeDados.selectByDescription(descricoes[1]);
-        if(origem == null && destino == null){
+        if (origem == null && destino == null) {
             return answer;
         }
         String url = "http://maps.googleapis.com/maps/api/directions/json?origin="
@@ -77,7 +73,7 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String>{
     @Override
     protected void onPostExecute(String answer) {
         List<LatLng> list = null;
-        if(answer.equals("") == false){
+        if (answer.equals("") == false) {
             try {
                 list = buildJSONRoute(answer);
                 interfaceMapFragment.devolveListaDeGeoPoints(list);
@@ -160,8 +156,6 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String>{
         }
         return listPoints;
     }
-
-
 
 
 }

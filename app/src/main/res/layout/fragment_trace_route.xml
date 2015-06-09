@@ -8,12 +8,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.ufpimaps.views.TraceRouteFragment" >
+    tools:context="com.ufpimaps.views.TraceRouteFragment">
 
     <TextView
-    android:id="@+id/originTitle"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+        android:id="@+id/originTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="false"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -29,8 +29,10 @@
         android:layout_below="@+id/originTitle"
         android:layout_marginTop="44dp"
         android:ems="10"
+        android:freezesText="true"
         android:imeOptions="actionNext"
         android:inputType="textCapSentences|textAutoCorrect">
+
         <requestFocus />
     </AutoCompleteTextView>
 
@@ -44,6 +46,7 @@
         android:layout_alignWithParentIfMissing="false"
         android:layout_below="@+id/originEditText"
         android:layout_marginTop="85dp"
+        android:freezesText="true"
         android:text="@string/destination_title" />
 
     <AutoCompleteTextView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -55,8 +58,7 @@
         android:layout_centerVertical="true"
         android:ems="10"
         android:imeOptions="actionSearch"
-        android:inputType="textCapSentences|textAutoCorrect">
-    </AutoCompleteTextView>
+        android:inputType="textCapSentences|textAutoCorrect"></AutoCompleteTextView>
 
     <Button
         android:id="@+id/trace_route_button"

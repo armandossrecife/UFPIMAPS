@@ -2,6 +2,7 @@ package com.ufpimaps.views;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,14 +19,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.ufpimaps.R;
-import com.ufpimaps.interfaces.InterfaceGetListOfGeoPoints;
+import com.ufpimaps.interfaces.InterfaceGetListOfGeopoints;
 
 import java.util.List;
 
 /**
  * Created by HugoPiauilino on 30/04/15.
  */
-public class MapFragment extends android.support.v4.app.Fragment implements OnMapReadyCallback , InterfaceGetListOfGeoPoints{
+public class MapFragment extends android.support.v4.app.Fragment implements OnMapReadyCallback, InterfaceGetListOfGeopoints {
 
     private static final LatLng ufpiLocation = new LatLng(-5.057772, -42.797009);
     private MapView mapView;
@@ -33,8 +34,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     private int tipoDeMapa = 0;
     private Marker marker;
     private Polyline polyline;
-
-
 
 
     @Override
@@ -58,23 +57,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
             googleMap.getUiSettings().setZoomControlsEnabled(true);
 
-            try {
-                tipoDeMapa = getArguments().getInt("mapType") - 2;
-            } catch (NullPointerException e) {
-                tipoDeMapa = 1;
-            }
-
-            switch (tipoDeMapa) {
-                case 1:
-                    googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                    break;
-                case 2:
-                    googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-                    break;
-                case 3:
-                    googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-                    break;
-            }
         }
 
         //list = new ArrayList<LatLng>();
@@ -85,6 +67,8 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         //drawRoute();
 
         //getDistance();
+
+        mudarTipoDeMapa();
 
         return view;
 
@@ -155,9 +139,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     */
 
 
-
-
-    public void devolveListaDeGeoPoints(List<LatLng> lista){
+    public void devolveListaDeGeoPoints(List<LatLng> lista) {
         drawRoute(lista);
     }
 
@@ -180,4 +162,27 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     }
 
 
+    public void mudarTipoDeMapa() {
+
+        Log.i("TipoMapa", "Entrou no mudarTipoDeMapa");
+
+        try {
+            tipoDeMapa = getArguments().getInt("mapType") - 2;
+        } catch (NullPointerException e) {
+            tipoDeMapa = 1;
+        }
+
+        Log.i("TipoMapa", "tipoDeMapa = " + tipoDeMapa);
+        switch (tipoDeMapa) {
+            case 1:
+                googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                break;
+            case 2:
+                googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                break;
+            case 3:
+                googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                break;
+        }
+    }
 }
