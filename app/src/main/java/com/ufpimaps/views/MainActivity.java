@@ -54,6 +54,8 @@ public class MainActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //geoPointsDatabase.populateDatabase();
+
         testaConexao = new TestConnection(this);
 
         mDrawerList = (ListView) findViewById(R.id.navigation_drawer);
