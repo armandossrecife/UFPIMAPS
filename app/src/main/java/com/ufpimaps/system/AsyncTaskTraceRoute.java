@@ -30,6 +30,8 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
     private GoogleMap googleMap;
     private GeoPointsDatabase bancoDeDados;
     private InterfaceGetListOfGeopoints interfaceMapFragment;
+    private Node origem;
+    private Node destino;
 
     public AsyncTaskTraceRoute(GeoPointsDatabase bancoDeDados, InterfaceGetListOfGeopoints interfaceMapFragment) {
         this.bancoDeDados = bancoDeDados;
@@ -45,8 +47,8 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... descricoes) {
         String answer = "";
 
-        final Node origem = bancoDeDados.selectByDescription(descricoes[0]);
-        final Node destino = bancoDeDados.selectByDescription(descricoes[1]);
+        origem = bancoDeDados.selectByDescription(descricoes[0]);
+        destino = bancoDeDados.selectByDescription(descricoes[1]);
         if (origem == null && destino == null) {
             return answer;
         }
@@ -76,7 +78,7 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
         if (answer.equals("") == false) {
             try {
                 list = buildJSONRoute(answer);
-                interfaceMapFragment.devolveListaDeGeoPoints(list);
+                interfaceMapFragment.devolveListaDeGeoPoints(list, origem, destino);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

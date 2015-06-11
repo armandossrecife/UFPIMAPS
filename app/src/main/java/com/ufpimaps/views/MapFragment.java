@@ -20,6 +20,7 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.ufpimaps.R;
 import com.ufpimaps.interfaces.InterfaceGetListOfGeopoints;
+import com.ufpimaps.models.Node;
 
 import java.util.List;
 
@@ -104,9 +105,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        googleMap.addMarker(new MarkerOptions()
-                .position(ufpiLocation)
-                .title("Universidade Federal do Piauí (UFPI)"));
+        //googleMap.addMarker(new MarkerOptions().position(ufpiLocation).title("Universidade Federal do Piauí (UFPI)"));
         // Construct a CameraPosition focusing on Mountain View and animate the camera to that position.
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(ufpiLocation)      // Sets the center of the map to UFPI
@@ -139,20 +138,22 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     */
 
 
-    public void devolveListaDeGeoPoints(List<LatLng> lista) {
-        drawRoute(lista);
+    public void devolveListaDeGeoPoints(List<LatLng> lista, Node origem, Node destino) {
+        drawRoute(lista, origem, destino);
     }
 
-    public void drawRoute(List<LatLng> list) {
+    public void drawRoute(List<LatLng> list, Node origem, Node destino) {
         PolylineOptions polylineOptions = null;
 
         if (polylineOptions == null) {
             polylineOptions = new PolylineOptions();
-            customAddMarker(list.get(0), "Inicio", "Ponto Inicial");
+            LatLng origemLatLng = new LatLng(origem.getLocalization().getLatitude(), origem.getLocalization().getLongitude());
+            customAddMarker(origemLatLng, "Inicio", origem.getDescription());
             for (int i = 0; i < list.size(); i++) {
                 polylineOptions.add(list.get(i));
             }
-            customAddMarker(list.get(list.size() - 1), "Final", "Ponto Final");
+            LatLng destinoLatLng = new LatLng(destino.getLocalization().getLatitude(), destino.getLocalization().getLongitude());
+            customAddMarker(destinoLatLng, "Final", destino.getDescription());
             polylineOptions.color(Color.BLACK).width(4);
 
             polyline = googleMap.addPolyline(polylineOptions);

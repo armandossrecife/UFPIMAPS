@@ -29,8 +29,8 @@ public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         AnchorsFragment.OnFragmentInteractionListener{
 
-    private static final int TELA_ALERTA_TENTATIVA_1 = 1;
-    private static final int TELA_ALERTA_TENTATIVA_2 = 2;
+    public static final int TELA_ALERTA_TENTATIVA_1 = 1;
+    public static final int TELA_ALERTA_TENTATIVA_2 = 2;
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
     private ArrayAdapter<String> mAdapter;
@@ -85,7 +85,7 @@ public class MainActivity extends ActionBarActivity
                 getString(R.string.title_section_feedback),
                 getString(R.string.title_section_about)
         };
-        mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, titles);
+        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, titles);
         mDrawerList.setAdapter(mAdapter);
         mDrawerList.setItemChecked(mCurrentSelectedPosition, true);
 
