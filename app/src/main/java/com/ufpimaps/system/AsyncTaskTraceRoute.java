@@ -26,7 +26,6 @@ import java.util.List;
  */
 public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
 
-    private long distance;
     private GoogleMap googleMap;
     private GeoPointsDatabase bancoDeDados;
     private InterfaceGetListOfGeopoints interfaceMapFragment;
@@ -104,10 +103,11 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
         JSONObject result = new JSONObject(json);
         JSONArray routes = result.getJSONArray("routes");
 
-        distance = routes.getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("distance").getInt("value");
+        long distance = routes.getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("distance").getInt("value");
 
         JSONArray steps = routes.getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONArray("steps");
         List<LatLng> lines = new ArrayList<LatLng>();
+        lines.add(new LatLng(origem.getLocalization().getLatitude(), origem.getLocalization().getLongitude()));//Adicionando o polilyne do inicio
 
         for (int i = 0; i < steps.length(); i++) {
             //Log.i("Script", "STEP: LAT: " + steps.getJSONObject(i).getJSONObject("start_location").getDouble("lat") + " | LNG: " + steps.getJSONObject(i).getJSONObject("start_location").getDouble("lng"));
@@ -121,7 +121,7 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
 
             //Log.i("Script", "STEP: LAT: " + steps.getJSONObject(i).getJSONObject("end_location").getDouble("lat") + " | LNG: " + steps.getJSONObject(i).getJSONObject("end_location").getDouble("lng"));
         }
-
+        lines.add(new LatLng(destino.getLocalization().getLatitude(), destino.getLocalization().getLongitude())); //Adicionando o polilyne do fim
         return (lines);
     }
 
@@ -153,7 +153,7 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
             lng += dlng;
 
             LatLng p = new LatLng((((double) lat / 1E5)), (((double) lng / 1E5)));
-            Log.i("Script", "POL: LAT: " + p.latitude + " | LNG: " + p.longitude);
+            //Log.i("Script", "POL: LAT: " + p.latitude + " | LNG: " + p.longitude);
             listPoints.add(p);
         }
         return listPoints;
