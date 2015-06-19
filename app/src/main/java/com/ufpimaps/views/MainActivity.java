@@ -2,6 +2,7 @@ package com.ufpimaps.views;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -16,10 +17,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 import com.ufpimaps.R;
 import com.ufpimaps.controllers.TestConnection;
 import com.ufpimaps.models.ApplicationObject;
 import com.ufpimaps.models.GeoPointsDatabase;
+
+import java.text.BreakIterator;
 
 /**
  * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
@@ -27,7 +33,7 @@ import com.ufpimaps.models.GeoPointsDatabase;
  */
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        AnchorsFragment.OnFragmentInteractionListener{
+        AnchorsFragment.OnFragmentInteractionListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
 
     public static final int TELA_ALERTA_TENTATIVA_1 = 1;
     public static final int TELA_ALERTA_TENTATIVA_2 = 2;
@@ -41,6 +47,10 @@ public class MainActivity extends ActionBarActivity
     private Bundle args = new Bundle();
     private GeoPointsDatabase geoPointsDatabase = new GeoPointsDatabase(this);
     private TestConnection testaConexao;
+    private Location mLastLocation;
+    private GoogleApiClient mGoogleApiClient;
+    private BreakIterator mLatitudeText, mLongitudeText;
+
 
     /**
      * Metodo executado na criacao da activity main (principal) e seta todos os parametros
@@ -76,6 +86,8 @@ public class MainActivity extends ActionBarActivity
             Intent iniciarWifi = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS);
             criarTelaDeAlerta("Sem conexão", "Inciar Conexão WiFi?", iniciarWifi, null, 1);
         }
+
+        buildGoogleApiClient();
     }
 
     private void addDrawerItems() {
@@ -180,7 +192,7 @@ public class MainActivity extends ActionBarActivity
      * @param position Posicao selecionada no Navigation Drawer
      */
     @Override
-    public void onNavigationDrawerItemSelected(int position) {
+    public void onNavigationDrawerItemSelected(int position){
         switch (position){
             case 0:
                 mainFragment = new AnchorsFragment();
@@ -260,5 +272,34 @@ public class MainActivity extends ActionBarActivity
             mDrawerLayout.closeDrawers();
         }
         onNavigationDrawerItemSelected(position);
+    }
+
+    protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+    }
+
+        @Override
+        public void onConnected(Bundle connectionHint) {
+            mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                    mGoogleApiClient);
+            if (mLastLocation != null) {
+                mLatitudeText.setText(String.valueOf(mLastLocation.getLatitude()));
+                mLongitudeText.setText(String.valueOf(mLastLocation.getLongitude()));
+            }
+        }
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
     }
 }
