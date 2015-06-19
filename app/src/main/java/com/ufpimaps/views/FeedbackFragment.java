@@ -38,7 +38,7 @@ public class FeedbackFragment extends android.support.v4.app.Fragment {
         final View feedbackView = inflater.inflate(R.layout.fragment_feedback, container, false);
 
         sendFeedback = (Button) feedbackView.findViewById(R.id.sendFeedback);
-        feedback = (EditText)  feedbackView.findViewById(R.id.editText1);
+        feedback = (EditText)  feedbackView.findViewById(R.id.comment_message_feedback);
 
         sendFeedback.setOnClickListener(new View.OnClickListener() {
 
