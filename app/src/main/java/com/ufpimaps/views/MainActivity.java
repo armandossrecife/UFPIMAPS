@@ -34,7 +34,7 @@ public class MainActivity extends ActionBarActivity
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
     private ArrayAdapter<String> mAdapter;
-    private int mCurrentSelectedPosition = 0;
+    private int mCurrentSelectedPosition = 2;
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
     private Fragment mainFragment = null;
@@ -60,10 +60,11 @@ public class MainActivity extends ActionBarActivity
 
         mDrawerList = (ListView) findViewById(R.id.navigation_drawer);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mActivityTitle = getTitle().toString();
 
         addDrawerItems();
         setupDrawer();
+
+        mActivityTitle = getTitle().toString();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -94,7 +95,9 @@ public class MainActivity extends ActionBarActivity
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mCurrentSelectedPosition = position;
                 selectItem(position);
+
             }
         });
     }
@@ -112,6 +115,7 @@ public class MainActivity extends ActionBarActivity
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
+                mActivityTitle = mAdapter.getItem(mCurrentSelectedPosition);
                 getSupportActionBar().setTitle(mActivityTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
