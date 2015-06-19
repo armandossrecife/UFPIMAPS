@@ -60,7 +60,7 @@
         android:ems="10"
         android:imeOptions="actionSearch"
         android:inputType="textCapSentences|textAutoCorrect"
-        ></AutoCompleteTextView>
+        />
 
     <Button
         android:id="@+id/trace_route_button"
