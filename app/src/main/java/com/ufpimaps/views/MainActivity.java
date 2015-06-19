@@ -33,7 +33,7 @@ import java.text.BreakIterator;
  */
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        AnchorsFragment.OnFragmentInteractionListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
+        AnchorsFragment.OnFragmentInteractionListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     public static final int TELA_ALERTA_TENTATIVA_1 = 1;
     public static final int TELA_ALERTA_TENTATIVA_2 = 2;
@@ -79,10 +79,10 @@ public class MainActivity extends ActionBarActivity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        if(testaConexao.isConnected()){
-            Log.v("TestaConexao" , "Está conectado");
+        if (testaConexao.isConnected()) {
+            Log.v("TestaConexao", "Está conectado");
             geraMapa();
-        }else{
+        } else {
             Intent iniciarWifi = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS);
             criarTelaDeAlerta("Sem conexão", "Inciar Conexão WiFi?", iniciarWifi, null, 1);
         }
@@ -138,8 +138,8 @@ public class MainActivity extends ActionBarActivity
         mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
 
-    private void criarTelaDeAlerta(String titulo, String mensagem, Intent acaoPositiva, Intent acaoNegativa, int tentativa){
-        Intent iniciarTelaDeAlerta = new Intent(this, AlertScreen.class );
+    private void criarTelaDeAlerta(String titulo, String mensagem, Intent acaoPositiva, Intent acaoNegativa, int tentativa) {
+        Intent iniciarTelaDeAlerta = new Intent(this, AlertScreen.class);
         iniciarTelaDeAlerta.putExtra("titulo", titulo);
         iniciarTelaDeAlerta.putExtra("mensagem", mensagem);
         iniciarTelaDeAlerta.putExtra("acaoPositiva", acaoPositiva);
@@ -151,29 +151,29 @@ public class MainActivity extends ActionBarActivity
     protected void onActivityResult(int tipoDeConexaoRequisitada, int resultado, Intent dadosRetornados) {
         super.onActivityResult(tipoDeConexaoRequisitada, resultado, dadosRetornados);
 
-        if(tipoDeConexaoRequisitada == TELA_ALERTA_TENTATIVA_1){
-            if(resultado == RESULT_OK){
-                if(testaConexao.isConnected()){
+        if (tipoDeConexaoRequisitada == TELA_ALERTA_TENTATIVA_1) {
+            if (resultado == RESULT_OK) {
+                if (testaConexao.isConnected()) {
                     geraMapa();
-                }else{
+                } else {
                     Toast.makeText(this, "Sem conexão Wifi", Toast.LENGTH_LONG).show();
                     Intent iniciarRedesMoveis = new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS);
                     criarTelaDeAlerta("Sem Conexão", "Iniciar Conexão via Redes Móveis?", iniciarRedesMoveis, null, TELA_ALERTA_TENTATIVA_2);
                 }
-            }else{
+            } else {
                 Toast.makeText(this, "Sem conexão Wifi", Toast.LENGTH_LONG).show();
                 Intent iniciarRedesMoveis = new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS);
                 criarTelaDeAlerta("Sem Conexão", "Iniciar Conexão via Redes Móveis?", iniciarRedesMoveis, null, TELA_ALERTA_TENTATIVA_2);
             }
-        }else if(tipoDeConexaoRequisitada == TELA_ALERTA_TENTATIVA_2){
-            if(resultado == RESULT_OK){
-                if(testaConexao.isConnected()){
+        } else if (tipoDeConexaoRequisitada == TELA_ALERTA_TENTATIVA_2) {
+            if (resultado == RESULT_OK) {
+                if (testaConexao.isConnected()) {
                     geraMapa();
-                }else{
+                } else {
                     Toast.makeText(this, "Sem conexão com a internet", Toast.LENGTH_LONG).show();
                     finish();
                 }
-            }else{
+            } else {
                 Toast.makeText(this, "Sem conexão com a internet", Toast.LENGTH_LONG).show();
                 finish();
             }
@@ -181,26 +181,30 @@ public class MainActivity extends ActionBarActivity
 
     }
 
-    private void geraMapa(){
+    private void geraMapa() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, new MapFragment())
                 .commit();
     }
+
     /**
      * Metodo que recebe indica o item selecionado no Navigation Drawer e substitui o fragmento
      * que e representado por essa posicao
+     *
      * @param position Posicao selecionada no Navigation Drawer
      */
     @Override
-    public void onNavigationDrawerItemSelected(int position){
-        switch (position){
+    public void onNavigationDrawerItemSelected(int position) {
+        switch (position) {
             case 0:
                 mainFragment = new AnchorsFragment();
                 break;
             case 1:
                 mainFragment = new TraceRouteFragment();
                 break;
-            case 2:case 3:case 4:
+            case 2:
+            case 3:
+            case 4:
                 mainFragment = ((ApplicationObject) getApplication()).mapa;//new MapFragment();
                 if (((ApplicationObject) getApplication()).mapa.getArguments() == null) {
                     args.putInt("mapType", position);
@@ -223,6 +227,7 @@ public class MainActivity extends ActionBarActivity
 
     /**
      * Metodo que recebe as interacoes do fragment
+     *
      * @param id
      */
     @Override
@@ -230,7 +235,7 @@ public class MainActivity extends ActionBarActivity
 
     }
 
-    protected GeoPointsDatabase getGeoPointsDatabase(){
+    protected GeoPointsDatabase getGeoPointsDatabase() {
         return geoPointsDatabase;
     }
 
@@ -282,16 +287,16 @@ public class MainActivity extends ActionBarActivity
                 .build();
     }
 
-        @Override
-        public void onConnected(Bundle connectionHint) {
-            mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
-                    mGoogleApiClient);
-            if (mLastLocation != null) {
-                mLatitudeText.setText(String.valueOf(mLastLocation.getLatitude()));
-                mLongitudeText.setText(String.valueOf(mLastLocation.getLongitude()));
-            }
+    @Override
+    public void onConnected(Bundle connectionHint) {
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                mGoogleApiClient);
+        if (mLastLocation != null) {
+            mLatitudeText.setText(String.valueOf(mLastLocation.getLatitude()));
+            mLongitudeText.setText(String.valueOf(mLastLocation.getLongitude()));
         }
     }
+
 
     @Override
     public void onConnectionSuspended(int i) {
