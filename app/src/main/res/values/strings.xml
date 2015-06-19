@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UFPIMAPS</string>
+    <string name="app_name">UFPI Maps</string>
 
     <string name="title_section_anchors">Âncoras</string>
     <string name="title_section_trace_routes">Traçar Rota</string>
