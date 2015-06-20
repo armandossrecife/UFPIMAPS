@@ -126,23 +126,19 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-
+        //Firebase Nodes = myFirebaseRef.child("nodes");//Cria json com nodes
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
                 Node node = new Node();
                 node.setIdNode(Integer.parseInt(cursor.getString(0)));
                 node.setDescription(cursor.getString(1));
-                //node.setLocalization(Float.parseFloat(curso));
-                Log.d("INFO", cursor.getString(2));
+                node.setLocalization(new LatLng(cursor.getDouble(2),cursor.getDouble(3)));//node.setLocalization(Float.parseFloat(curso));
                 nodes.add(node);
-
+                //Nodes.push().setValue(node);//Adiciona ao Json com um valor gerado aleatorio
             } while (cursor.moveToNext());
         }
 
-        // return node list
-        //Firebase Nodes = myFirebaseRef.child("nodes");
-        //Nodes.setValue(nodes);
         return nodes;
     }
 

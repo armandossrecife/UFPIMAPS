@@ -91,7 +91,7 @@ public class MainActivity extends ActionBarActivity
 
         Firebase.setAndroidContext(this);//Servico de WebService com Restful
         Firebase myFirebaseRef = new Firebase("https://ufpimaps.firebaseio.com/");//Cria a referencia pro servidor
-        geoPointsDatabase.getAllNodes(myFirebaseRef);
+        //geoPointsDatabase.getAllNodes(myFirebaseRef);
 
 
         buildGoogleApiClient();
