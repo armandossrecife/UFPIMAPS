@@ -1,5 +1,7 @@
 package com.ufpimaps.models;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.List;
 
 /**
@@ -31,8 +33,8 @@ public class GeographicNode extends Node{
     /**
      * Construtor da classe GeographicNode com alguns atributos na instancia do objeto.
      */
-    public GeographicNode(String desc, double lat, double longi){
-        super(desc, lat, longi);
+    public GeographicNode(String desc, LatLng localization){
+        super(desc, localization);
     }
 
 }

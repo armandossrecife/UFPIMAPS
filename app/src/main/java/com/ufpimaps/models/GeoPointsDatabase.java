@@ -5,6 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import com.firebase.client.Firebase;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +63,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
 
     /**
+     *
      * @param context
      */
     public GeoPointsDatabase(Context context) {
@@ -107,15 +112,15 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
         values.put(COLUMN_NODE_ID, no.getIdNode());
         values.put(COLUMN_NODE_DESCRIPTION, no.getDescription());
-        values.put(COLUMN_NODE_LATITUDE, no.getLocalization().getLatitude());
-        values.put(COLUMN_NODE_LONGITUDE, no.getLocalization().getLongitude());
+        values.put(COLUMN_NODE_LATITUDE, no.getLocalization().latitude);
+        values.put(COLUMN_NODE_LONGITUDE, no.getLocalization().longitude);
 
         db.insert(TABLE_NODE, null, values);
         db.close();
     }
 
-    public List<Node> getAllNodes() {
-        List<Node> nodeList = new ArrayList<>();
+    public List<Node> getAllNodes(Firebase myFirebaseRef) {
+        List<Node> nodes = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_NODE;
 
@@ -128,13 +133,17 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
                 Node node = new Node();
                 node.setIdNode(Integer.parseInt(cursor.getString(0)));
                 node.setDescription(cursor.getString(1));
-                nodeList.add(node);
+                //node.setLocalization(Float.parseFloat(curso));
+                Log.d("INFO", cursor.getString(2));
+                nodes.add(node);
 
             } while (cursor.moveToNext());
         }
 
         // return node list
-        return nodeList;
+        //Firebase Nodes = myFirebaseRef.child("nodes");
+        //Nodes.setValue(nodes);
+        return nodes;
     }
 
     public ArrayList<String> getNodesDescriptions(){
@@ -174,7 +183,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
             Node node = new Node();
             node.setIdNode(Integer.parseInt(cursor.getString(0)));
             node.setDescription(cursor.getString(1));
-            Localization localization = new Localization(cursor.getDouble(2),cursor.getDouble(3));
+            LatLng localization = new LatLng(cursor.getDouble(2),cursor.getDouble(3));
             node.setLocalization(localization);
             return node;
 

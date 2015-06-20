@@ -1,5 +1,7 @@
 package com.ufpimaps.models;
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Classe que implementa a estrutura generica de um no
  * Created by HugoPiauilino on 07/05/15.
@@ -20,13 +22,7 @@ public class Node {
 
     private String description;
 
-    /**
-     * Esse objeto se refere a localizacao de um no.
-     * Coordenadas x e y.
-     */
-
-    private Localization localization;
-
+    private LatLng localization;
 
     /**
      * Retorna o valor do atributo 'id' da classe Node.
@@ -59,20 +55,13 @@ public class Node {
     public void setDescription(String description) {
         this.description = description;
     }
-    /**
-     * Retorna o valor do atributo 'localization' da classe Node.
-     * @return localization.
-     */
-    public Localization getLocalization() {
-        return localization;
+
+    public void setLocalization(LatLng localization){
+        this.localization = localization;
     }
 
-    /**
-     * Atribui um valor ao atributo de 'localization' da classe Node.
-     * @param localization
-     */
-    public void setLocalization(Localization localization) {
-        this.localization = localization;
+    public LatLng getLocalization(){
+        return localization;
     }
 
     /**
@@ -85,10 +74,9 @@ public class Node {
     /**
      * Construtor da classe Node com alguns atributos na instancia do objeto.
      */
-    public Node(String desc, double lat, double longi){
+    public Node(String desc, LatLng localization){
         this.description = desc;
-        this.localization = new Localization(lat, longi);
-
+        this.localization = localization;
     }
 
 }

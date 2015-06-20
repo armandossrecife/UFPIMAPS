@@ -52,8 +52,8 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
             return answer;
         }
         String url = "http://maps.googleapis.com/maps/api/directions/json?origin="
-                + origem.getLocalization().getLatitude() + "," + origem.getLocalization().getLongitude() + "&destination="
-                + destino.getLocalization().getLatitude() + "," + destino.getLocalization().getLongitude() + "&sensor=false";
+                + origem.getLocalization().latitude + "," + origem.getLocalization().longitude + "&destination="
+                + destino.getLocalization().latitude + "," + destino.getLocalization().longitude + "&sensor=false";
 
 
         HttpResponse response;
@@ -107,7 +107,7 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
 
         JSONArray steps = routes.getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONArray("steps");
         List<LatLng> lines = new ArrayList<LatLng>();
-        lines.add(new LatLng(origem.getLocalization().getLatitude(), origem.getLocalization().getLongitude()));//Adicionando o polilyne do inicio
+        lines.add(new LatLng(origem.getLocalization().latitude, origem.getLocalization().longitude));//Adicionando o polilyne do inicio
 
         for (int i = 0; i < steps.length(); i++) {
             //Log.i("Script", "STEP: LAT: " + steps.getJSONObject(i).getJSONObject("start_location").getDouble("lat") + " | LNG: " + steps.getJSONObject(i).getJSONObject("start_location").getDouble("lng"));
@@ -121,7 +121,7 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
 
             //Log.i("Script", "STEP: LAT: " + steps.getJSONObject(i).getJSONObject("end_location").getDouble("lat") + " | LNG: " + steps.getJSONObject(i).getJSONObject("end_location").getDouble("lng"));
         }
-        lines.add(new LatLng(destino.getLocalization().getLatitude(), destino.getLocalization().getLongitude())); //Adicionando o polilyne do fim
+        lines.add(new LatLng(destino.getLocalization().latitude, destino.getLocalization().longitude)); //Adicionando o polilyne do fim
         return (lines);
     }
 

@@ -1,5 +1,7 @@
 package com.ufpimaps.models;
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Essa classe representa um tipo de n� derivado da classe Node: parti��es
  * Created by HugoPiauilino on 07/05/15.
@@ -41,8 +43,8 @@ public class Partition extends Node {
     /**
      * Construtor padr�o da classe Partition com alguns atributos na inst�ncia do objeto.
      */
-    public Partition(String desc, double lat, double longi){
-        super(desc, lat, longi);
+    public Partition(String desc, LatLng localization){
+        super(desc, localization);
     }
 
 }

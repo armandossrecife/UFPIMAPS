@@ -1,5 +1,7 @@
 package com.ufpimaps.models;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.List;
 
 /**
@@ -21,8 +23,8 @@ public class AdministrativeNode extends Node {
     /**
      * Construtor padrao da classe AdministrativeNode com alguns atributos na instancia do objeto.
      */
-    public AdministrativeNode(String desc, double lat, double longi) {
-        super(desc, lat, longi);
+    public AdministrativeNode(String desc, LatLng localization) {
+        super(desc, localization);
     }
 
     /**

@@ -147,12 +147,12 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
         if (polylineOptions == null) {
             polylineOptions = new PolylineOptions();
-            LatLng origemLatLng = new LatLng(origem.getLocalization().getLatitude(), origem.getLocalization().getLongitude());
+            LatLng origemLatLng = new LatLng(origem.getLocalization().latitude, origem.getLocalization().longitude);
             customAddMarker(origemLatLng, "Inicio", origem.getDescription());
             for (int i = 0; i < list.size(); i++) {
                 polylineOptions.add(list.get(i));
             }
-            LatLng destinoLatLng = new LatLng(destino.getLocalization().getLatitude(), destino.getLocalization().getLongitude());
+            LatLng destinoLatLng = new LatLng(destino.getLocalization().latitude, destino.getLocalization().longitude);
             customAddMarker(destinoLatLng, "Final", destino.getDescription());
             polylineOptions.color(Color.BLACK).width(4);
 

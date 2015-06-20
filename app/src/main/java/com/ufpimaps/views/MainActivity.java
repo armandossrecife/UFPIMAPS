@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
@@ -62,6 +63,7 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         //geoPointsDatabase.populateDatabase();
@@ -86,6 +88,11 @@ public class MainActivity extends ActionBarActivity
             Intent iniciarWifi = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS);
             criarTelaDeAlerta("Sem conexão", "Inciar Conexão WiFi?", iniciarWifi, null, 1);
         }
+
+        Firebase.setAndroidContext(this);//Servico de WebService com Restful
+        Firebase myFirebaseRef = new Firebase("https://ufpimaps.firebaseio.com/");//Cria a referencia pro servidor
+        geoPointsDatabase.getAllNodes(myFirebaseRef);
+
 
         buildGoogleApiClient();
     }
