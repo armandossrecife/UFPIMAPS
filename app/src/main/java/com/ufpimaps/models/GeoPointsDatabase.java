@@ -106,6 +106,8 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
+        //Firebase Version = myFirebaseRef.child("version");
+        //Version.setValue(1);
         //Firebase Nodes = myFirebaseRef.child("nodes");//Cria json com nodes
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
@@ -113,7 +115,13 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
                 Node node = new Node();
                 node.setId(Integer.parseInt(cursor.getString(0)));
                 node.setName(cursor.getString(1));
-                node.setLocalization(new LatLng(cursor.getDouble(2),cursor.getDouble(3)));//node.setLocalization(Float.parseFloat(curso));
+                node.setDescription("");
+                node.setType(-1);
+                node.setServices("");
+                node.setLocalization(new LatLng(cursor.getDouble(2), cursor.getDouble(3)));//node.setLocalization(Float.parseFloat(curso));
+                node.setEmail("");
+                node.setWebsite("");
+                node.setPhone("");
                 nodes.add(node);
                 //Nodes.push().setValue(node);//Adiciona ao Json com um valor gerado aleatorio
             } while (cursor.moveToNext());
@@ -200,7 +208,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         db.insert(TABLE_NODE, null, values);
         values.put(COLUMN_NODE_ID, 5);
         values.put(COLUMN_NODE_NAME, "Leg2 - DC");
-        
+
         values.put(COLUMN_NODE_LATITUDE, -5.05642);
         values.put(COLUMN_NODE_LONGITUDE, -42.788332);
         db.insert(TABLE_NODE, null, values);
