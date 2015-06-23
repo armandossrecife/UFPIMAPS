@@ -19,9 +19,16 @@ public class Node {
     private String website;
     private String phone;
 
-    public Node(String desc, LatLng localization){
-        this.name = desc;
+    public Node(int id, String name, String description, int type, String services, LatLng localization, String email, String website, String phone){
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.type = type;
+        this.services = services;
         this.localization = localization;
+        this.email = email;
+        this.website = website;
+        this.phone = phone;
     }
 
     public Node() {

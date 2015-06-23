@@ -86,8 +86,14 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
         values.put(COLUMN_NODE_ID, no.getId());
         values.put(COLUMN_NODE_NAME, no.getName());
+        values.put(COLUMN_NODE_DESCRIPTION, no.getDescription());
+        values.put(COLUMN_NODE_TYPE, no.getType());
+        values.put(COLUMN_NODE_SERVICES, no.getServices());
         values.put(COLUMN_NODE_LATITUDE, no.getLocalization().latitude);
         values.put(COLUMN_NODE_LONGITUDE, no.getLocalization().longitude);
+        values.put(COLUMN_NODE_EMAIL, no.getEmail());
+        values.put(COLUMN_NODE_WEBSITE, no.getWebsite());
+        values.put(COLUMN_NODE_PHONE, no.getPhone());
 
         db.insert(TABLE_NODE, null, values);
         db.close();
@@ -194,6 +200,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         db.insert(TABLE_NODE, null, values);
         values.put(COLUMN_NODE_ID, 5);
         values.put(COLUMN_NODE_NAME, "Leg2 - DC");
+        
         values.put(COLUMN_NODE_LATITUDE, -5.05642);
         values.put(COLUMN_NODE_LONGITUDE, -42.788332);
         db.insert(TABLE_NODE, null, values);
