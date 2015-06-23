@@ -9,51 +9,39 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Node {
 
-    /**
-     * No mapeamento, esse atributo sera o identificador de um no e tera a funcao
-     * de chave primaria da tabela.
-     */
-
-    private int idNode;
-
-    /**
-     * No mapeamento, esse atributo sera a descricao de um no.
-     */
-
+    private int id;
+    private String name;
     private String description;
-
+    private int type;
+    private String services;
     private LatLng localization;
+    private String email;
+    private String website;
+    private String phone;
 
-    /**
-     * Retorna o valor do atributo 'id' da classe Node.
-     * @return id.
-     */
-    public int getIdNode() {
-        return idNode;
+    public Node(String desc, LatLng localization){
+        this.name = desc;
+        this.localization = localization;
     }
 
-    /**
-     * Atribui um valor ao atributo 'description' da classe Node.
-     * @param idNode
-     */
-    public void setIdNode(int idNode){
-        this.idNode = idNode;
+    public Node() {
+
     }
 
-    /**
-     * Retorna o valor do atributo 'description' da classe Node.
-     * @return description.
-     */
-    public String getDescription() {
-        return description;
+    public int getId() {
+        return id;
     }
 
-    /**
-     * Atribui um valor ao atributo 'description' da classe Node.
-     * @param description
-     */
-    public void setDescription(String description) {
-        this.description = description;
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setLocalization(LatLng localization){
@@ -63,20 +51,53 @@ public class Node {
     public LatLng getLocalization(){
         return localization;
     }
-
-    /**
-     * Construtor padrao da classe Node.
-     */
-    public Node(){
-
+    public String getDescription() {
+        return description;
     }
 
-    /**
-     * Construtor da classe Node com alguns atributos na instancia do objeto.
-     */
-    public Node(String desc, LatLng localization){
-        this.description = desc;
-        this.localization = localization;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public String getServices() {
+        return services;
+    }
+
+    public void setServices(String services) {
+        this.services = services;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 }
+
+
