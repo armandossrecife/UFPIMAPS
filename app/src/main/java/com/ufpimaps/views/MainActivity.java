@@ -103,9 +103,8 @@ public class MainActivity extends ActionBarActivity
 
         myFirebaseRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                System.err.println("Dados Atualizados!");
-                //System.out.println(snapshot.getValue());
+            public void onDataChange(DataSnapshot snapshot){
+                //geoPointsDatabase.populateDatabase(snapshot);
             }
 
             @Override
