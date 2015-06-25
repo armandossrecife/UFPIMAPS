@@ -17,7 +17,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
@@ -27,6 +31,7 @@ import com.ufpimaps.models.ApplicationObject;
 import com.ufpimaps.models.GeoPointsDatabase;
 
 import java.text.BreakIterator;
+import java.util.Map;
 
 /**
  * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
@@ -51,6 +56,8 @@ public class MainActivity extends ActionBarActivity
     private Location mLastLocation;
     private GoogleApiClient mGoogleApiClient;
     private BreakIterator mLatitudeText, mLongitudeText;
+
+
 
 
     /**
@@ -91,11 +98,26 @@ public class MainActivity extends ActionBarActivity
 
         Firebase.setAndroidContext(this);//Servico de WebService com Restful
         Firebase myFirebaseRef = new Firebase("https://ufpimaps.firebaseio.com/");//Cria a referencia pro servidor
-        //geoPointsDatabase.getAllNodes(myFirebaseRef);
+        // Get a reference to our posts
 
 
-        buildGoogleApiClient();
-    }
+        myFirebaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                System.err.println("Dados Atualizados!");
+                //System.out.println(snapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
+            //geoPointsDatabase.getAllNodes(myFirebaseRef);
+
+
+            buildGoogleApiClient();
+        }
 
     private void addDrawerItems() {
         String[] titles = {

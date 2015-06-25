@@ -10,7 +10,9 @@ import com.firebase.client.Firebase;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by HugoPiauilino on 21/05/15.
@@ -98,22 +100,23 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         db.insert(TABLE_NODE, null, values);
         db.close();
     }
-
+    /*
     public List<Node> getAllNodes(Firebase myFirebaseRef) {
         List<Node> nodes = new ArrayList<>();
+        Map<String, Node> fireB = new HashMap<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_NODE;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-        //Firebase Version = myFirebaseRef.child("version");
-        //Version.setValue(1);
-        //Firebase Nodes = myFirebaseRef.child("nodes");//Cria json com nodes
+
         // looping through all rows and adding to list
+        int i = 0;
         if (cursor.moveToFirst()) {
             do {
+                i++;
                 Node node = new Node();
-                node.setId(Integer.parseInt(cursor.getString(0)));
+                node.setId(i);
                 node.setName(cursor.getString(1));
                 node.setDescription("");
                 node.setType(-1);
@@ -123,13 +126,19 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
                 node.setWebsite("");
                 node.setPhone("");
                 nodes.add(node);
-                //Nodes.push().setValue(node);//Adiciona ao Json com um valor gerado aleatorio
+                fireB.put(String.valueOf(i),node);
             } while (cursor.moveToNext());
         }
+        Firebase Version = myFirebaseRef.child("version");
+        Version.setValue(1);
+        Firebase Nodes = myFirebaseRef.child("nodes");
+        Nodes.setValue(fireB);
+
+
 
         return nodes;
     }
-
+*/
     public ArrayList<String> getNodesDescriptions(){
 
         ArrayList<String> nodesDescriptionsList = new ArrayList<String>();
@@ -148,16 +157,16 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         return nodesDescriptionsList;
     }
 
-    public boolean hasNode(String description) {
-        String selectQuery = "SELECT * FROM " + TABLE_NODE + " WHERE " + COLUMN_NODE_NAME + " = '" + description + "'";
+    public boolean hasNode(String name) {
+        String selectQuery = "SELECT * FROM " + TABLE_NODE + " WHERE " + COLUMN_NODE_NAME + " = '" + name + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         return cursor.moveToFirst();
     }
 
-    public Node selectByDescription(String description){
-        String selectQuery = "SELECT * FROM " + TABLE_NODE + " WHERE " + COLUMN_NODE_NAME + " = '" + description + "'";
+    public Node selectByName(String name){
+        String selectQuery = "SELECT * FROM " + TABLE_NODE + " WHERE " + COLUMN_NODE_NAME + " = '" + name + "'";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -167,7 +176,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
             Node node = new Node();
             node.setId(Integer.parseInt(cursor.getString(0)));
             node.setName(cursor.getString(1));
-            LatLng localization = new LatLng(cursor.getDouble(2),cursor.getDouble(3));
+            LatLng localization = new LatLng(cursor.getDouble(5),cursor.getDouble(6));
             node.setLocalization(localization);
             return node;
 

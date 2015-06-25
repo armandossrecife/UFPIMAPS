@@ -2,7 +2,6 @@ package com.ufpimaps.system;
 
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
@@ -46,8 +45,8 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... descricoes) {
         String answer = "";
 
-        origem = bancoDeDados.selectByDescription(descricoes[0]);
-        destino = bancoDeDados.selectByDescription(descricoes[1]);
+        origem = bancoDeDados.selectByName(descricoes[0]);
+        destino = bancoDeDados.selectByName(descricoes[1]);
         if (origem == null && destino == null) {
             return answer;
         }
