@@ -102,11 +102,16 @@ public class MainActivity extends ActionBarActivity
         myFirebaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot){
+                //Precisa criar um toast para avisar o usuario sobre o inicio atualizacao
+                System.out.println("Atualizando BD!");
                 geoPointsDatabase.populateDatabase(snapshot);
+                //Precisa criar um toast para avisar o usuario sobre o fim da atualizacao
+                System.out.println("BD atualizado!");
             }
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {
+                //Criar toast para informar que a atualizacao nao funcionou
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });

@@ -83,20 +83,7 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
 
         }
     }
-    /*
-    public double distance(LatLng StartP, LatLng EndP) {
-        double lat1 = StartP.latitude;
-        double lat2 = EndP.latitude;
-        double lon1 = StartP.longitude;
-        double lon2 = EndP.longitude;
-        double dLat = Math.toRadians(lat2 - lat1);
-        double dLon = Math.toRadians(lon2 - lon1);
-        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        double c = 2 * Math.asin(Math.sqrt(a));
-        return 6366000 * c;
 
-    }
-    */
 
     public List<LatLng> buildJSONRoute(String json) throws JSONException {
         JSONObject result = new JSONObject(json);
@@ -157,6 +144,19 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
         }
         return listPoints;
     }
-
-
 }
+
+    /*
+    public double distance(LatLng StartP, LatLng EndP) {
+        double lat1 = StartP.latitude;
+        double lat2 = EndP.latitude;
+        double lon1 = StartP.longitude;
+        double lon2 = EndP.longitude;
+        double dLat = Math.toRadians(lat2 - lat1);
+        double dLon = Math.toRadians(lon2 - lon1);
+        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        double c = 2 * Math.asin(Math.sqrt(a));
+        return 6366000 * c;
+
+    }
+    */
