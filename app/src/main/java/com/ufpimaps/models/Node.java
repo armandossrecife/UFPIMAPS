@@ -9,17 +9,17 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Node {
 
-    private int id;
+    private Integer id;
     private String name;
     private String description;
-    private int type;
+    private Integer type;
     private String services;
     private LatLng localization;
     private String email;
     private String website;
     private String phone;
 
-    public Node(int id, String name, String description, int type, String services, LatLng localization, String email, String website, String phone){
+    public Node(Integer id, String name, String description, Integer type, String services, LatLng localization, String email, String website, String phone){
         this.id = id;
         this.name = name;
         this.description = description;
@@ -35,11 +35,11 @@ public class Node {
 
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(Integer id){
         this.id = id;
     }
 
@@ -65,11 +65,11 @@ public class Node {
     public void setDescription(String description) {
         this.description = description;
     }
-    public int getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

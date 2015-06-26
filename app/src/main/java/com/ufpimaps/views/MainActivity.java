@@ -1,5 +1,6 @@
 package com.ufpimaps.views;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.location.Location;
@@ -73,8 +74,6 @@ public class MainActivity extends ActionBarActivity
 
         setContentView(R.layout.activity_main);
 
-        //geoPointsDatabase.populateDatabase();
-
         testaConexao = new TestConnection(this);
 
         mDrawerList = (ListView) findViewById(R.id.navigation_drawer);
@@ -100,11 +99,10 @@ public class MainActivity extends ActionBarActivity
         Firebase myFirebaseRef = new Firebase("https://ufpimaps.firebaseio.com/");//Cria a referencia pro servidor
         // Get a reference to our posts
 
-
         myFirebaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot){
-                //geoPointsDatabase.populateDatabase(snapshot);
+                geoPointsDatabase.populateDatabase(snapshot);
             }
 
             @Override
@@ -112,10 +110,8 @@ public class MainActivity extends ActionBarActivity
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });
-            //geoPointsDatabase.getAllNodes(myFirebaseRef);
 
-
-            buildGoogleApiClient();
+        buildGoogleApiClient();
         }
 
     private void addDrawerItems() {

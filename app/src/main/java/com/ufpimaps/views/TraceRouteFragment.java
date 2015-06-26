@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +60,7 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ArrayList<String> descricoes = bancoDeDados.getNodesDescriptions();
+        ArrayList<String> descricoes = bancoDeDados.getNodesNames();
         search = new String[descricoes.size()];
         search = descricoes.toArray(search);
 

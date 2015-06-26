@@ -5,15 +5,21 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.google.android.gms.maps.model.LatLng;
+import com.ufpimaps.views.MainActivity;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * Created by HugoPiauilino on 21/05/15.
@@ -102,43 +108,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
-/*
-    public List<Node> getAllNodes(Firebase myFirebaseRef) {
-        List<Node> nodes = new ArrayList<>();
-        HashMap<String, Node> fireB = new HashMap<>();
-        // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_NODE;
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        // looping through all rows and adding to list
-        int i = 0;
-        if (cursor.moveToFirst()) {
-            do {
-                Node node = new Node();
-                node.setId(i);
-                node.setName(cursor.getString(1));
-                node.setDescription("");
-                node.setType(-1);
-                node.setServices("");
-                node.setLocalization(new LatLng(cursor.getDouble(2), cursor.getDouble(3)));//node.setLocalization(Float.parseFloat(curso));
-                node.setEmail("");
-                node.setWebsite("");
-                node.setPhone("");
-                nodes.add(node);
-                fireB.put(String.valueOf(i),node);
-                i++;
-            } while (cursor.moveToNext());
-        }
-        Firebase NODES = myFirebaseRef.child("nodes");
-        NODES.setValue(fireB);
-
-        return nodes;
-    }
-*/
-
-    public ArrayList<String> getNodesDescriptions() {
+    public ArrayList<String> getNodesNames() {
 
         ArrayList<String> nodesDescriptionsList = new ArrayList<String>();
         String selectQuery = "SELECT * FROM " + TABLE_NODE;
@@ -152,7 +122,6 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
                 nodesDescriptionsList.add(cursor.getString(1));
             } while (cursor.moveToNext());
         }
-
         return nodesDescriptionsList;
     }
 
@@ -184,6 +153,71 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
     }
 
+    public void populateDatabase(DataSnapshot snapshot) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        onUpgrade(db, DATABASE_VERSION, DATABASE_VERSION+1);
+        ArrayList<HashMap> fireB = (ArrayList<HashMap>) snapshot.getValue();
+        HashMap nodeHash;
+        HashMap localizationHash;
+        Node no = new Node();
+        for (int i = 0; i < fireB.size(); i++) {
+            nodeHash = fireB.get(i);
+            Long idLong = (Long) nodeHash.get("id");
+            Integer idInteger = Integer.valueOf(idLong.intValue());
+            no.setId(idInteger);
+            no.setName((String) nodeHash.get("name"));
+            no.setDescription((String) nodeHash.get("description"));
+            Long typeLong = (Long) nodeHash.get("type");
+            Integer typeInteger = Integer.valueOf(typeLong.intValue());
+            no.setType(typeInteger);
+            no.setServices((String) nodeHash.get("services"));
+            no.setEmail((String) nodeHash.get("email"));
+            no.setWebsite((String) nodeHash.get("website"));
+            no.setPhone((String) nodeHash.get("phone"));
+            localizationHash = (HashMap) nodeHash.get("localization");
+            no.setLocalization(new LatLng((Double)localizationHash.get("latitude"), (Double) localizationHash.get("longitude")));
+
+            addNode(no);
+        }
+    }
+}
+
+/*
+    public List<Node> getAllNodes(Firebase myFirebaseRef) {
+        List<Node> nodes = new ArrayList<>();
+        HashMap<String, Node> fireB = new HashMap<>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_NODE;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        int i = 0;
+        if (cursor.moveToFirst()) {
+            do {
+                Node node = new Node();
+                node.setId(i);
+                node.setName(cursor.getString(1));
+                node.setDescription("");
+                node.setType(-1);
+                node.setServices("");
+                node.setLocalization(new LatLng(cursor.getDouble(5), cursor.getDouble(6)));//node.setLocalization(Float.parseFloat(curso));
+                node.setEmail("");
+                node.setWebsite("");
+                node.setPhone("");
+                nodes.add(node);
+                fireB.put(String.valueOf(i),node);
+                i++;
+            } while (cursor.moveToNext());
+        }
+        myFirebaseRef.setValue(fireB);
+
+        return nodes;
+    }
+*/
+
+/*
     public void populateDatabase() {
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
@@ -753,12 +787,5 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
         db.close();
     }
-
-
-    public void populateDatabase(DataSnapshot snapshot) {
-        //System.out.println("Snapshot completo: " + snapshot);
-        //HashMap<String, Node> fireB = (HashMap<String,Node>) snapshot.getValue();
-        //System.out.println("TAMANHO DA BASE " + fireB.size());
-    }
-}
+*/
 
