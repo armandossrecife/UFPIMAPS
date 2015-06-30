@@ -1,6 +1,7 @@
 package com.ufpimaps.views;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -91,7 +94,9 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment {
                 } else if (origin.equals(destination)) {
                     Toast.makeText(getActivity().getApplicationContext(), "Ponto de Origem é igual ao Ponto de Destino!", Toast.LENGTH_LONG).show();
                 } else {
-                    ((MainActivity)getActivity()).onNavigationDrawerItemSelected(2);
+                    InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getBaseContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+                            ((MainActivity) getActivity()).onNavigationDrawerItemSelected(2);
                     AsyncTaskTraceRoute tracarRota = new AsyncTaskTraceRoute(((MainActivity)getActivity()).getGeoPointsDatabase(), ((ApplicationObject) getActivity().getApplicationContext()).mapa);
                     tracarRota.execute(origin, destination);
                 }

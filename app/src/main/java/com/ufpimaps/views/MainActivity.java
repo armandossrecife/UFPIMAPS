@@ -6,6 +6,8 @@ import android.content.res.Configuration;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -57,6 +59,7 @@ public class MainActivity extends ActionBarActivity
     private Location mLastLocation;
     private GoogleApiClient mGoogleApiClient;
     private BreakIterator mLatitudeText, mLongitudeText;
+    private FragmentManager fragmentManager = getSupportFragmentManager();
 
 
 
@@ -102,16 +105,14 @@ public class MainActivity extends ActionBarActivity
         myFirebaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot){
-                //Precisa criar um toast para avisar o usuario sobre o inicio atualizacao
-                System.out.println("Atualizando BD!");
+                Toast.makeText(getBaseContext(),"Atualizando banco de dados!",Toast.LENGTH_SHORT).show();
                 geoPointsDatabase.populateDatabase(snapshot);
-                //Precisa criar um toast para avisar o usuario sobre o fim da atualizacao
-                System.out.println("BD atualizado!");
+                Toast.makeText(getBaseContext(),"Banco de dados atualizado!",Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {
-                //Criar toast para informar que a atualizacao nao funcionou
+                Toast.makeText(getBaseContext(),"Falha na atualização do banco de dados!",Toast.LENGTH_SHORT).show();
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });
@@ -224,34 +225,35 @@ public class MainActivity extends ActionBarActivity
      */
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        switch (position) {
-            case 0:
-                mainFragment = new AnchorsFragment();
-                break;
-            case 1:
-                mainFragment = new TraceRouteFragment();
-                break;
-            case 2:
-            case 3:
-            case 4:
-                mainFragment = ((ApplicationObject) getApplication()).mapa;//new MapFragment();
-                if (((ApplicationObject) getApplication()).mapa.getArguments() == null) {
-                    args.putInt("mapType", position);
-                    mainFragment.setArguments(args);
-                } else {
-                    ((ApplicationObject) getApplication()).mapa.getArguments().putInt("mapType", position);
-                }
-                break;
-            case 5:
-                mainFragment = new FeedbackFragment();
-                break;
-            case 6:
-                mainFragment = new AboutFragment();
-                break;
+
+        if(position == 0){
+            AnchorsFragment anchorsFragment = new AnchorsFragment();
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.replace(R.id.container, anchorsFragment, "anchorsFragment");
+            ft.commit();
+        }else if(position == 1){
+            TraceRouteFragment traceRouteFragment = new TraceRouteFragment();
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.replace(R.id.container, traceRouteFragment, "traceRouteFragment");
+            ft.commit();
+        }else if(position == 2 || position == 3 || position == 4){
+            MapFragment mapFragment = new MapFragment();
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.replace(R.id.container, mapFragment, "mapFragment");
+            args.putInt("mapType", position);
+            mapFragment.setArguments(args);
+            ft.commit();
+        }else if(position == 5){
+            FeedbackFragment feedbackFragment = new FeedbackFragment();
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.replace(R.id.container, feedbackFragment, "feedbackFragment");
+            ft.commit();
+        }else if(position == 6){
+            AboutFragment aboutFragment = new AboutFragment();
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.replace(R.id.container, aboutFragment, "aboutFragment");
+            ft.commit();
         }
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, mainFragment)
-                .commit();
     }
 
     /**
