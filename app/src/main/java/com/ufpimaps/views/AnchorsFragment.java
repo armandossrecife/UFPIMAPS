@@ -2,6 +2,8 @@ package com.ufpimaps.views;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +14,12 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.ufpimaps.R;
 import com.ufpimaps.models.Anchor;
 import com.ufpimaps.models.AnchorsList;
+import com.ufpimaps.models.ApplicationObject;
+import com.ufpimaps.models.Node;
 
 import java.util.List;
 
@@ -122,8 +127,24 @@ public class AnchorsFragment extends android.support.v4.app.Fragment implements 
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
+            String type = AnchorsList.ITEMS.get(position).getId().toString();
             mListener.onFragmentInteraction(AnchorsList.ITEMS.get(position).getId());
-            Toast.makeText(getActivity(), AnchorsList.ITEMS.get(position).getId().toString() + " clicado!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), type + " clicado!", Toast.LENGTH_SHORT).show();
+            List<Node> nodes = ((MainActivity) getActivity()).getGeoPointsDatabase().selectByType(type);
+            if (nodes.size() > 0) {
+                MapFragment mapFragment = ((ApplicationObject) getActivity().getApplication()).mapa;
+                for (Node n : nodes) {
+                    LatLng latLng = new LatLng(n.getLocalization().latitude, n.getLocalization().longitude);
+                    mapFragment.customAddMarker(latLng, n.getName(), n.getDescription());
+                }
+
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.container, mapFragment, "mapFragment");
+                ft.commit();
+
+            }
+
         }
     }
 

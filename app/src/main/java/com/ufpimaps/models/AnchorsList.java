@@ -23,12 +23,12 @@ public class AnchorsList {
 
 
     static {
+        addItem(new Anchor("Centros", "Centros"));
         addItem(new Anchor("Departamentos", "Departamentos"));
-        addItem(new Anchor("Setores Administrativos", "Setores Administrativos"));
+        addItem(new Anchor("Órgãos Centrais", "Órgãos Centrais"));
         addItem(new Anchor("Bibliotecas", "Bibliotecas"));
         addItem(new Anchor("Lanchonetes", "Lanchonetes" ));
-        addItem(new Anchor("Pró Reitorias", "Pró Reitorias"));
-        addItem(new Anchor("Entradas e Saídas", "Entradas e Saídas"));
+        addItem(new Anchor("Banheiros", "Banheiros"));
     }
 
     private static void addItem(Anchor item) {

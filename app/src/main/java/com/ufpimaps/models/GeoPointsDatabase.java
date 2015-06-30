@@ -5,21 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
 import com.google.android.gms.maps.model.LatLng;
-import com.ufpimaps.views.MainActivity;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
 
 /**
  * Created by HugoPiauilino on 21/05/15.
@@ -28,6 +20,8 @@ import java.util.Set;
 public class GeoPointsDatabase extends SQLiteOpenHelper {
 
     public static final String TABLE_NODE = "node";
+    private static final String SQL_DELETE_ENTRIES =
+            "DROP TABLE IF EXISTS " + TABLE_NODE;
     public static final String COLUMN_NODE_ID = "id";
     public static final String COLUMN_NODE_NAME = "name";
     public static final String COLUMN_NODE_DESCRIPTION = "descricao";
@@ -38,20 +32,15 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_NODE_EMAIL = "email";
     public static final String COLUMN_NODE_WEBSITE = "site";
     public static final String COLUMN_NODE_PHONE = "telefone";
-
-
     //Se o Schema do Banco de Dados for modificado, incrementar DATABASE_VERSION
     private static final int DATABASE_VERSION = 1;
-
     //Nome do banco de dados que armazena os GeoPoints
     private static final String DATABASE_NAME = "GeoPointsDatabase.db";
-
     private static final String TEXT_TYPE = " TEXT";
     private static final String DOUBLE_TYPE = " REAL";
     private static final String INTEGER_TYPE = " INTEGER";
     private static final String PRIMARY_KEY = " PRIMARY KEY";
     private static final String COMMA_SEP = ",";
-
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + TABLE_NODE + " (" +
                     COLUMN_NODE_ID + INTEGER_TYPE + PRIMARY_KEY + COMMA_SEP +
@@ -65,9 +54,6 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
                     COLUMN_NODE_WEBSITE + TEXT_TYPE + COMMA_SEP +
                     COLUMN_NODE_PHONE + TEXT_TYPE +
                     " )";
-
-    private static final String SQL_DELETE_ENTRIES =
-            "DROP TABLE IF EXISTS " + TABLE_NODE;
 
     public GeoPointsDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -150,6 +136,29 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
         }
         return null;
+
+    }
+
+    public List<Node> selectByType(String type) {
+
+        List<Node> nodes = new ArrayList<Node>();
+
+        String selectQuery = "SELECT * FROM " + TABLE_NODE + " WHERE " + COLUMN_NODE_TYPE + " = '" + type + "'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        while (cursor.moveToFirst()) {
+            Node node = new Node();
+            node.setId(Integer.parseInt(cursor.getString(0)));
+            node.setName(cursor.getString(1));
+            LatLng localization = new LatLng(cursor.getDouble(5), cursor.getDouble(6));
+            node.setLocalization(localization);
+            nodes.add(node);
+
+        }
+        return nodes;
 
     }
 
