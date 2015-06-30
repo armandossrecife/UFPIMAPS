@@ -119,6 +119,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         MarkerOptions options = new MarkerOptions();
         options.position(latLng).title(title).snippet(snippet).draggable(true);
         marker = googleMap.addMarker(options);
+        //marker.showInfoWindow();
     }
 
 
