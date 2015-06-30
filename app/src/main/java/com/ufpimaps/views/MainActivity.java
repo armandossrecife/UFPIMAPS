@@ -1,11 +1,9 @@
 package com.ufpimaps.views;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -20,7 +18,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -34,7 +31,6 @@ import com.ufpimaps.models.ApplicationObject;
 import com.ufpimaps.models.GeoPointsDatabase;
 
 import java.text.BreakIterator;
-import java.util.Map;
 
 /**
  * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
@@ -52,7 +48,6 @@ public class MainActivity extends ActionBarActivity
     private int mCurrentSelectedPosition = 2;
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
-    private Fragment mainFragment = null;
     private Bundle args = new Bundle();
     private GeoPointsDatabase geoPointsDatabase = new GeoPointsDatabase(this);
     private TestConnection testaConexao;
@@ -60,8 +55,6 @@ public class MainActivity extends ActionBarActivity
     private GoogleApiClient mGoogleApiClient;
     private BreakIterator mLatitudeText, mLongitudeText;
     private FragmentManager fragmentManager = getSupportFragmentManager();
-
-
 
 
     /**
@@ -104,21 +97,21 @@ public class MainActivity extends ActionBarActivity
 
         myFirebaseRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot snapshot){
-                Toast.makeText(getBaseContext(),"Atualizando banco de dados!",Toast.LENGTH_SHORT).show();
+            public void onDataChange(DataSnapshot snapshot) {
+                Toast.makeText(getBaseContext(), "Atualizando banco de dados!", Toast.LENGTH_SHORT).show();
                 geoPointsDatabase.populateDatabase(snapshot);
-                Toast.makeText(getBaseContext(),"Banco de dados atualizado!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Banco de dados atualizado!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {
-                Toast.makeText(getBaseContext(),"Falha na atualização do banco de dados!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Falha na atualização do banco de dados!", Toast.LENGTH_SHORT).show();
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });
 
         buildGoogleApiClient();
-        }
+    }
 
     private void addDrawerItems() {
         String[] titles = {
@@ -226,29 +219,29 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
 
-        if(position == 0){
+        if (position == 0) {
             AnchorsFragment anchorsFragment = new AnchorsFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.replace(R.id.container, anchorsFragment, "anchorsFragment");
             ft.commit();
-        }else if(position == 1){
+        } else if (position == 1) {
             TraceRouteFragment traceRouteFragment = new TraceRouteFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.replace(R.id.container, traceRouteFragment, "traceRouteFragment");
             ft.commit();
-        }else if(position == 2 || position == 3 || position == 4){
-            MapFragment mapFragment = new MapFragment();
+        } else if (position == 2 || position == 3 || position == 4) {
+            MapFragment mapFragment = ((ApplicationObject) getApplication()).mapa;//new MapFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.replace(R.id.container, mapFragment, "mapFragment");
-            args.putInt("mapType", position);
-            mapFragment.setArguments(args);
+            //args.putInt("mapType", position);
+            //mapFragment.setArguments(args);
             ft.commit();
-        }else if(position == 5){
+        } else if (position == 5) {
             FeedbackFragment feedbackFragment = new FeedbackFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.replace(R.id.container, feedbackFragment, "feedbackFragment");
             ft.commit();
-        }else if(position == 6){
+        } else if (position == 6) {
             AboutFragment aboutFragment = new AboutFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.replace(R.id.container, aboutFragment, "aboutFragment");
