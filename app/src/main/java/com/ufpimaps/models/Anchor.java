@@ -1,16 +1,20 @@
 package com.ufpimaps.models;
 
 /**
+ * Classe que representa uma âncora
  * Created by HugoPiauilino on 14/05/15.
  */
-/**
- * Classe que representa uma Ancora
- */
+
 public class Anchor {
 
     private String id;
     private String content;
 
+    /**
+     * Construtor da classe Anchor
+     * @param id
+     * @param content
+     */
     public Anchor(String id, String content) {
         this.id = id;
         this.content = content;

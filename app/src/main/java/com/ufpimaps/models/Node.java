@@ -3,7 +3,7 @@ package com.ufpimaps.models;
 import com.google.android.gms.maps.model.LatLng;
 
 /**
- * Classe que implementa a estrutura generica de um no
+ * Classe que implementa a estrutura generica de um no.
  * Created by HugoPiauilino on 07/05/15.
  */
 
@@ -19,6 +19,18 @@ public class Node {
     private String website;
     private String phone;
 
+    /**
+     * Construtor da classe Node com suas tipificações.
+     * @param id
+     * @param name
+     * @param description
+     * @param type
+     * @param services
+     * @param localization
+     * @param email
+     * @param website
+     * @param phone
+     */
     public Node(Integer id, String name, String description, Integer type, String services, LatLng localization, String email, String website, String phone) {
         this.id = id;
         this.name = name;
@@ -31,6 +43,9 @@ public class Node {
         this.phone = phone;
     }
 
+    /**
+     * Construtor vazio da classe Node.
+     */
     public Node() {
 
     }
@@ -73,9 +88,7 @@ public class Node {
 
     public void setType(Integer type) { this.type = type;}
 
-    public String getServices() {
-        return services;
-    }
+    public String getServices() { return services; }
 
     public void setServices(String services) {
         this.services = services;

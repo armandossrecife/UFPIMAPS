@@ -7,17 +7,18 @@ import java.util.Map;
 
 /**
  * Classe que armazena os tipos de anconras
+ * Created by HugoPiauilino on 14/05/15.
  */
 
 public class AnchorsList {
 
     /**
-     * Array de Ancoras.
+     * Array estático de âncoras.
      */
     public static List<Anchor> ITEMS = new ArrayList<Anchor>();
 
     /**
-     * Hash Map de Ancoras, por ID.
+     * Hash Map estático de Ancoras, por ID.
      */
     public static Map<String, Anchor> ITEM_MAP = new HashMap<String, Anchor>();
 
@@ -31,6 +32,10 @@ public class AnchorsList {
         addItem(new Anchor("Banheiros", "Banheiros"));
     }
 
+    /**
+     * Método estático para adicionar um item na lista de âncoras
+     * @param item Âncora
+     */
     private static void addItem(Anchor item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.getId(), item);

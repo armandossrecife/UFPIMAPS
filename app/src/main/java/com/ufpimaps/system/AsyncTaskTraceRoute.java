@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Método que traça a rota em uma thread em background.
  * Created by zenote on 29/05/2015.
  */
 public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
@@ -31,16 +32,29 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
     private Node origem;
     private Node destino;
 
+    /**
+     * Construtor da classe AsyncTaskTraceRoute
+     * @param bancoDeDados
+     * @param interfaceMapFragment
+     */
     public AsyncTaskTraceRoute(GeoPointsDatabase bancoDeDados, InterfaceGetListOfGeopoints interfaceMapFragment) {
         this.bancoDeDados = bancoDeDados;
         this.interfaceMapFragment = interfaceMapFragment;
     }
 
+    /**
+     *
+     */
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
     }
 
+    /**
+     * Método que recebe os pontos inicial e final e devolve uma string contendo a rota traçada.
+     * @param descricoes Pontos inicial e final
+     * @return Rota traçada
+     */
     @Override
     protected String doInBackground(String... descricoes) {
         String answer = "";
@@ -53,7 +67,6 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
         String url = "http://maps.googleapis.com/maps/api/directions/json?origin="
                 + origem.getLocalization().latitude + "," + origem.getLocalization().longitude + "&destination="
                 + destino.getLocalization().latitude + "," + destino.getLocalization().longitude + "&sensor=false";
-
 
         HttpResponse response;
         HttpGet request;
@@ -70,6 +83,10 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
         return answer;
     }
 
+    /**
+     *
+     * @param answer
+     */
     @Override
     protected void onPostExecute(String answer) {
         List<LatLng> list = null;
@@ -80,11 +97,15 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
         }
     }
 
-
+    /**
+     *
+     * @param json
+     * @return
+     * @throws JSONException
+     */
     public List<LatLng> buildJSONRoute(String json) throws JSONException {
         JSONObject result = new JSONObject(json);
         JSONArray routes = result.getJSONArray("routes");
@@ -96,22 +117,20 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
         lines.add(new LatLng(origem.getLocalization().latitude, origem.getLocalization().longitude));//Adicionando o polilyne do inicio
 
         for (int i = 0; i < steps.length(); i++) {
-            //Log.i("Script", "STEP: LAT: " + steps.getJSONObject(i).getJSONObject("start_location").getDouble("lat") + " | LNG: " + steps.getJSONObject(i).getJSONObject("start_location").getDouble("lng"));
-
-
             String polyline = steps.getJSONObject(i).getJSONObject("polyline").getString("points");
-
             for (LatLng p : decodePolyline(polyline)) {
                 lines.add(p);
             }
-
-            //Log.i("Script", "STEP: LAT: " + steps.getJSONObject(i).getJSONObject("end_location").getDouble("lat") + " | LNG: " + steps.getJSONObject(i).getJSONObject("end_location").getDouble("lng"));
         }
         lines.add(new LatLng(destino.getLocalization().latitude, destino.getLocalization().longitude)); //Adicionando o polilyne do fim
         return (lines);
     }
 
-    // DECODE POLYLINE
+    /**
+     *
+     * @param encoded
+     * @return
+     */
     private List<LatLng> decodePolyline(String encoded) {
 
         List<LatLng> listPoints = new ArrayList<LatLng>();
@@ -139,7 +158,6 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
             lng += dlng;
 
             LatLng p = new LatLng((((double) lat / 1E5)), (((double) lng / 1E5)));
-            //Log.i("Script", "POL: LAT: " + p.latitude + " | LNG: " + p.longitude);
             listPoints.add(p);
         }
         return listPoints;

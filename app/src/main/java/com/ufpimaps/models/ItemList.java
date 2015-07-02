@@ -1,6 +1,7 @@
 package com.ufpimaps.models;
 
 /**
+ * Método que auxilia a criação da lista mostrada no drawer.
  * Created by HugoPiauilino on 12/05/15.
  */
 public class ItemList {
@@ -15,6 +16,10 @@ public class ItemList {
         this.itemTitle = itemTitle;
     }
 
+    /**
+     * Construtor da classe ItemList
+     * @param title
+     */
     public ItemList(String title){
         this.itemTitle = title;
     }
