@@ -19,7 +19,7 @@ public class Node {
     private String website;
     private String phone;
 
-    public Node(Integer id, String name, String description, Integer type, String services, LatLng localization, String email, String website, String phone){
+    public Node(Integer id, String name, String description, Integer type, String services, LatLng localization, String email, String website, String phone) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -39,7 +39,7 @@ public class Node {
         return id;
     }
 
-    public void setId(Integer id){
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -51,13 +51,14 @@ public class Node {
         this.name = name;
     }
 
-    public void setLocalization(LatLng localization){
+    public void setLocalization(LatLng localization) {
         this.localization = localization;
     }
 
-    public LatLng getLocalization(){
+    public LatLng getLocalization() {
         return localization;
     }
+
     public String getDescription() {
         return description;
     }
@@ -65,13 +66,12 @@ public class Node {
     public void setDescription(String description) {
         this.description = description;
     }
+
     public Integer getType() {
         return type;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
+    public void setType(Integer type) { this.type = type;}
 
     public String getServices() {
         return services;
