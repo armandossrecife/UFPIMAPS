@@ -180,7 +180,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
      * @param type Tipo do Nó
      * @return Lista de Nós do tipo escolhido
      */
-    public List<Node> selectByType(int type) {
+    public List<Node> selectByType(String type) {
 
         List<Node> nodes = new ArrayList<Node>();
 
