@@ -1,2 +1,11 @@
 [Projeto UFPI Maps] Release Notes - Versão 1.0 - 10/07/2015
 
+Nesta primeira versão da aplicação, foram implementadas as seguintes funcionalidades:
+
+- Mapa normal
+- Mapa satélite
+- Mapa híbrido
+- Traçar rotas entre geopoints do banco de dados interno
+- auto completar buscando no banco de dados interno
+- Comunicação com o serviço Firebase (Web Service)
+- Sobre
