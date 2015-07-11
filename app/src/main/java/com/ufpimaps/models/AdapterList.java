@@ -1,9 +1,5 @@
 package com.ufpimaps.models;
 
-/**
- *
- */
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -16,18 +12,29 @@ import com.ufpimaps.R;
 
 import java.util.List;
 
+/**
+ * Classe que cria uma lista para ser implementada no fragment
+ * Created by HugoPiauilino on 14/05/15.
+ */
+
 public class AdapterList extends ArrayAdapter {
 
     private Context context;
     private TextView titleText;
 
+    /**
+     * Construtor da classe AdapterList
+     * @param context
+     * @param items
+     */
     public AdapterList(Context context, List items) {
         super(context, android.R.layout.simple_list_item_1, items);
         this.context = context;
     }
 
     /**
-     * @param position
+     * Método que retorna a View à ser utilizada
+     * @param position Posição da célula
      * @param convertView
      * @param parent
      * @return

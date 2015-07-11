@@ -19,17 +19,17 @@ import java.util.List;
  */
 public class GeoPointsDatabase extends SQLiteOpenHelper {
 
-    public static final String TABLE_NODE = "node";
-    public static final String COLUMN_NODE_ID = "id";
-    public static final String COLUMN_NODE_NAME = "name";
-    public static final String COLUMN_NODE_DESCRIPTION = "descricao";
-    public static final String COLUMN_NODE_TYPE = "tipo";
-    public static final String COLUMN_NODE_SERVICES = "servicos";
-    public static final String COLUMN_NODE_LATITUDE = "latitude";
-    public static final String COLUMN_NODE_LONGITUDE = "longitude";
-    public static final String COLUMN_NODE_EMAIL = "email";
-    public static final String COLUMN_NODE_WEBSITE = "site";
-    public static final String COLUMN_NODE_PHONE = "telefone";
+    private static final String TABLE_NODE = "node";
+    private static final String COLUMN_NODE_ID = "id";
+    private static final String COLUMN_NODE_NAME = "name";
+    private static final String COLUMN_NODE_DESCRIPTION = "descricao";
+    private static final String COLUMN_NODE_TYPE = "tipo";
+    private static final String COLUMN_NODE_SERVICES = "servicos";
+    private static final String COLUMN_NODE_LATITUDE = "latitude";
+    private static final String COLUMN_NODE_LONGITUDE = "longitude";
+    private static final String COLUMN_NODE_EMAIL = "email";
+    private static final String COLUMN_NODE_WEBSITE = "site";
+    private static final String COLUMN_NODE_PHONE = "telefone";
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "GeoPointsDatabase.db";
     private static final String TEXT_TYPE = " TEXT";
@@ -38,6 +38,9 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
     private static final String PRIMARY_KEY = " PRIMARY KEY";
     private static final String COMMA_SEP = ",";
 
+    /**
+     * String para criar da tabela de nos
+     */
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + TABLE_NODE + " (" +
                     COLUMN_NODE_ID + INTEGER_TYPE + PRIMARY_KEY + COMMA_SEP +
@@ -52,11 +55,15 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
                     COLUMN_NODE_PHONE + TEXT_TYPE +
                     " )";
 
+    /**
+     * String para deletar a tabela de nos
+     */
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + TABLE_NODE;
 
     /**
      * Construtor da Classe GeoPointsDatabase
+     *
      * @param context
      */
     public GeoPointsDatabase(Context context) {
@@ -65,6 +72,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
     /**
      * Método que cria o banco de dados.
+     *
      * @param db
      */
     @Override
@@ -74,6 +82,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
     /**
      * Método que atualiza o banco de dados para uma versão superior.
+     *
      * @param db
      * @param oldVersion
      * @param newVersion
@@ -86,6 +95,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
     /**
      * Método que atualiza o banco de dados para uma versão inferior.
+     *
      * @param db
      * @param oldVersion
      * @param newVersion
@@ -96,6 +106,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
     /**
      * Método que adiciona um nó ao Banco de Dados.
+     *
      * @param no Tipo Nó
      */
     public void addNode(Node no) {
@@ -120,6 +131,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
     /**
      * Método que retorna uma lista com o nome de todos os nós existentes no banco de dados.
+     *
      * @return Lista de Nomes dos Nós existentes no Banco de Dados
      */
     public ArrayList<String> getNodesNames() {
@@ -140,6 +152,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
     /**
      * Método que verifica se determinado nó existe no banco de dados.
+     *
      * @param name Nome do nó escolhido
      * @return True - Nó existe | False - Nó não existe
      */
@@ -153,6 +166,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
     /**
      * Método que retorna um nó com um determinado nome.
+     *
      * @param name Nome do Nó
      * @return Nó com o nome escolhido
      */
@@ -177,6 +191,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
 
     /**
      * Metodo que retorna uma lista de nós de determinado tipo.
+     *
      * @param type Tipo do Nó
      * @return Lista de Nós do tipo escolhido
      */
@@ -203,12 +218,13 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
     }
 
     /**
-     * Método que popula o banco de dados interno da aplicação
-     * @param snapshot
+     * Método que popula o banco de dados interno da aplicação utilizando o Firebase
+     *
+     * @param snapshot Contém a ultima versão do banco de dados do web service
      */
     public void populateDatabase(DataSnapshot snapshot) {
         SQLiteDatabase db = this.getWritableDatabase();
-        onUpgrade(db, DATABASE_VERSION, DATABASE_VERSION+1);
+        onUpgrade(db, DATABASE_VERSION, DATABASE_VERSION + 1);
         ArrayList<HashMap> fireB = (ArrayList<HashMap>) snapshot.getValue();
         HashMap nodeHash;
         HashMap localizationHash;
@@ -220,7 +236,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
             Long typeLong = (Long) nodeHash.get("type");
             Integer typeInteger = Integer.valueOf(typeLong.intValue());
             localizationHash = (HashMap) nodeHash.get("localization");
-            no = new Node(idInteger,(String) nodeHash.get("name"), (String) nodeHash.get("description"), typeInteger, (String) nodeHash.get("services"), new LatLng((Double)localizationHash.get("latitude"), (Double) localizationHash.get("longitude")),(String) nodeHash.get("email"),(String) nodeHash.get("website"), (String) nodeHash.get("phone"));
+            no = new Node(idInteger, (String) nodeHash.get("name"), (String) nodeHash.get("description"), typeInteger, (String) nodeHash.get("services"), new LatLng((Double) localizationHash.get("latitude"), (Double) localizationHash.get("longitude")), (String) nodeHash.get("email"), (String) nodeHash.get("website"), (String) nodeHash.get("phone"));
             addNode(no);
         }
     }

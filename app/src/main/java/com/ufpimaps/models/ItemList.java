@@ -12,10 +12,6 @@ public class ItemList {
         return itemTitle;
     }
 
-    public void setItemTitle(String itemTitle) {
-        this.itemTitle = itemTitle;
-    }
-
     /**
      * Construtor da classe ItemList
      * @param title

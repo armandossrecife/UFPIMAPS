@@ -12,7 +12,7 @@ public class Anchor {
 
     /**
      * Construtor da classe Anchor
-     * @param id
+     * @param id Posição da âncora
      * @param content
      */
     public Anchor(String id, String content) {
