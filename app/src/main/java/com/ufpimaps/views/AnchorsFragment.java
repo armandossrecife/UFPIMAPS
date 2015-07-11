@@ -120,10 +120,6 @@ public class AnchorsFragment extends android.support.v4.app.Fragment implements 
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-        //ItemList item = (ItemList) this.exampleListItemList.get(position);
-        //Toast.makeText(getActivity(), item.getItemTitle() + " Clicked!", Toast.LENGTH_SHORT).show();
-
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.

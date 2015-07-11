@@ -38,12 +38,12 @@ public class FeedbackFragment extends android.support.v4.app.Fragment {
         final View feedbackView = inflater.inflate(R.layout.fragment_feedback, container, false);
 
         sendFeedback = (Button) feedbackView.findViewById(R.id.sendFeedback);
-        feedback = (EditText)  feedbackView.findViewById(R.id.comment_message_feedback);
+        feedback = (EditText) feedbackView.findViewById(R.id.comment_message_feedback);
 
         sendFeedback.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                String s = feedback .getText().toString();
+                String s = feedback.getText().toString();
                 String aux = s.replace(' ', '$');
                 aux = aux.replace('?', '+');
                 AdministrativeNodeClient a = new AdministrativeNodeClient(feedbackView.getContext());
@@ -105,8 +105,6 @@ public class FeedbackFragment extends android.support.v4.app.Fragment {
             progress.dismiss();
             Toast toast = Toast.makeText(context, "Sua avaliacao foi registrada com sucesso.", Toast.LENGTH_LONG);
             toast.show();
-
         }
     }
-
 }

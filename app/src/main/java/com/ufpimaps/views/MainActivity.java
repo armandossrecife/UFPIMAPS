@@ -83,7 +83,6 @@ public class MainActivity extends ActionBarActivity
 
         Firebase.setAndroidContext(this);//Servico de WebService com Restful
         Firebase myFirebaseRef = new Firebase("https://ufpimaps.firebaseio.com/");//Cria a referencia pro servidor
-        // Get a reference to our posts
 
         myFirebaseRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -222,8 +221,6 @@ public class MainActivity extends ActionBarActivity
             MapFragment mapFragment = ((ApplicationObject) getApplication()).mapa;//new MapFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.replace(R.id.container, mapFragment, "mapFragment");
-            //args.putInt("mapType", position);
-            //mapFragment.setArguments(args);
             ft.commit();
         } else if (position == 5) {
             FeedbackFragment feedbackFragment = new FeedbackFragment();

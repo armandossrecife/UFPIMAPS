@@ -10,7 +10,7 @@ import com.ufpimaps.R;
 /**
  * Created by HugoPiauilino on 07/05/15.
  */
-public class CollaboratorsActivity extends Activity{
+public class CollaboratorsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

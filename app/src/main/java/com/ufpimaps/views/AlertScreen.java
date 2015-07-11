@@ -7,7 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class AlertScreen extends Activity{
+public class AlertScreen extends Activity {
 
     Context context;
 
@@ -21,20 +21,20 @@ public class AlertScreen extends Activity{
         super.onCreate(savedInstanceState);
         this.context = this;
         Bundle parametros = getIntent().getExtras();
-        if(parametros != null){
+        if (parametros != null) {
             titulo = getIntent().getStringExtra("titulo");
             mensagem = getIntent().getStringExtra("mensagem");
             acaoPositiva = getIntent().getParcelableExtra("acaoPositiva");
             acaoNegativa = getIntent().getParcelableExtra("acaoNegativa");
             criarTelaDeAlerta();
-        }else{
+        } else {
             finish();
         }
 
     }
 
 
-    public void criarTelaDeAlerta(){
+    public void criarTelaDeAlerta() {
 
         AlertDialog.Builder alerta = new AlertDialog.Builder(context);
 
@@ -45,10 +45,10 @@ public class AlertScreen extends Activity{
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent returnIntent = new Intent();
-                        if(acaoPositiva != null){
+                        if (acaoPositiva != null) {
                             context.startActivity(acaoPositiva);
                         }
-                        setResult(RESULT_OK,returnIntent);
+                        setResult(RESULT_OK, returnIntent);
                         finish();
                     }
                 })
@@ -57,11 +57,11 @@ public class AlertScreen extends Activity{
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent returnIntent = new Intent();
-                        if(acaoNegativa != null){
+                        if (acaoNegativa != null) {
                             context.startActivity(acaoNegativa);
                             dialog.cancel();
                         }
-                        setResult(RESULT_CANCELED,returnIntent);
+                        setResult(RESULT_CANCELED, returnIntent);
                         finish();
                     }
                 })

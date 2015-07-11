@@ -4,13 +4,11 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethod;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -46,7 +44,6 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment {
     private String[] search;
     private GeoPointsDatabase bancoDeDados;
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         traceRouteView = inflater.inflate(R.layout.fragment_trace_route, container, false);
@@ -55,13 +52,13 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment {
         originEditText.setThreshold(1);
         destinationEditText = (AutoCompleteTextView) traceRouteView.findViewById(R.id.destinationEditText);
         destinationEditText.setThreshold(1);
-        bancoDeDados = ((MainActivity)getActivity()).getGeoPointsDatabase();
+        bancoDeDados = ((MainActivity) getActivity()).getGeoPointsDatabase();
 
         return traceRouteView;
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         ArrayList<String> descricoes = bancoDeDados.getNodesNames();
         search = new String[descricoes.size()];
@@ -95,9 +92,9 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment {
                     Toast.makeText(getActivity().getApplicationContext(), "Ponto de Origem é igual ao Ponto de Destino!", Toast.LENGTH_LONG).show();
                 } else {
                     InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getBaseContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
-                            ((MainActivity) getActivity()).onNavigationDrawerItemSelected(2);
-                    AsyncTaskTraceRoute tracarRota = new AsyncTaskTraceRoute(((MainActivity)getActivity()).getGeoPointsDatabase(), ((ApplicationObject) getActivity().getApplicationContext()).mapa);
+                    inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                    ((MainActivity) getActivity()).onNavigationDrawerItemSelected(2);
+                    AsyncTaskTraceRoute tracarRota = new AsyncTaskTraceRoute(((MainActivity) getActivity()).getGeoPointsDatabase(), ((ApplicationObject) getActivity().getApplicationContext()).mapa);
                     tracarRota.execute(origin, destination);
                 }
             }
@@ -108,7 +105,6 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    //Toast.makeText(getActivity().getBaseContext(),"Search Clicado!",Toast.LENGTH_LONG).show();
                     traceRouteButton.callOnClick();
                 }
                 return false;

@@ -33,7 +33,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     private MapView mapView;
     private GoogleMap googleMap;
     private int tipoDeMapa = 0;
-    private Marker marker;
     private Polyline polyline;
 
 
@@ -60,15 +59,6 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
         }
 
-        //list = new ArrayList<LatLng>();
-        //list.add(new LatLng(-5.055527, -42.788745));
-        //list.add(new LatLng(-5.056282, -42.78844));
-
-        //getRoute(new LatLng(-5.055527, -42.788745), new LatLng(-5.056282, -42.78844));
-        //drawRoute();
-
-        //getDistance();
-
         mudarTipoDeMapa();
 
         return view;
@@ -78,23 +68,18 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     @Override
     public void onResume() {
         mapView.onResume();
-
         super.onResume();
-
-        //getRoute(new LatLng(-5.055527, -42.788745), new LatLng(-5.056282, -42.78844));
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-
         mapView.onDestroy();
     }
 
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-
         mapView.onLowMemory();
     }
 
@@ -118,26 +103,9 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     public void customAddMarker(LatLng latLng, String title, String snippet) {
         MarkerOptions options = new MarkerOptions();
         options.position(latLng).title(title).snippet(snippet).draggable(true);
-        marker = googleMap.addMarker(options);
-        //marker.showInfoWindow();
+        Marker marker = googleMap.addMarker(options);
+        marker.showInfoWindow();
     }
-
-
-
-    /*
-    public void getDistance() {
-        double distance = 0;
-
-        for (int i = 0, tam = list.size(); i < tam; i++) {
-            if (i < tam - 1) {
-                distance += distance(list.get(i), list.get(i + 1));
-            }
-        }
-
-        Log.i("Distancia", String.valueOf(distance));
-    }
-    */
-
 
     public void devolveListaDeGeoPoints(List<LatLng> geopointList, Node originNode, Node destinationNode) {
         drawRoute(geopointList, originNode, destinationNode);
