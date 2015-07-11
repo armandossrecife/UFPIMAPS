@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- * Classe que testa se a conexão do usuário com a internet está ativada.
+ * Classe que testa se a conexão do usuário com a internet está ativada (Wifi e Dados Móveis).
  * Created by zenote on 29/05/2015.
  */
 public class TestConnection {
@@ -14,6 +14,7 @@ public class TestConnection {
 
     /**
      * Construtor da classe TestConnection
+     *
      * @param context
      */
     public TestConnection(Context context) {
@@ -26,8 +27,7 @@ public class TestConnection {
      * @return Conectado - True | Desconectado - False
      */
     public boolean isConnected() {
-        ConnectivityManager connectivity =
-                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (connectivity != null) {
             NetworkInfo netInfo = connectivity.getActiveNetworkInfo();
@@ -47,5 +47,4 @@ public class TestConnection {
             return false;
         }
     }
-
 }
