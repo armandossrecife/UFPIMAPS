@@ -2,7 +2,6 @@ package com.ufpimaps.views;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -22,38 +21,29 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
 import com.ufpimaps.R;
 import com.ufpimaps.controllers.TestConnection;
 import com.ufpimaps.models.ApplicationObject;
 import com.ufpimaps.models.GeoPointsDatabase;
 
-import java.text.BreakIterator;
-
 /**
  * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
  * Drawer ao Navigation Drawer
+ * Created by HugoPiauilino on 12/03/15.
  */
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        AnchorsFragment.OnFragmentInteractionListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+        AnchorsFragment.OnFragmentInteractionListener {
 
-    public static final int TELA_ALERTA_TENTATIVA_1 = 1;
-    public static final int TELA_ALERTA_TENTATIVA_2 = 2;
+
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
     private ArrayAdapter<String> mAdapter;
     private int mCurrentSelectedPosition = 2;
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
-    private Bundle args = new Bundle();
     private GeoPointsDatabase geoPointsDatabase = new GeoPointsDatabase(this);
     private TestConnection testaConexao;
-    private Location mLastLocation;
-    private GoogleApiClient mGoogleApiClient;
-    private BreakIterator mLatitudeText, mLongitudeText;
     private FragmentManager fragmentManager = getSupportFragmentManager();
 
 
@@ -109,8 +99,6 @@ public class MainActivity extends ActionBarActivity
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });
-
-        buildGoogleApiClient();
     }
 
     private void addDrawerItems() {
@@ -173,7 +161,8 @@ public class MainActivity extends ActionBarActivity
     @Override
     protected void onActivityResult(int tipoDeConexaoRequisitada, int resultado, Intent dadosRetornados) {
         super.onActivityResult(tipoDeConexaoRequisitada, resultado, dadosRetornados);
-
+        final int TELA_ALERTA_TENTATIVA_1 = 1;
+        final int TELA_ALERTA_TENTATIVA_2 = 2;
         if (tipoDeConexaoRequisitada == TELA_ALERTA_TENTATIVA_1) {
             if (resultado == RESULT_OK) {
                 if (testaConexao.isConnected()) {
@@ -303,32 +292,4 @@ public class MainActivity extends ActionBarActivity
         onNavigationDrawerItemSelected(position);
     }
 
-    protected synchronized void buildGoogleApiClient() {
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-    }
-
-    @Override
-    public void onConnected(Bundle connectionHint) {
-        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
-                mGoogleApiClient);
-        if (mLastLocation != null) {
-            mLatitudeText.setText(String.valueOf(mLastLocation.getLatitude()));
-            mLongitudeText.setText(String.valueOf(mLastLocation.getLongitude()));
-        }
-    }
-
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-
-    }
 }

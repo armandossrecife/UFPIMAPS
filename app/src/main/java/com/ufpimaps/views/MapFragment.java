@@ -139,8 +139,8 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     */
 
 
-    public void devolveListaDeGeoPoints(List<LatLng> lista, Node origem, Node destino) {
-        drawRoute(lista, origem, destino);
+    public void devolveListaDeGeoPoints(List<LatLng> geopointList, Node originNode, Node destinationNode) {
+        drawRoute(geopointList, originNode, destinationNode);
     }
 
     public void drawRoute(List<LatLng> list, Node origem, Node destino) {

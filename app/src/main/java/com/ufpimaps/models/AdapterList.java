@@ -1,7 +1,7 @@
 package com.ufpimaps.models;
 
 /**
- * Created by HugoPiauilino on 12/05/15.
+ *
  */
 
 import android.app.Activity;

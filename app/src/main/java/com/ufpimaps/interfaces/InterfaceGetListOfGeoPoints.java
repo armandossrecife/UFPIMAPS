@@ -11,10 +11,10 @@ import java.util.List;
  */
 public interface InterfaceGetListOfGeopoints {
     /**
-     *
-     * @param lista Lista de
-     * @param origem
-     * @param destino
+     * Método que permite o acesso à lista de geopoints
+     * @param geopointList Lista de geopoints
+     * @param originNode Nó de Origem
+     * @param destinationNode Nó de Destino
      */
-    void devolveListaDeGeoPoints(List<LatLng> lista, Node origem, Node destino);
+    void devolveListaDeGeoPoints(List<LatLng> geopointList, Node originNode, Node destinationNode);
 }
