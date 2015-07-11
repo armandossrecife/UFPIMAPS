@@ -3,7 +3,6 @@ package com.ufpimaps.system;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 
-import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.ufpimaps.interfaces.InterfaceGetListOfGeopoints;
 import com.ufpimaps.models.GeoPointsDatabase;
@@ -26,7 +25,6 @@ import java.util.List;
  */
 public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
 
-    private GoogleMap googleMap;
     private GeoPointsDatabase bancoDeDados;
     private InterfaceGetListOfGeopoints interfaceMapFragment;
     private Node origem;
@@ -34,6 +32,7 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
 
     /**
      * Construtor da classe AsyncTaskTraceRoute
+     *
      * @param bancoDeDados
      * @param interfaceMapFragment
      */
@@ -51,9 +50,10 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
     }
 
     /**
-     * Método que recebe os pontos inicial e final e devolve uma string contendo a rota traçada.
+     * Método que recebe os pontos inicial e final e devolve uma string contendo os geopoints da rota.
+     *
      * @param descricoes Pontos inicial e final
-     * @return Rota traçada
+     * @return Json com os geopoints da rota tracada
      */
     @Override
     protected String doInBackground(String... descricoes) {
@@ -84,8 +84,10 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
     }
 
     /**
+     * Método que é executado quando a execução da thread assincrona termina, devolvendo o controle
+     * ao fragmento do mapa
      *
-     * @param answer
+     * @param answer Json com os geopoints da rota tracada
      */
     @Override
     protected void onPostExecute(String answer) {
@@ -101,16 +103,18 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
     }
 
     /**
+     * Método que separa o json recebido em objetos LatLng para a criação da rota
      *
-     * @param json
-     * @return
+     * @param json Json contendo todos os geopoints da rota
+     * @return Lista com os objetos LatLng retornados no Json
      * @throws JSONException
      */
     public List<LatLng> buildJSONRoute(String json) throws JSONException {
         JSONObject result = new JSONObject(json);
         JSONArray routes = result.getJSONArray("routes");
 
-        long distance = routes.getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("distance").getInt("value");
+        //Possivelmente será desejado descobrir a distancia da rota (Para isso, descomente esse método).
+        //long distance = routes.getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("distance").getInt("value");
 
         JSONArray steps = routes.getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONArray("steps");
         List<LatLng> lines = new ArrayList<LatLng>();
@@ -127,6 +131,7 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
     }
 
     /**
+     * Método que separa cada parte do Json e atribui à sua colocação correta
      *
      * @param encoded
      * @return
@@ -163,18 +168,3 @@ public class AsyncTaskTraceRoute extends AsyncTask<String, Void, String> {
         return listPoints;
     }
 }
-
-    /*
-    public double distance(LatLng StartP, LatLng EndP) {
-        double lat1 = StartP.latitude;
-        double lat2 = EndP.latitude;
-        double lon1 = StartP.longitude;
-        double lon2 = EndP.longitude;
-        double dLat = Math.toRadians(lat2 - lat1);
-        double dLon = Math.toRadians(lon2 - lon1);
-        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        double c = 2 * Math.asin(Math.sqrt(a));
-        return 6366000 * c;
-
-    }
-    */
