@@ -1,4 +1,5 @@
 HOW TO SETUP ENVIRONMENT - ANDROID STUDIO COM GITHUB
+==
  
 * 1) Criar uma conta no GitHub (https://github.com);
 * 2) Baixar git para o seu sistema operacional (http://git-scm.com/downloads).
