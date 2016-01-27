@@ -9,4 +9,8 @@ import com.ufpimaps.views.MapFragment;
  */
 public class ApplicationObject extends Application{
     public MapFragment mapa = new MapFragment();
+
+    public void setMap(MapFragment map){
+        this.mapa = map;
+    }
 }

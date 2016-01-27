@@ -212,17 +212,33 @@ public class MainActivity extends ActionBarActivity
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.replace(R.id.container, anchorsFragment, "anchorsFragment");
             ft.commit();
-        } else if (position == 1) {
+        }else if (position == 1) {
             TraceRouteFragment traceRouteFragment = new TraceRouteFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.replace(R.id.container, traceRouteFragment, "traceRouteFragment");
             ft.commit();
-        } else if (position == 2 || position == 3 || position == 4) {
-            MapFragment mapFragment = ((ApplicationObject) getApplication()).mapa;//new MapFragment();
+        }else if (position == 2) {
+            MapFragment mapFragment = new MapFragment();//new MapFragment();
+            ((ApplicationObject) getApplication()).setMap(mapFragment);
             FragmentTransaction ft = fragmentManager.beginTransaction();
+            mapFragment.setTipoDeMapa(position);
             ft.replace(R.id.container, mapFragment, "mapFragment");
             ft.commit();
-        } else if (position == 5) {
+        }else if (position == 3) {
+            MapFragment mapFragment = new MapFragment();//new MapFragment();
+            ((ApplicationObject) getApplication()).setMap(mapFragment);
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            mapFragment.setTipoDeMapa(position);
+            ft.replace(R.id.container, mapFragment, "mapFragment");
+            ft.commit();
+        }else if (position == 4) {
+            MapFragment mapFragment = new MapFragment();//new MapFragment();
+            ((ApplicationObject) getApplication()).setMap(mapFragment);
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            mapFragment.setTipoDeMapa(position);
+            ft.replace(R.id.container, mapFragment, "mapFragment");
+            ft.commit();
+        }else if (position == 5) {
             FeedbackFragment feedbackFragment = new FeedbackFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.replace(R.id.container, feedbackFragment, "feedbackFragment");

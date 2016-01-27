@@ -131,23 +131,19 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         }
     }
 
+    public void setTipoDeMapa(int tipoDeMapa) {
+        this.tipoDeMapa = tipoDeMapa;
+    }
 
     public void mudarTipoDeMapa() {
 
         Log.i("TipoMapa", "Entrou no mudarTipoDeMapa");
-
-        try {
-            tipoDeMapa = getArguments().getInt("mapType") - 2;
-        } catch (NullPointerException e) {
-            tipoDeMapa = 1;
-        }
-
         Log.i("TipoMapa", "tipoDeMapa = " + tipoDeMapa);
         switch (tipoDeMapa) {
-            case 1:
+            case 2:
                 googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                 break;
-            case 2:
+            case 4:
                 googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
                 break;
             case 3:
