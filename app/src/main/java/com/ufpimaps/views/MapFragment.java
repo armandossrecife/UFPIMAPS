@@ -32,7 +32,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     private static final LatLng ufpiLocation = new LatLng(-5.057772, -42.797009);
     private MapView mapView;
     private GoogleMap googleMap;
-    private int tipoDeMapa = 0;
+    private int tipoDeMapa = 2; //Mapa Normal
     private Polyline polyline;
 
 
@@ -133,6 +133,10 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
     public void setTipoDeMapa(int tipoDeMapa) {
         this.tipoDeMapa = tipoDeMapa;
+    }
+
+    public int getTipoDeMapa() {
+        return tipoDeMapa;
     }
 
     public void mudarTipoDeMapa() {

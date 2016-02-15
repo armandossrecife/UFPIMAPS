@@ -93,7 +93,8 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment {
                 } else {
                     InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getBaseContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                     inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-                    ((MainActivity) getActivity()).onNavigationDrawerItemSelected(2);
+                    int tipoDeMapa = ((ApplicationObject) getActivity().getApplication()).mapa.getTipoDeMapa(); //Tipo de mapa que esta selecionado no momento
+                    ((MainActivity) getActivity()).onNavigationDrawerItemSelected(tipoDeMapa);
                     AsyncTaskTraceRoute tracarRota = new AsyncTaskTraceRoute(((MainActivity) getActivity()).getGeoPointsDatabase(), ((ApplicationObject) getActivity().getApplicationContext()).mapa);
                     tracarRota.execute(origin, destination);
                 }
