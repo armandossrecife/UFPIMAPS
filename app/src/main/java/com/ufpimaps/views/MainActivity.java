@@ -100,6 +100,13 @@ public class MainActivity extends ActionBarActivity
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        getSupportActionBar().setTitle("UFPI Maps");
+
+    }
+
     private void addDrawerItems() {
         String[] titles = {
                 getString(R.string.title_section_anchors),
@@ -210,11 +217,13 @@ public class MainActivity extends ActionBarActivity
         if (position == 0) {
             AnchorsFragment anchorsFragment = new AnchorsFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.addToBackStack(null); //Para o botao voltar nao sair da aplicacao
             ft.replace(R.id.container, anchorsFragment, "anchorsFragment");
             ft.commit();
         }else if (position == 1) {
             TraceRouteFragment traceRouteFragment = new TraceRouteFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.addToBackStack(null); //Para o botao voltar nao sair da aplicacao
             ft.replace(R.id.container, traceRouteFragment, "traceRouteFragment");
             ft.commit();
         }else if (position == 2) {
@@ -241,11 +250,13 @@ public class MainActivity extends ActionBarActivity
         }else if (position == 5) {
             FeedbackFragment feedbackFragment = new FeedbackFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.addToBackStack(null); //Para o botao voltar nao sair da aplicacao
             ft.replace(R.id.container, feedbackFragment, "feedbackFragment");
             ft.commit();
         } else if (position == 6) {
             AboutFragment aboutFragment = new AboutFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.addToBackStack(null); //Para o botao voltar nao sair da aplicacao
             ft.replace(R.id.container, aboutFragment, "aboutFragment");
             ft.commit();
         }
