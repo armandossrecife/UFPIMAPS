@@ -22,6 +22,7 @@ import com.ufpimaps.models.ApplicationObject;
 import com.ufpimaps.models.Node;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * A fragment representing a list of Items.
@@ -120,28 +121,17 @@ public class AnchorsFragment extends android.support.v4.app.Fragment implements 
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (null != mListener) {
-            // Notify the active callbacks interface (the activity, if the
-            // fragment is attached to one) that an item has been selected.
-            String type = AnchorsList.ITEMS.get(position).getId().toString();
-            mListener.onFragmentInteraction(AnchorsList.ITEMS.get(position).getId());
-            Toast.makeText(getActivity(), type + " clicado!", Toast.LENGTH_SHORT).show();
-            List<Node> nodes = ((MainActivity) getActivity()).getGeoPointsDatabase().selectByType(type);
-            if (nodes.size() > 0) {
-                MapFragment mapFragment = ((ApplicationObject) getActivity().getApplication()).mapa;
-                for (Node n : nodes) {
-                    LatLng latLng = new LatLng(n.getLocalization().latitude, n.getLocalization().longitude);
-                    mapFragment.customAddMarker(latLng, n.getName(), n.getDescription());
-                }
+        int tipoDeMapa = ((ApplicationObject) getActivity().getApplication()).mapa.getTipoDeMapa(); //Pega o tipo do mapa atual
+        MapFragment mapFragment = new MapFragment(); //Cria novo mapa
+        mapFragment.setTipoDeMapa(tipoDeMapa); //Coloca o tipo do mapa igual ao anterior
+        mapFragment.setType(String.valueOf(position)); //Informa o tipo de marcadores que serao adicionados ao mapa
 
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.container, mapFragment, "mapFragment");
-                ft.commit();
+        ((ApplicationObject) getActivity().getApplication()).setMap(mapFragment);
 
-            }
-
-        }
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.container, mapFragment, "mapFragment");
+        ft.commit();
     }
 
     /**

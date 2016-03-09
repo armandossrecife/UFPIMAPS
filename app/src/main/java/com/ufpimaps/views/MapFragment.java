@@ -34,6 +34,7 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
     private GoogleMap googleMap;
     private int tipoDeMapa = 2; //Mapa Normal
     private Polyline polyline;
+    private String type = null; //Tipo do marcador
 
 
     @Override
@@ -98,6 +99,8 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 .tilt(30)                   // Sets the tilt of the camera to 30 degrees
                 .build();                   // Creates a CameraPosition from the builder
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+        addMarkerByType(type); //Adiciona marcadores ao mapa
     }
 
     public void customAddMarker(LatLng latLng, String title, String snippet) {
@@ -106,6 +109,19 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         Marker marker = googleMap.addMarker(options);
         marker.showInfoWindow();
     }
+
+    public void addMarkerByType(String type){
+        if(type != null) {
+            List<Node> nodes = ((MainActivity) getActivity()).getGeoPointsDatabase().selectByType(type);
+            if (nodes.size() > 0) {
+                for (Node n : nodes) {
+                    LatLng latLng = new LatLng(n.getLocalization().latitude, n.getLocalization().longitude);
+                    customAddMarker(latLng, n.getName(), n.getDescription());
+                }
+            }
+        }
+    }
+
 
     public void devolveListaDeGeoPoints(List<LatLng> geopointList, Node originNode, Node destinationNode) {
         drawRoute(geopointList, originNode, destinationNode);
@@ -139,10 +155,14 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
         return tipoDeMapa;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public void mudarTipoDeMapa() {
 
-        Log.i("TipoMapa", "Entrou no mudarTipoDeMapa");
-        Log.i("TipoMapa", "tipoDeMapa = " + tipoDeMapa);
+        //Log.i("TipoMapa", "Entrou no mudarTipoDeMapa");
+        //Log.i("TipoMapa", "tipoDeMapa = " + tipoDeMapa);
         switch (tipoDeMapa) {
             case 2:
                 googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);

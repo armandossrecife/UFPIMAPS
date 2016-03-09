@@ -227,21 +227,21 @@ public class MainActivity extends ActionBarActivity
             ft.replace(R.id.container, traceRouteFragment, "traceRouteFragment");
             ft.commit();
         }else if (position == 2) {
-            MapFragment mapFragment = new MapFragment();//new MapFragment();
+            MapFragment mapFragment = new MapFragment();
             ((ApplicationObject) getApplication()).setMap(mapFragment);
             FragmentTransaction ft = fragmentManager.beginTransaction();
             mapFragment.setTipoDeMapa(position);
             ft.replace(R.id.container, mapFragment, "mapFragment");
             ft.commit();
         }else if (position == 3) {
-            MapFragment mapFragment = new MapFragment();//new MapFragment();
+            MapFragment mapFragment = new MapFragment();
             ((ApplicationObject) getApplication()).setMap(mapFragment);
             FragmentTransaction ft = fragmentManager.beginTransaction();
             mapFragment.setTipoDeMapa(position);
             ft.replace(R.id.container, mapFragment, "mapFragment");
             ft.commit();
         }else if (position == 4) {
-            MapFragment mapFragment = new MapFragment();//new MapFragment();
+            MapFragment mapFragment = new MapFragment();
             ((ApplicationObject) getApplication()).setMap(mapFragment);
             FragmentTransaction ft = fragmentManager.beginTransaction();
             mapFragment.setTipoDeMapa(position);

@@ -204,14 +204,20 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        while (cursor.moveToFirst()) {
+        while (cursor.moveToNext()) {
             Node node = new Node();
-            node.setId(Integer.parseInt(cursor.getString(0)));
-            node.setName(cursor.getString(1));
-            LatLng localization = new LatLng(cursor.getDouble(5), cursor.getDouble(6));
-            node.setLocalization(localization);
-            nodes.add(node);
 
+            node.setId(cursor.getInt(0));
+            node.setName(cursor.getString(1));
+            node.setDescription(cursor.getString(2));
+            node.setType(cursor.getInt(3));
+            node.setServices(cursor.getString(4));
+            node.setLocalization(new LatLng(cursor.getDouble(5), cursor.getDouble(6)));
+            node.setEmail(cursor.getString(7));
+            node.setWebsite(cursor.getString(8));
+            node.setPhone(cursor.getString(9));
+
+            nodes.add(node);
         }
         return nodes;
 

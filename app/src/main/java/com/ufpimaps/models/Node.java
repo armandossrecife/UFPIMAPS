@@ -67,36 +67,60 @@ public class Node {
         this.name = name;
     }
 
-    public void setLocalization(LatLng localization) {
-        this.localization = localization;
-    }
-
-    public LatLng getLocalization() {
-        return localization;
-    }
-
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Integer getType() {
         return type;
     }
 
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
     public String getServices() {
         return services;
+    }
+
+    public void setServices(String services) {
+        this.services = services;
+    }
+
+    public LatLng getLocalization() {
+        return localization;
+    }
+
+    public void setLocalization(LatLng localization) {
+        this.localization = localization;
     }
 
     public String getEmail() {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getWebsite() {
         return website;
     }
 
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
     public String getPhone() {
         return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
 
