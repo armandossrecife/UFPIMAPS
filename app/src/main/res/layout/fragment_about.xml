@@ -88,6 +88,22 @@
         android:text="@string/desenvolvedor_roney" />
 
     <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView8"
+        android:layout_centerHorizontal="true"
+        android:text="@string/desenvolvedor_renato" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView11"
+        android:layout_centerHorizontal="true"
+        android:text="@string/desenvolvedor_valeska" />
+
+    <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -101,7 +117,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView8"
+        android:layout_below="@+id/textView12"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp"
         android:text="@string/button_colaboradores" />

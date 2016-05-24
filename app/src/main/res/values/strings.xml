@@ -16,6 +16,8 @@
     <string name="desenvolvedor_hugo">Hugo Piauilino</string>
     <string name="desenvolvedor_jose">José de Oliveira</string>
     <string name="desenvolvedor_francisco">Francisco Carlos</string>
+    <string name="desenvolvedor_renato">Renato Souza</string>
+    <string name="desenvolvedor_valeska">Valeska Uchôa</string>
 
     <string name="departamento">Departamento de Computação - UFPI</string>
     <string name="departamento2">Núcleo de Tecnologia da Informação - NTI</string>
@@ -48,7 +50,7 @@
     <string name="action_settings">Avalie-nos!</string>
     <string name="action_settings2">Sobre</string>
 
-    <string name="api_key">AIzaSyATzJ3J1_wdR_dkBLWU2gOc4PiSAGbc_g8</string>
+    <string name="api_key">AIzaSyB6w-yATtPK8Kya5YSUoXtg6fyc3CEisJ0</string>
 
     <string name="origin_title">Origem</string>
     <string name="destination_title">Destino</string>
@@ -57,6 +59,7 @@
 
     <!--
     Lista das API-KEYS utilizadas:
+    Renato Souza: AIzaSyB6w-yATtPK8Kya5YSUoXtg6fyc3CEisJ0
 
     Hugo Piauilino: AIzaSyDXLEO_RXbR8x4NUAjWb7hGNCnMQ5KCWro
     Francisco Carlos Silva Junior: AIzaSyCKei5S6Nwf_u0FBhuiaAxntIZuKGcXYpQ
