@@ -17,14 +17,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
+//import com.firebase.client.DataSnapshot;
+//import com.firebase.client.Firebase;
+//import com.firebase.client.FirebaseError;
+//import com.firebase.client.ValueEventListener;
 import com.ufpimaps.R;
 import com.ufpimaps.controllers.TestConnection;
 import com.ufpimaps.models.ApplicationObject;
 import com.ufpimaps.models.GeoPointsDatabase;
+import com.ufpimaps.models.Node;
+
+import java.util.List;
 
 /**
  * Classe Main Activy que gerencia a interface principal da aplicacao e delega as atividades do
@@ -33,7 +36,7 @@ import com.ufpimaps.models.GeoPointsDatabase;
  */
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        AnchorsFragment.OnFragmentInteractionListener {
+        AnchorsFragment.OnFragmentInteractionListener,DownloadJsonAsyncTask.AsyncResponse {
 
 
     private ListView mDrawerList;
@@ -46,6 +49,8 @@ public class MainActivity extends ActionBarActivity
     private TestConnection testaConexao;
     private FragmentManager fragmentManager = getSupportFragmentManager();
 
+
+    DownloadJsonAsyncTask asyncTask = new DownloadJsonAsyncTask();
 
     /**
      * Metodo executado na criacao da activity main (principal) e seta todos os parametros
@@ -81,23 +86,16 @@ public class MainActivity extends ActionBarActivity
             criarTelaDeAlerta("Sem conexão", "Inciar Conexão WiFi?", iniciarWifi, null, 1);
         }
 
-        Firebase.setAndroidContext(this);//Servico de WebService com Restful
-        Firebase myFirebaseRef = new Firebase("https://ufpimaps.firebaseio.com/");//Cria a referencia pro servidor
 
-        myFirebaseRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                Toast.makeText(getBaseContext(), "Atualizando banco de dados!", Toast.LENGTH_SHORT).show();
-                geoPointsDatabase.populateDatabase(snapshot);
-                Toast.makeText(getBaseContext(), "Banco de dados atualizado!", Toast.LENGTH_SHORT).show();
-            }
+        //manda o json para ser lido em uma asyncTask
+        asyncTask.delegate = this;
+        asyncTask.execute("http://www.ufpi.br/ufpimaps-export.json");
 
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-                Toast.makeText(getBaseContext(), "Falha na atualização do banco de dados!", Toast.LENGTH_SHORT).show();
-                System.out.println("The read failed: " + firebaseError.getMessage());
-            }
-        });
+    }
+
+    @Override
+    public void processFinish(List<Node> nodes) {
+        geoPointsDatabase.populateDatabase(nodes);
     }
 
     @Override
@@ -315,5 +313,6 @@ public class MainActivity extends ActionBarActivity
         }
         onNavigationDrawerItemSelected(position);
     }
+
 
 }

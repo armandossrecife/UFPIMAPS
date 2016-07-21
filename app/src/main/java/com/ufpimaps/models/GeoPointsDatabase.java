@@ -5,8 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
-import com.firebase.client.DataSnapshot;
+//import com.firebase.client.DataSnapshot;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
@@ -226,24 +227,16 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
     /**
      * Método que popula o banco de dados interno da aplicação utilizando o Firebase
      *
-     * @param snapshot Contém a ultima versão do banco de dados do web service
+     * @param nodes Contém a ultima versão do banco de dados do web service
      */
-    public void populateDatabase(DataSnapshot snapshot) {
+    public void populateDatabase(List<Node> nodes) {
         SQLiteDatabase db = this.getWritableDatabase();
         onUpgrade(db, DATABASE_VERSION, DATABASE_VERSION + 1);
-        ArrayList<HashMap> fireB = (ArrayList<HashMap>) snapshot.getValue();
-        HashMap nodeHash;
-        HashMap localizationHash;
-        Node no;
-        for (int i = 0; i < fireB.size(); i++) {
-            nodeHash = fireB.get(i);
-            Long idLong = (Long) nodeHash.get("id");
-            Integer idInteger = Integer.valueOf(idLong.intValue());
-            Long typeLong = (Long) nodeHash.get("type");
-            Integer typeInteger = Integer.valueOf(typeLong.intValue());
-            localizationHash = (HashMap) nodeHash.get("localization");
-            no = new Node(idInteger, (String) nodeHash.get("name"), (String) nodeHash.get("description"), typeInteger, (String) nodeHash.get("services"), new LatLng((Double) localizationHash.get("latitude"), (Double) localizationHash.get("longitude")), (String) nodeHash.get("email"), (String) nodeHash.get("website"), (String) nodeHash.get("phone"));
-            addNode(no);
+
+        if(nodes!=null){
+            for(Node n : nodes){
+                addNode(n);
+            }
         }
     }
 }
