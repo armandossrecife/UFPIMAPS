@@ -1,5 +1,6 @@
 package com.ufpimaps.views;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -83,15 +84,20 @@ public class MainActivity extends ActionBarActivity
             geraMapa();
         } else {
             Intent iniciarWifi = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS);
-            criarTelaDeAlerta("Sem conexão", "Inciar Conexão WiFi?", iniciarWifi, null, 1);
+            criarTelaDeAlerta("Sem conexão", "Iniciar Conexão WiFi?", iniciarWifi, null, 1);
         }
 
 
         //manda o json para ser lido em uma asyncTask
+
+        JsonClass.setContext(this);
         asyncTask.delegate = this;
+        //asyncTask.execute("https://api.myjson.com/bins/3ygnv");
+
         asyncTask.execute("http://www.ufpi.br/ufpimaps-export.json");
 
     }
+
 
     @Override
     public void processFinish(List<Node> nodes) {

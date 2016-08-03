@@ -1,6 +1,8 @@
 package com.ufpimaps.models;
 
 import android.app.Application;
+import android.content.Context;
+
 import com.ufpimaps.views.MapFragment;
 
 /**

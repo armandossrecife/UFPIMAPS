@@ -1,7 +1,9 @@
 package com.ufpimaps.views;
 
-import android.os.Build;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.ufpimaps.models.Node;
@@ -28,86 +30,65 @@ import java.util.List;
  */
 public class JsonClass {
 
-    InputStream input = null;
+    private InputStream input = null;
+
     //JSONObject jObject = null;
-    JSONArray jArray = null;
-    String json = "";
+    private JSONArray jArray = null;
+    private String json = "";
+    private static Context mContext = null;
+
+    public static void setContext(Context mContext) {
+        JsonClass.mContext = mContext;
+    }
+
+    public static Context getContext() {
+        return mContext;
+    }
 
     //Recebe sua url
-    private void getJSONFromUrl(String url) {
+    private void getJSONFromUrl(String url) throws IOException, JSONException {
 
-        //HTTP request
-        try {
-            // default HttpClient
-            DefaultHttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost(url);
+        DefaultHttpClient httpClient = new DefaultHttpClient();
+        HttpPost httpPost = new HttpPost(url);
 
-            HttpResponse httpResponse = httpClient.execute(httpPost);
-            HttpEntity httpEntity = httpResponse.getEntity();
-            input = httpEntity.getContent();
+        HttpResponse httpResponse = httpClient.execute(httpPost);
+        HttpEntity httpEntity = httpResponse.getEntity();
+        input = httpEntity.getContent();
 
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(input, "UTF-8"), 8);
+        StringBuilder sb = new StringBuilder();
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            sb.append(line + "\n");
         }
+        input.close();
+        json = sb.toString();
+        Log.i("JRF", json);
 
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(input, "iso-8859-1"), 8);
-            StringBuilder sb = new StringBuilder();
-            String line = null;
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-            input.close();
-            json = sb.toString();
-            Log.i("JRF", json);
-        } catch (Exception e) {
-            Log.e("Buffer Error", "Error converting result " + e.toString());
-        }
 
         // Transforma a String de resposta em um JSonObject
-        try {
+        jArray = new JSONArray(json);
 
-            //jObject = new JSONObject(json.substring(1,json.length()-1));
-            jArray = new JSONArray(json);
-//            for(int i = 0;i< jArray.length();i++){
-//                Log.d("ITEM"+i,String.valueOf(jArray.get(i)));
-//            }
-            //jObject = new JSONArray();
-            //Log.d("TESTE",String.valueOf(jObject));
-        } catch (JSONException e) {
-            Log.e("JSON Parser", "Error parsing data " + e.toString());
-        }
+
     }
 
-    public List<Node> getNodes(String url){
+    public List<Node> getNodes(String url) throws JSONException, IOException {
         getJSONFromUrl(url);
         List<Node> nodes = null;
-        //JSONArray nodesJson = null;
-        try {
-
-            //String jsonStr = jObject.toString();
-            //nodesJson = new JSONArray("["+jsonStr+"]");
-
-            JSONObject node;
-            nodes = new ArrayList<>();
-            for (int i = 0; i<jArray.length(); i++){
-
-                node = new JSONObject(jArray.getString(i));
-                JSONObject lcl = node.getJSONObject("localization");
-                LatLng localization = new LatLng(lcl.getDouble("latitude"),lcl.getDouble("longitude"));
-                Node objetoNode = new Node(node.getInt("id"),node.getString("name"),node.getString("description"),
-                        node.getInt("type"),node.getString("services"),localization,node.getString("email"),
-                        node.getString("website"), node.getString("phone"));
-                nodes.add(objetoNode);
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
+        JSONObject node;
+        nodes = new ArrayList<>();
+        for (int i = 0; i < jArray.length(); i++) {
+            node = new JSONObject(jArray.getString(i));
+            JSONObject lcl = node.getJSONObject("localization");
+            LatLng localization = new LatLng(lcl.getDouble("latitude"), lcl.getDouble("longitude"));
+            Node objetoNode = new Node(node.getInt("id"), node.getString("name"), node.getString("description"),
+                    node.getInt("type"), node.getString("services"), localization, node.getString("email"),
+                    node.getString("website"), node.getString("phone"));
+            nodes.add(objetoNode);
         }
+
         return nodes;
     }
+
+
 }
