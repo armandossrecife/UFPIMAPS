@@ -152,6 +152,38 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
     }
 
     /**
+     * Método que retorna uma lista com o nome de todos os nós existentes no banco de dados.
+     *
+     * @return Lista de Nomes dos Nós existentes no Banco de Dados
+     */
+    public ArrayList<Node> getAllNodes() {
+
+        ArrayList<Node> nodes = new ArrayList<Node>();
+        String selectQuery = "SELECT * FROM " + TABLE_NODE;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        while (cursor.moveToNext()) {
+            Node node = new Node();
+
+            node.setId(cursor.getInt(0));
+            node.setName(cursor.getString(1));
+            node.setDescription(cursor.getString(2));
+            node.setType(cursor.getInt(3));
+            node.setServices(cursor.getString(4));
+            node.setLocalization(new LatLng(cursor.getDouble(5), cursor.getDouble(6)));
+            node.setEmail(cursor.getString(7));
+            node.setWebsite(cursor.getString(8));
+            node.setPhone(cursor.getString(9));
+
+            nodes.add(node);
+        }
+        return nodes;
+
+    }
+
+    /**
      * Método que verifica se determinado nó existe no banco de dados.
      *
      * @param name Nome do nó escolhido
