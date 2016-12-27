@@ -24,7 +24,7 @@ public class Dijkstra {
     private Set<Node> settledNodes;
     private Set<Node> unSettledNodes;
     private Map<Node, Node> predecessors;
-    private Map<Node, Integer> distance;
+    private Map<Node, Double> distance;
 
     public Dijkstra(Graph graph) {
         // Create a copy of the array so that we can operate on this array
@@ -35,9 +35,9 @@ public class Dijkstra {
     public void execute(Node source) {
         settledNodes = new HashSet<Node>();
         unSettledNodes = new HashSet<Node>();
-        distance = new HashMap<Node, Integer>();
+        distance = new HashMap<Node, Double>();
         predecessors = new HashMap<Node, Node>();
-        distance.put(source, 0);
+        distance.put(source, 0.0);
         unSettledNodes.add(source);
         while (unSettledNodes.size() > 0) {
             Node node = getMinimum(unSettledNodes);
@@ -61,7 +61,7 @@ public class Dijkstra {
 
     }
 
-    private int getDistance(Node node, Node target) {
+    private double getDistance(Node node, Node target) {
         for (Edge edge : edges) {
             if (edge.getSource().equals(node)
                     && edge.getDestination().equals(target)) {
@@ -100,10 +100,10 @@ public class Dijkstra {
         return settledNodes.contains(node);
     }
 
-    private int getShortestDistance(Node destination) {
-        Integer d = distance.get(destination);
+    private double getShortestDistance(Node destination) {
+        Double d = distance.get(destination);
         if (d == null) {
-            return Integer.MAX_VALUE;
+            return Double.MAX_VALUE;
         } else {
             return d;
         }
