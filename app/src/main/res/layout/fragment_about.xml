@@ -104,6 +104,14 @@
         android:text="@string/desenvolvedor_valeska" />
 
     <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView12"
+        android:layout_centerHorizontal="true"
+        android:text="@string/desenvolvedor_alan" />
+
+    <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
