@@ -77,17 +77,38 @@ public class JsonClass {
         List<Node> nodes = null;
         JSONObject node;
         nodes = new ArrayList<>();
+        List<String> neighbors = null;
+
         for (int i = 0; i < jArray.length(); i++) {
             node = new JSONObject(jArray.getString(i));
             JSONObject lcl = node.getJSONObject("localization");
             LatLng localization = new LatLng(lcl.getDouble("latitude"), lcl.getDouble("longitude"));
+            JSONArray vizinhos = null;
+            vizinhos = node.getJSONArray("neighbors");
+            neighbors = new ArrayList<String>();
+            int j;
+            for(j = 0; j< vizinhos.length();j++){
+                if( vizinhos.getString(j)!= "") {
+                    neighbors.add(vizinhos.getString(j));
+                    //Log.v(TAG, "Aresta de " + node.getString("name") + " para " + vizinhos.getString(j));
+
+                }
+                //Log.v(TAG, "Vizinhos de " + node.getString("name") + ": " + j);
+            }
+
+
+
+
             Node objetoNode = new Node(node.getInt("id"), node.getString("name"), node.getString("description"),
                     node.getInt("type"), node.getString("services"), localization, node.getString("email"),
-                    node.getString("website"), node.getString("phone"));
+                    node.getString("website"), node.getString("phone"), neighbors);
             nodes.add(objetoNode);
+            neighbors = null;
         }
 
+
         return nodes;
+
     }
 
 

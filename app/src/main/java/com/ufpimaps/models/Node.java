@@ -2,6 +2,9 @@ package com.ufpimaps.models;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Classe que implementa a estrutura de um no.
  * Created by HugoPiauilino on 07/05/15.
@@ -18,6 +21,17 @@ public class Node {
     private String email;
     private String website;
     private String phone;
+    private List<String> neighbors;
+
+    public void setNeighbors(List<String> neighbors) {
+        this.neighbors = neighbors;
+    }
+
+    public List<String> getNeighbors() {
+        return neighbors;
+    }
+
+
 
     /**
      * Construtor da classe Node com suas tipificações.
@@ -32,7 +46,7 @@ public class Node {
      * @param website
      * @param phone
      */
-    public Node(Integer id, String name, String description, Integer type, String services, LatLng localization, String email, String website, String phone) {
+    public Node(Integer id, String name, String description, Integer type, String services, LatLng localization, String email, String website, String phone, List<String> a) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -42,6 +56,9 @@ public class Node {
         this.email = email;
         this.website = website;
         this.phone = phone;
+        this.neighbors = new ArrayList<String>();
+        for(String s: a)
+            this.neighbors.add(s);
     }
 
     /**
@@ -122,6 +139,9 @@ public class Node {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+
+
 }
 
 

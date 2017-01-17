@@ -20,6 +20,7 @@ import com.ufpimaps.R;
 import com.ufpimaps.models.ApplicationObject;
 import com.ufpimaps.models.GeoPointsDatabase;
 import com.ufpimaps.system.AsyncTaskTraceRoute;
+import com.ufpimaps.system.AsyncTaskTraceWalkingRoute;
 
 import java.util.ArrayList;
 
@@ -95,8 +96,10 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment {
                     inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                     int tipoDeMapa = ((ApplicationObject) getActivity().getApplication()).mapa.getTipoDeMapa(); //Tipo de mapa que esta selecionado no momento
                     ((MainActivity) getActivity()).onNavigationDrawerItemSelected(tipoDeMapa);
-                    AsyncTaskTraceRoute tracarRota = new AsyncTaskTraceRoute(((MainActivity) getActivity()).getGeoPointsDatabase(), ((ApplicationObject) getActivity().getApplicationContext()).mapa);
-                    tracarRota.execute(origin, destination);
+                    AsyncTaskTraceWalkingRoute tracarRotaAPe = new AsyncTaskTraceWalkingRoute(((MainActivity) getActivity()).getGeoPointsDatabase(), ((ApplicationObject) getActivity().getApplicationContext()).mapa, ((MainActivity) getActivity()).getGrafo());
+                    //A linha abaixo utiliza a rota traçada pelo Google
+                    //AsyncTaskTraceRoute tracarRota = new AsyncTaskTraceRoute(((MainActivity) getActivity()).getGeoPointsDatabase(), ((ApplicationObject) getActivity().getApplicationContext()).mapa);
+                    tracarRotaAPe.execute(origin, destination);
                 }
             }
         });

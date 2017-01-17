@@ -1,7 +1,7 @@
 package com.ufpimaps.models;
 
 /**
- * Created by LIMCI on 26/12/2016.
+ * Created by Alan R. Andrade on 26/12/2016.
  */
 
 public class Edge {

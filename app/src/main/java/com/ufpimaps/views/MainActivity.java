@@ -25,9 +25,12 @@ import android.widget.Toast;
 import com.ufpimaps.R;
 import com.ufpimaps.controllers.TestConnection;
 import com.ufpimaps.models.ApplicationObject;
+import com.ufpimaps.models.Edge;
 import com.ufpimaps.models.GeoPointsDatabase;
+import com.ufpimaps.models.Graph;
 import com.ufpimaps.models.Node;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,6 +52,9 @@ public class MainActivity extends ActionBarActivity
     private GeoPointsDatabase geoPointsDatabase = new GeoPointsDatabase(this);
     private TestConnection testaConexao;
     private FragmentManager fragmentManager = getSupportFragmentManager();
+    private List<Node> nodes = new ArrayList<Node>();
+    private List<Edge> edges = new ArrayList<Edge>();
+    private Graph grafo = new Graph(nodes, edges);
 
 
     DownloadJsonAsyncTask asyncTask = new DownloadJsonAsyncTask();
@@ -93,16 +99,31 @@ public class MainActivity extends ActionBarActivity
         JsonClass.setContext(this);
         asyncTask.delegate = this;
         //asyncTask.execute("https://api.myjson.com/bins/3ygnv");
-
-        asyncTask.execute("http://www.ufpi.br/ufpimaps-export.json");
-
+        //Arquivo json hospedado no site da UFPI
+        //asyncTask.execute("http://www.ufpi.br/ufpimaps-export.json");
+        //Arquivo json contendo os nós e arestas para criação do grafo utilizando Dijkstra
+        asyncTask.execute("https://infidel-gleams.000webhostapp.com/ufpimaps-export.json");
     }
 
 
     @Override
     public void processFinish(List<Node> nodes) {
-        geoPointsDatabase.populateDatabase(nodes);
+        /*int aux;
+        for(Node n:nodes){
+            aux = 0;
+            Log.v("teste", "NÓZÃO: "+n.getName());
+            if(n.getNeighbors()!= null)
+                for(String v: n.getNeighbors()) {
+                    Log.v("teste", n.getNeighbors().get(aux));
+                    aux++;
+                }
+        }*/geoPointsDatabase.populateDatabase(nodes);
+        grafo.createGraphWithNodes(nodes);
+
+
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -278,6 +299,10 @@ public class MainActivity extends ActionBarActivity
 
     protected GeoPointsDatabase getGeoPointsDatabase() {
         return geoPointsDatabase;
+    }
+
+    protected Graph getGrafo() {
+        return grafo;
     }
 
 

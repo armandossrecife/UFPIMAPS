@@ -1,11 +1,16 @@
 package com.ufpimaps.views;
 
 import android.graphics.Color;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
+import com.ufpimaps.models.Edge;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,7 +27,6 @@ import com.ufpimaps.R;
 import com.ufpimaps.interfaces.InterfaceGetListOfGeopoints;
 import com.ufpimaps.models.Node;
 
-import java.util.List;
 
 /**
  * Created by HugoPiauilino on 30/04/15.
@@ -125,7 +129,9 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
 
     public void devolveListaDeGeoPoints(List<LatLng> geopointList, Node originNode, Node destinationNode) {
         drawRoute(geopointList, originNode, destinationNode);
+
     }
+
 
     public void drawRoute(List<LatLng> list, Node origem, Node destino) {
         PolylineOptions polylineOptions = null;
@@ -138,8 +144,8 @@ public class MapFragment extends android.support.v4.app.Fragment implements OnMa
                 polylineOptions.add(list.get(i));
             }
             LatLng destinoLatLng = new LatLng(destino.getLocalization().latitude, destino.getLocalization().longitude);
-            customAddMarker(destinoLatLng, "Final", destino.getName());
-            polylineOptions.color(Color.BLACK).width(4);
+            customAddMarker(destinoLatLng, "Fim", destino.getName());
+            polylineOptions.color(Color.rgb(0,135,193)).width(8);
 
             polyline = googleMap.addPolyline(polylineOptions);
         } else {

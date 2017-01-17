@@ -9,7 +9,10 @@ import android.util.Log;
 
 //import com.firebase.client.DataSnapshot;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +41,7 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
     private static final String INTEGER_TYPE = " INTEGER";
     private static final String PRIMARY_KEY = " PRIMARY KEY";
     private static final String COMMA_SEP = ",";
+    private static final String COLUMN_NODE_NEIGHBORS = "neighbors";
 
     /**
      * String para criar da tabela de nos
@@ -53,7 +57,8 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
                     COLUMN_NODE_LONGITUDE + DOUBLE_TYPE + COMMA_SEP +
                     COLUMN_NODE_EMAIL + TEXT_TYPE + COMMA_SEP +
                     COLUMN_NODE_WEBSITE + TEXT_TYPE + COMMA_SEP +
-                    COLUMN_NODE_PHONE + TEXT_TYPE +
+                    COLUMN_NODE_PHONE + TEXT_TYPE + COMMA_SEP+
+                    COLUMN_NODE_NEIGHBORS + TEXT_TYPE+
                     " )";
 
     /**
@@ -125,6 +130,10 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
         values.put(COLUMN_NODE_EMAIL, no.getEmail());
         values.put(COLUMN_NODE_WEBSITE, no.getWebsite());
         values.put(COLUMN_NODE_PHONE, no.getPhone());
+        Gson gson = new Gson();
+        String inputString= gson.toJson(no.getNeighbors());
+        values.put(COLUMN_NODE_NEIGHBORS, inputString);
+
 
         db.insert(TABLE_NODE, null, values);
         db.close();
@@ -176,6 +185,10 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
             node.setEmail(cursor.getString(7));
             node.setWebsite(cursor.getString(8));
             node.setPhone(cursor.getString(9));
+            Type type = new TypeToken<ArrayList<String>>() {}.getType();
+            Gson gson = new Gson();
+            ArrayList<String>  finalOutputString = gson.fromJson(cursor.getString(10), type);
+            node.setNeighbors(finalOutputString);
 
             nodes.add(node);
         }
@@ -215,6 +228,10 @@ public class GeoPointsDatabase extends SQLiteOpenHelper {
             node.setName(cursor.getString(1));
             LatLng localization = new LatLng(cursor.getDouble(5), cursor.getDouble(6));
             node.setLocalization(localization);
+            Type type = new TypeToken<ArrayList<String>>() {}.getType();
+            Gson gson = new Gson();
+            ArrayList<String>  finalOutputString = gson.fromJson(cursor.getString(10), type);
+            node.setNeighbors(finalOutputString);
             return node;
 
         }

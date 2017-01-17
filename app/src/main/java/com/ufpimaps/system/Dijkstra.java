@@ -1,5 +1,7 @@
 package com.ufpimaps.system;
 
+import android.util.Log;
+
 import com.ufpimaps.models.Node;
 import com.ufpimaps.models.Edge;
 import com.ufpimaps.models.Graph;
@@ -14,7 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Created by LIMCI on 26/12/2016.
+ * Created by Alan R. Andrade on 26/12/2016.
  */
 
 public class Dijkstra {
