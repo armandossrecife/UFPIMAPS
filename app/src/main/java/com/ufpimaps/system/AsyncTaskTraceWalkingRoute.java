@@ -13,6 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * Classe responsavel por tracar a rota dada a requisicao do usuario
  * Created by Alan R. Andrade on 16/01/2017.
  */
 
@@ -29,6 +30,7 @@ public class AsyncTaskTraceWalkingRoute extends AsyncTask<String, Void, LinkedLi
      *
      * @param bancoDeDados
      * @param interfaceMapFragment
+     * @param grafo
      */
     public AsyncTaskTraceWalkingRoute(GeoPointsDatabase bancoDeDados, InterfaceGetListOfGeopoints interfaceMapFragment, Graph grafo) {
         this.bancoDeDados = bancoDeDados;
@@ -86,6 +88,11 @@ public class AsyncTaskTraceWalkingRoute extends AsyncTask<String, Void, LinkedLi
         }
     }
 
+    /**
+     * Transforma os nos de um caminho em geopoints
+     * @param path Caminho como lista ligada de nos
+     * @return Retorna uma lista de posicoes de latitude e longitude (LatLng)
+     */
     public List<LatLng> nodesToGeoPoints(LinkedList<Node> path){
         List<LatLng> l = new LinkedList<LatLng>();
         int i = 0;

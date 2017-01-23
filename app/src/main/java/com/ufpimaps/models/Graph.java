@@ -7,6 +7,7 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
 /**
+ * Classe relativa ao grafo que representa os pontos cadastrados no mapa
  * Created by Alan R. Andrade on 26/12/2016.
  */
 
@@ -15,6 +16,11 @@ public class Graph {
     private final List<Node> nodes;
     private final List<Edge> edges;
 
+    /**
+     *
+     * @param nodes e a lista de nos do grafo
+     * @param edges e a lista de arestas do grafo
+     */
     public Graph(List<Node> nodes, List<Edge> edges) {
         this.nodes = nodes;
         this.edges = edges;
@@ -30,6 +36,9 @@ public class Graph {
         return edges;
     }
 
+    /**
+     * Devolve o no dado o nome dele
+     */
     public Node getNodeByName(String name){
 
         for(Node n: nodes){
@@ -40,6 +49,13 @@ public class Graph {
         return null;
     }
 
+    /**
+     * Adiciona uma nova aresta a lista de arestas
+     * @param laneId e a identificacao dessa aresta
+     * @param noOrigem e o no de origem dessa aresta
+     * @param noDestino e o no de destino dessa aresta
+     * @param distance e a distancia do ponto de origem ao destino coberta por essa aresta
+     */
     public void addEdge(String laneId, String noOrigem, String noDestino,
                         double distance){
         Edge lane = new Edge(laneId, getNodeByName(noOrigem), getNodeByName(noDestino), distance );
@@ -49,6 +65,9 @@ public class Graph {
 
     }
 
+    /**
+     * Cria o grafo a partir de uma lista de nos
+     */
     public void createGraphWithNodes(List<Node> nos){
         int i = 0;
 
@@ -66,6 +85,11 @@ public class Graph {
         }
     }
 
+    /**
+     * Devolve a distancia direta de um no a outro
+     * @param origem no de origem
+     * @param destino no de destino
+     */
     public double getDistance(String origem, String destino){
         float[] results = new float[1];
         LatLng p1, p2;

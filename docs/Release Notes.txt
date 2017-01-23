@@ -1,7 +1,12 @@
-[Projeto UFPI Maps] Release Notes - Versão 1.0 - 10/07/2015
+[Projeto UFPI Maps] Release Notes - Versão 1.5 - 10/07/2015
 
-Nesta primeira versão da aplicação, foram implementadas as seguintes funcionalidades:
+Nesta versão atualizada, encontram-se implementadas tais alterações
 
+- Traçamento de rotas a partir de pontos geográficos cadastrados no JSON utilizando o algoritmo de Dijkstra
+- Arestas do grafo sendo inseridas por meio de JSON
+- Usa o sqlite para armazenar os dados
+
+Na versão anterior (1.0), foram implementadas as seguintes funcionalidades:
 - Mapa normal
 - Mapa satélite
 - Mapa híbrido

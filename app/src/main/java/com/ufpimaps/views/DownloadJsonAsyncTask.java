@@ -24,7 +24,9 @@ public class DownloadJsonAsyncTask extends AsyncTask<String,Integer,List<Node>> 
     public AsyncResponse delegate = null;
 
 
-    //retorna os nós lidos no json a partir da url enviada
+    /**
+     * Retorna os nós lidos no json a partir da url enviada
+     */
     @Override
     protected List<Node> doInBackground(String... params) {
         String url = params[0];
@@ -42,6 +44,7 @@ public class DownloadJsonAsyncTask extends AsyncTask<String,Integer,List<Node>> 
 
     }
 
+    
     @Override
     protected void onPostExecute(List<Node> nodes) {
         delegate.processFinish(nodes);
