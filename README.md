@@ -12,7 +12,7 @@ HOW TO SETUP ENVIRONMENT - ANDROID STUDIO COM GITHUB
 * 9) Na janela "Quick Start" escolher a opção -> Check out project from Version Control -> Checkout from -> GitHub;
 * 10) Na janela "Login to GitHub", realizar login com a conta previamente criada;
 * 11) Na janela “Set Master Code” inserir a senha "ufpimaps";
-* 12) Na janela "Clone Repository" -> "Vcs Repository URL" inserir o link: (https://github.com/hugos94/UFPIMAPS);
+* 12) Na janela "Clone Repository" -> "Vcs Repository URL" inserir o link: (https://github.com/armandossrecife/UFPIMAPS);
 * 13) O repositório deve ser posteriormente transferido para alguma conta do GitHub administrada pela UFPI;
 * 14) Em "Parent Directory" escolher o local onde a aplicação será clonada;
 * 15) Em "Directory Name" inserir "UFPIMAPS";
