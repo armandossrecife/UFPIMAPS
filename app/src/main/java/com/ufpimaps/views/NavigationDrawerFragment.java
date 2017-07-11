@@ -108,7 +108,6 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_section_normal_map),
                         getString(R.string.title_section_satelite_map),
                         getString(R.string.title_section_hibrid_map),
-                        getString(R.string.title_section_feedback),
                         getString(R.string.title_section_about),
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
