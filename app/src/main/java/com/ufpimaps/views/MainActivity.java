@@ -87,49 +87,31 @@ public class MainActivity extends ActionBarActivity
 
         if (testaConexao.isConnected()) {
             Log.v("TestaConexao", "Está conectado");
+
+            //manda o json para ser lido em uma asyncTask
+            JsonClass.setContext(this);
+            asyncTask.delegate = this;
+            //Arquivo json hospedado no site da UFPI
+            //Arquivo json contendo os nós e arestas para criação do grafo utilizando Dijkstra
+            asyncTask.execute("https://infidel-gleams.000webhostapp.com/ufpimaps.json");
+
             geraMapa();
         } else {
             Intent iniciarWifi = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS);
             criarTelaDeAlerta("Sem conexão", "Iniciar Conexão WiFi?", iniciarWifi, null, 1);
         }
-
-
-        //manda o json para ser lido em uma asyncTask
-
-        JsonClass.setContext(this);
-        asyncTask.delegate = this;
-        //asyncTask.execute("https://api.myjson.com/bins/3ygnv");
-        //Arquivo json hospedado no site da UFPI
-        //asyncTask.execute("http://www.ufpi.br/ufpimaps-export.json");
-        //Arquivo json contendo os nós e arestas para criação do grafo utilizando Dijkstra
-        asyncTask.execute("https://infidel-gleams.000webhostapp.com/ufpimaps-export.json");
     }
-
 
     @Override
     public void processFinish(List<Node> nodes) {
-        /*int aux;
-        for(Node n:nodes){
-            aux = 0;
-            Log.v("teste", "NÓZÃO: "+n.getName());
-            if(n.getNeighbors()!= null)
-                for(String v: n.getNeighbors()) {
-                    Log.v("teste", n.getNeighbors().get(aux));
-                    aux++;
-                }
-        }*/geoPointsDatabase.populateDatabase(nodes);
+        geoPointsDatabase.populateDatabase(nodes);
         grafo.createGraphWithNodes(nodes);
-
-
     }
-
-
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         getSupportActionBar().setTitle("UFPI Maps");
-
     }
 
     private void addDrawerItems() {
