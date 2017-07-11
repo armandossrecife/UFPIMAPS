@@ -121,7 +121,6 @@ public class MainActivity extends ActionBarActivity
                 getString(R.string.title_section_normal_map),
                 getString(R.string.title_section_satelite_map),
                 getString(R.string.title_section_hibrid_map),
-                getString(R.string.title_section_feedback),
                 getString(R.string.title_section_about)
         };
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, titles);
@@ -254,13 +253,7 @@ public class MainActivity extends ActionBarActivity
             mapFragment.setTipoDeMapa(position);
             ft.replace(R.id.container, mapFragment, "mapFragment");
             ft.commit();
-        }else if (position == 5) {
-            FeedbackFragment feedbackFragment = new FeedbackFragment();
-            FragmentTransaction ft = fragmentManager.beginTransaction();
-            ft.addToBackStack(null); //Para o botao voltar nao sair da aplicacao
-            ft.replace(R.id.container, feedbackFragment, "feedbackFragment");
-            ft.commit();
-        } else if (position == 6) {
+        } else if (position == 5) {
             AboutFragment aboutFragment = new AboutFragment();
             FragmentTransaction ft = fragmentManager.beginTransaction();
             ft.addToBackStack(null); //Para o botao voltar nao sair da aplicacao
