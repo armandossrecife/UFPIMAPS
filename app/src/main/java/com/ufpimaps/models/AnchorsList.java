@@ -26,12 +26,18 @@ public class AnchorsList {
      * Criação estática da lista de âncoras
      */
     static {
+        addItem(new Anchor("Órgãos Centrais", "Órgãos Centrais"));
         addItem(new Anchor("Centros", "Centros"));
         addItem(new Anchor("Departamentos", "Departamentos"));
-        addItem(new Anchor("Órgãos Centrais", "Órgãos Centrais"));
+        addItem(new Anchor("Cursos", "Cursos"));
+        addItem(new Anchor("Pos-Graduacao", "Pos-Graduacao"));
+        addItem(new Anchor("Salas de Aula", "Salas de Aula"));
+        addItem(new Anchor("Laboratorio", "Laboratorio"));
+        addItem(new Anchor("Auditorios", "Auditorios"));
+        addItem(new Anchor("Banheiros", "Banheiros"));
         addItem(new Anchor("Bibliotecas", "Bibliotecas"));
         addItem(new Anchor("Lanchonetes", "Lanchonetes"));
-        addItem(new Anchor("Banheiros", "Banheiros"));
+        addItem(new Anchor("Estacoes de Onibus", "Estacoes de Onibus"));
     }
 
     /**
