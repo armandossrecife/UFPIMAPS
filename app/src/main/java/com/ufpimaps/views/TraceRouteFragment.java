@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.ufpimaps.R;
 import com.ufpimaps.models.ApplicationObject;
 import com.ufpimaps.models.GeoPointsDatabase;
+import com.ufpimaps.system.AsyncTaskTraceFlyingRoute;
 import com.ufpimaps.system.AsyncTaskTraceRoute;
 import com.ufpimaps.system.AsyncTaskTraceWalkingRoute;
 
@@ -96,7 +97,10 @@ public class TraceRouteFragment extends android.support.v4.app.Fragment {
                     inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                     int tipoDeMapa = ((ApplicationObject) getActivity().getApplication()).mapa.getTipoDeMapa(); //Tipo de mapa que esta selecionado no momento
                     ((MainActivity) getActivity()).onNavigationDrawerItemSelected(tipoDeMapa);
-                    AsyncTaskTraceWalkingRoute tracarRotaAPe = new AsyncTaskTraceWalkingRoute(((MainActivity) getActivity()).getGeoPointsDatabase(), ((ApplicationObject) getActivity().getApplicationContext()).mapa, ((MainActivity) getActivity()).getGrafo());
+                    //Reta simples interligando os pontos
+                    AsyncTaskTraceFlyingRoute tracarRotaAPe = new AsyncTaskTraceFlyingRoute(((MainActivity) getActivity()).getGeoPointsDatabase(), ((ApplicationObject) getActivity().getApplicationContext()).mapa);
+                    //A linha abaixo utiliza a rota traçada pelo algoritmo de Dijkstra
+                    //AsyncTaskTraceWalkingRoute tracarRotaAPe = new AsyncTaskTraceWalkingRoute(((MainActivity) getActivity()).getGeoPointsDatabase(), ((ApplicationObject) getActivity().getApplicationContext()).mapa, ((MainActivity) getActivity()).getGrafo());
                     //A linha abaixo utiliza a rota traçada pelo Google
                     //AsyncTaskTraceRoute tracarRota = new AsyncTaskTraceRoute(((MainActivity) getActivity()).getGeoPointsDatabase(), ((ApplicationObject) getActivity().getApplicationContext()).mapa);
                     tracarRotaAPe.execute(origin, destination);

@@ -93,7 +93,7 @@ public class MainActivity extends ActionBarActivity
             asyncTask.delegate = this;
             //Arquivo json hospedado no site da UFPI
             //Arquivo json contendo os nós e arestas para criação do grafo utilizando Dijkstra
-            asyncTask.execute("https://infidel-gleams.000webhostapp.com/ufpimaps.json");
+            asyncTask.execute("https://infidel-gleams.000webhostapp.com/ufpimapsJsonUpdatedTest.json");
 
             geraMapa();
         } else {
