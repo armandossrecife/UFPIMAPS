@@ -1,0 +1,2973 @@
+[{
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Comissao Permanente de Selecao",
+  "localization": {
+    "latitude": -5.05627,
+    "longitude": -42.790644
+  },
+  "id": 0,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "COPESE"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Superintendencia de Recursos Humanos",
+  "localization": {
+    "latitude": -5.056844,
+    "longitude": -42.790831
+  },
+  "id": 1,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Recursos Humanos"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Pro-reitoria de Ensino de Graduacao",
+  "localization": {
+    "latitude": -5.057407,
+    "longitude": -42.791347
+  },
+  "id": 2,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "PREG"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Nucleo de Tecnologia da Informacao",
+  "localization": {
+    "latitude": -5.056682,
+    "longitude": -42.790264
+  },
+  "id": 3,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "NTI"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Pro-reitoria de Planejamento",
+  "localization": {
+    "latitude": -5.057252,
+    "longitude": -42.791315
+  },
+  "id": 4,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "PROPLAN"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Superintendencia de Comunicacao Social",
+  "localization": {
+    "latitude": -5.0571645,
+    "longitude": -42.7912895
+  },
+  "id": 5,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "SUPERINTENDENCIA DE COMUNICACAO"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Pro-reitoria de Administracao",
+  "localization": {
+    "latitude": -5.057069,
+    "longitude": -42.7916
+  },
+  "id": 6,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "PRAD"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Protocolo Geral da UFPI",
+  "localization": {
+    "latitude": -5.056752,
+    "longitude": -42.792
+  },
+  "id": 7,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Protocolo Geral"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Divisao de Patrimonio",
+  "localization": {
+    "latitude": -5.05609,
+    "longitude": -42.792517
+  },
+  "id": 8,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Divisao de Patrimonio"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Almoxarifado da UFPI",
+  "localization": {
+    "latitude": -5.055753,
+    "longitude": -42.792828
+  },
+  "id": 9,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Almoxarifado"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Divisao de Assuntos Academicos",
+  "localization": {
+    "latitude": -5.057547,
+    "longitude": -42.791372
+  },
+  "id": 10,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "DAA"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Reitoria da UFPI",
+  "localization": {
+    "latitude": -5.057587,
+    "longitude": -42.791942
+  },
+  "id": 11,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "REITORIA"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Praca da Reitoria",
+  "localization": {
+    "latitude": -5.057835,
+    "longitude": -42.792078
+  },
+  "id": 12,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "CORETO DA REITORIA"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Mestrado em Ciencia da Computacao",
+  "localization": {
+    "latitude": -5.056282,
+    "longitude": -42.790784
+  },
+  "id": 13,
+  "phone": "",
+  "services": "",
+  "type": 4,
+  "email": "",
+  "name": "Nucleo de Computacao Aplicada"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Restaurante Universitario Principal",
+  "localization": {
+    "latitude": -5.05586,
+    "longitude": -42.788595
+  },
+  "id": 14,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Restaurante Universitario I"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Pro-reitoria de Assuntos Estudantis e Comunitarios",
+  "localization": {
+    "latitude": -5.056336,
+    "longitude": -42.788622
+  },
+  "id": 15,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "PRAEC"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Pro-reitoria de Extensao",
+  "localization": {
+    "latitude": -5.060015,
+    "longitude": -42.792839
+  },
+  "id": 16,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "PREX"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Diretorio Central dos Estudantes",
+  "localization": {
+    "latitude": -5.056845,
+    "longitude": -42.789032
+  },
+  "id": 17,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "DCE"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Radio FM Universitaria",
+  "localization": {
+    "latitude": -5.059566,
+    "longitude": -42.795964
+  },
+  "id": 18,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "RADIO"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Biblioteca Central",
+  "localization": {
+    "latitude": -5.060313,
+    "longitude": -42.796251
+  },
+  "id": 19,
+  "phone": "",
+  "services": "",
+  "type": 9,
+  "email": "",
+  "name": "Biblioteca Central"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Banco Santander",
+  "localization": {
+    "latitude": -5.061414,
+    "longitude": -42.796195
+  },
+  "id": 20,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Banco Santander"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Banco do Brasil",
+  "localization": {
+    "latitude": -5.061697,
+    "longitude": -42.79631
+  },
+  "id": 21,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Banco do Brasil"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Farmacia Escola",
+  "localization": {
+    "latitude": -5.061091,
+    "longitude": -42.796216
+  },
+  "id": 22,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Farmacia Escola"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "CineTeatro",
+  "localization": {
+    "latitude": -5.062176,
+    "longitude": -42.796323
+  },
+  "id": 23,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "CineTeatro"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Espaco Cultural Noe Mendes",
+  "localization": {
+    "latitude": -5.062197,
+    "longitude": -42.797289
+  },
+  "id": 24,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Espaco Cultural Noe Mendes"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Departamento de Biologia",
+  "localization": {
+    "latitude": -5.058499,
+    "longitude": -42.791627
+  },
+  "id": 25,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Biologia"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Departamento de Quimica",
+  "localization": {
+    "latitude": -5.058061,
+    "longitude": -42.791166
+  },
+  "id": 26,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Quimica"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Departamento de Fisica",
+  "localization": {
+    "latitude": -5.057655,
+    "longitude": -42.790662
+  },
+  "id": 27,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Fisica"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Departamento de Matematica",
+  "localization": {
+    "latitude": -5.057238,
+    "longitude": -42.790179
+  },
+  "id": 28,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Matematica"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Departamento de Computacao",
+  "localization": {
+    "latitude": -5.056217,
+    "longitude": -42.78982
+  },
+  "id": 29,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Computacao"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Estacao 04",
+  "localization": {
+    "latitude": -5.0562639,
+    "longitude": -42.789425
+  },
+  "id": 30,
+  "phone": "",
+  "services": "",
+  "type": 11,
+  "email": "",
+  "name": "ESTACAO DE ONIBUS - 04"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Estacao 06",
+  "localization": {
+    "latitude": -5.0563334,
+    "longitude": -42.7897559
+  },
+  "id": 31,
+  "phone": "",
+  "services": "",
+  "type": 11,
+  "email": "",
+  "name": "ESTACAO DE ONIBUS - 06"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Estacao 03",
+  "localization": {
+    "latitude": -5.0570628,
+    "longitude": -42.7903406
+  },
+  "id": 32,
+  "phone": "",
+  "services": "",
+  "type": 11,
+  "email": "",
+  "name": "ESTACAO DE ONIBUS - 03"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Estacao 07",
+  "localization": {
+    "latitude": -5.0571697,
+    "longitude": -42.7906678
+  },
+  "id": 33,
+  "phone": "",
+  "services": "",
+  "type": 11,
+  "email": "",
+  "name": "ESTACAO DE ONIBUS - 07"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Estacao 02",
+  "localization": {
+    "latitude": -5.0580807,
+    "longitude": -42.7914376
+  },
+  "id": 34,
+  "phone": "",
+  "services": "",
+  "type": 11,
+  "email": "",
+  "name": "ESTACAO DE ONIBUS - 02"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Estacao 08",
+  "localization": {
+    "latitude": -5.0581208,
+    "longitude": -42.7917058
+  },
+  "id": 35,
+  "phone": "",
+  "services": "",
+  "type": 11,
+  "email": "",
+  "name": "ESTACAO DE ONIBUS - 08"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Rotatoria Reitoria",
+  "localization": {
+    "latitude": -5.058563,
+    "longitude": -42.792091
+  },
+  "id": 36,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "Rotatoria Reitoria CCN"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Rotatoria Restaurante Universitario",
+  "localization": {
+    "latitude": -5.055677,
+    "longitude": -42.788905
+  },
+  "id": 37,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "Rotatoria RU Nutricao"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.055527,
+    "longitude": -42.788745
+  },
+  "id": 38,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "BALAO_ENTRADA1_NORTE"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.055927,
+    "longitude": -42.788682
+  },
+  "id": 39,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "ENTRADA_RU1"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056282,
+    "longitude": -42.78844
+  },
+  "id": 40,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "ENTRADA_RI1ADM_PRAEC"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.05642,
+    "longitude": -42.788332
+  },
+  "id": 41,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "CRUZ_RU_DCE"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Rua de entrada para o DCE",
+  "localization": {
+    "latitude": -5.056622,
+    "longitude": -42.788533
+  },
+  "id": 42,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "REFRUADCE"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056862,
+    "longitude": -42.788797
+  },
+  "id": 43,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "Entrada do Diretorio Central dos Estudantes (DCE)"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056984,
+    "longitude": -42.788932
+  },
+  "id": 44,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "CRUZ_DCE_ANEXOODONTO"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057008,
+    "longitude": -42.789308
+  },
+  "id": 45,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Anexo Odonto - Matematica"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.055954,
+    "longitude": -42.789227
+  },
+  "id": 46,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "Entrada Odontologia"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056317,
+    "longitude": -42.78963
+  },
+  "id": 47,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "Entrada COMPUTACAO_ESPINTEGR2"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Restaurante",
+  "localization": {
+    "latitude": -5.056312,
+    "longitude": -42.789107
+  },
+  "id": 48,
+  "phone": "",
+  "services": "",
+  "type": 10,
+  "email": "",
+  "name": "Toca do Calango"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada do Espaco Integrado I",
+  "localization": {
+    "latitude": -5.056499,
+    "longitude": -42.789103
+  },
+  "id": 49,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "ESPINTEGR2"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.058342,
+    "longitude": -42.791836
+  },
+  "id": 50,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "Entrada do Bloco de BIOLOGIA"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.05851,
+    "longitude": -42.792282
+  },
+  "id": 51,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "BALAO_CCN_LESTE"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.058649,
+    "longitude": -42.792288
+  },
+  "id": 52,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "BALAO_CCN_SUL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.058362,
+    "longitude": -42.792644
+  },
+  "id": 53,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "ACESSO_CCN_1"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.058158,
+    "longitude": -42.793026
+  },
+  "id": 54,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "CRUZ_ACESSOCCN_ADM_EMAS"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.058158,
+    "longitude": -42.793026
+  },
+  "id": 55,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "TRIDENTE_CCN_EMAS"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada da Praca da Reitoria",
+  "localization": {
+    "latitude": -5.057777,
+    "longitude": -42.792575
+  },
+  "id": 56,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "PRACA_REITORIA"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada da Reitoria",
+  "localization": {
+    "latitude": -5.057571,
+    "longitude": -42.792345
+  },
+  "id": 57,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "REFReitoria"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada da PROPESQ",
+  "localization": {
+    "latitude": -5.057195,
+    "longitude": -42.791924
+  },
+  "id": 58,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "PROPESQ"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada da PRAD",
+  "localization": {
+    "latitude": -5.057006,
+    "longitude": -42.791723
+  },
+  "id": 59,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "REFPROTOCOLO"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057006,
+    "longitude": -42.791723
+  },
+  "id": 60,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "CRUZ_ALMOX"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada Patrimonio",
+  "localization": {
+    "latitude": -5.056494,
+    "longitude": -42.791984
+  },
+  "id": 61,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "ACESSO_ALMOX"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada Almoxarifado",
+  "localization": {
+    "latitude": -5.056063,
+    "longitude": -42.792442
+  },
+  "id": 62,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "ALMOX1"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada da COPESE",
+  "localization": {
+    "latitude": -5.056162,
+    "longitude": -42.790817
+  },
+  "id": 63,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "COPESE"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Fundo a Odontologia",
+  "localization": {
+    "latitude": -5.055702,
+    "longitude": -42.790317
+  },
+  "id": 64,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "Odontologia Final"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada da Farmacia",
+  "localization": {
+    "latitude": -5.055404,
+    "longitude": -42.789975
+  },
+  "id": 65,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "Farmacia"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada do Anexo da Farmacia",
+  "localization": {
+    "latitude": -5.055183,
+    "longitude": -42.789717
+  },
+  "id": 66,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "ANEXO_FARMACIA_MORFOLOGIA"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.054995,
+    "longitude": -42.789498
+  },
+  "id": 67,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "CRUZ_FARMACIA_MORF_ENFERMAGEM"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Balao entrada RU I",
+  "localization": {
+    "latitude": -5.055536,
+    "longitude": -42.789035
+  },
+  "id": 68,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "BALAO_ENTRADA1_OESTE"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada Balao RU I",
+  "localization": {
+    "latitude": -5.055815,
+    "longitude": -42.788797
+  },
+  "id": 69,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "BALAO_ENTRADA1_LESTE"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.055815,
+    "longitude": -42.788797
+  },
+  "id": 70,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "BALAO_ENTRADA1_SUL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada de Nutricao",
+  "localization": {
+    "latitude": -5.055331,
+    "longitude": -42.78923
+  },
+  "id": 71,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "NUTRICAO1"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada de Enfermagem",
+  "localization": {
+    "latitude": -5.05461,
+    "longitude": -42.789834
+  },
+  "id": 72,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "ENFERMAGEM"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Acesso Juizado",
+  "localization": {
+    "latitude": -5.054204,
+    "longitude": -42.79019
+  },
+  "id": 73,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "CRUZ_ENFERMAGEM_JUIZADO"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada Juizado",
+  "localization": {
+    "latitude": -5.054039,
+    "longitude": -42.79033
+  },
+  "id": 74,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "JUIZADO_ENFERMAGEM"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada do NTF",
+  "localization": {
+    "latitude": -5.054122,
+    "longitude": -42.791231
+  },
+  "id": 75,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "REFNTF"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.053633,
+    "longitude": -42.790682
+  },
+  "id": 76,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "CRUZ_UNKNOWN_ACESSOALMOX"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.054565,
+    "longitude": -42.79175
+  },
+  "id": 77,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "CRUZ_ACESSOALMOX_OUTUFPI"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Entrada estacionamento Almoxarifado",
+  "localization": {
+    "latitude": -5.054998,
+    "longitude": -42.79226
+  },
+  "id": 78,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "ACESSO_ALMOX"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Acesso Almoxarifado",
+  "localization": {
+    "latitude": -5.055717,
+    "longitude": -42.793068
+  },
+  "id": 79,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "ALMOX2"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Departamento de Odontologia - CCS",
+  "localization": {
+    "latitude": -5.055761,
+    "longitude": -42.789411
+  },
+  "id": 80,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Odontologia - CCS"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.055235,
+    "longitude": -42.790143
+  },
+  "id": 81,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Farmacia - CCS"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.054868,
+    "longitude": -42.789381
+  },
+  "id": 82,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Nutricao - CCS"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.05409,
+    "longitude": -42.790065
+  },
+  "id": 83,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Enfermagem - CCS"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Espaco Integrado II - CCN",
+  "localization": {
+    "latitude": -5.05654,
+    "longitude": -42.788935
+  },
+  "id": 84,
+  "phone": "",
+  "services": "",
+  "type": 5,
+  "email": "",
+  "name": "Espaco Integrado II"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.061454,
+    "longitude": -42.794787
+  },
+  "id": 85,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "Entrada-Saida I"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.05543,
+    "longitude": -42.788594
+  },
+  "id": 86,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "Entrada-Saida II"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.053806,
+    "longitude": -42.800342
+  },
+  "id": 87,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "Entrada-Saida III"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.061778,
+    "longitude": -42.804461
+  },
+  "id": 88,
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "email": "",
+  "name": "Entrada-Saida IV"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.060364,
+    "longitude": -42.796352
+  },
+  "id": 89,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Biblioteca Central"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.062082,
+    "longitude": -42.79727
+  },
+  "id": 90,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Espaco Noe Mendes"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.060783,
+    "longitude": -42.797495
+  },
+  "id": 91,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Moda - CCE "
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.060172,
+    "longitude": -42.794047
+  },
+  "id": 92,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Hospital Universitario"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Espaco Integrado I",
+  "localization": {
+    "latitude": -5.059477,
+    "longitude": -42.796676
+  },
+  "id": 93,
+  "phone": "",
+  "services": "",
+  "type": 5,
+  "email": "",
+  "name": "Espaco Integrado I"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057132,
+    "longitude": -42.796898
+  },
+  "id": 95,
+  "phone": "",
+  "services": "",
+  "type": 3,
+  "email": "",
+  "name": "Coordenacao Graduacao Politica - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057395,
+    "longitude": -42.796935
+  },
+  "id": 96,
+  "phone": "",
+  "services": "",
+  "type": 3,
+  "email": "",
+  "name": "Coordenacao de Administracao - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.0575,
+    "longitude": -42.796946
+  },
+  "id": 97,
+  "phone": "",
+  "services": "",
+  "type": 3,
+  "email": "",
+  "name": "Coordenacao de Ciencias Contabeis - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057565,
+    "longitude": -42.796952
+  },
+  "id": 98,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Letras - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057628,
+    "longitude": -42.79696
+  },
+  "id": 99,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Economia - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057682,
+    "longitude": -42.796974
+  },
+  "id": 100,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Filosofia - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057938,
+    "longitude": -42.797398
+  },
+  "id": 101,
+  "phone": "",
+  "services": "",
+  "type": 4,
+  "email": "",
+  "name": "Mestrado em Etica e Epistemologia - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057532,
+    "longitude": -42.797657
+  },
+  "id": 102,
+  "phone": "",
+  "services": "",
+  "type": 4,
+  "email": "",
+  "name": "Mestrado em Geografia - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.05761,
+    "longitude": -42.797668
+  },
+  "id": 103,
+  "phone": "",
+  "services": "",
+  "type": 4,
+  "email": "",
+  "name": "Mestrado em Sociologia - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.058168,
+    "longitude": -42.796377
+  },
+  "id": 104,
+  "phone": "",
+  "services": "",
+  "type": 3,
+  "email": "",
+  "name": "Coordenacao Artes Visuais - CCE"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057615,
+    "longitude": -42.79726
+  },
+  "id": 105,
+  "phone": "",
+  "services": "",
+  "type": 3,
+  "email": "",
+  "name": "Coordenacao de Historia - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057593,
+    "longitude": -42.797084
+  },
+  "id": 106,
+  "phone": "",
+  "services": "",
+  "type": 3,
+  "email": "",
+  "name": "Coordenacao de Geografia - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057615,
+    "longitude": -42.79726
+  },
+  "id": 107,
+  "phone": "",
+  "services": "",
+  "type": 3,
+  "email": "",
+  "name": "Coordenacao de Direito - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057614,
+    "longitude": -42.79721
+  },
+  "id": 108,
+  "phone": "",
+  "services": "",
+  "type": 3,
+  "email": "",
+  "name": "Coordenacao de Ciencias Juridicas - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057605,
+    "longitude": -42.797176
+  },
+  "id": 109,
+  "phone": "",
+  "services": "",
+  "type": 3,
+  "email": "",
+  "name": "Coordenacao de Ciencias Sociais - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057609,
+    "longitude": -42.79712
+  },
+  "id": 110,
+  "phone": "",
+  "services": "",
+  "type": 3,
+  "email": "",
+  "name": "Coordenacao de Servico Social - CCE"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057873,
+    "longitude": -42.796717
+  },
+  "id": 111,
+  "phone": "",
+  "services": "",
+  "type": 3,
+  "email": "",
+  "name": "Coordenacao de Pedagogia - CCE"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057998,
+    "longitude": -42.79675
+  },
+  "id": 112,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Praca de Alimentacao - CCHL"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.047707,
+    "longitude": -42.784237
+  },
+  "id": 113,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Restaurante Universitario III"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.047046,
+    "longitude": -42.78406
+  },
+  "id": 114,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Hospital Veterinario"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.058439,
+    "longitude": -42.796086
+  },
+  "id": 115,
+  "phone": "(86) 3215-5810 / 3215-5693",
+  "services": "",
+  "type": 1,
+  "email": "",
+  "name": "Centro de Ciencias da Educacao - CCE"
+}, {
+  "website": "ct@ufpi.br",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057146,
+    "longitude": -42.799788
+  },
+  "id": 116,
+  "phone": "(86) 3215-5698",
+  "services": "",
+  "type": 1,
+  "email": "",
+  "name": "Centro de Tecnologia - CT"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056424,
+    "longitude": -42.79051
+  },
+  "id": 117,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Biofisica"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.055462,
+    "longitude": -42.789413
+  },
+  "id": 118,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Anatomia"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.054831,
+    "longitude": -42.790021
+  },
+  "id": 119,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Bloco 11"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.055093,
+    "longitude": -42.790909
+  },
+  "id": 120,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "NPPM"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.055617,
+    "longitude": -42.79078
+  },
+  "id": 121,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "NEP"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.055719,
+    "longitude": -42.791075
+  },
+  "id": 122,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Parasitologia e Microbiologia"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.054314,
+    "longitude": -42.790614
+  },
+  "id": 123,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "NTF"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.054025,
+    "longitude": -42.790861
+  },
+  "id": 124,
+  "phone": "",
+  "services": "",
+  "type": 4,
+  "email": "",
+  "name": "Pos-graduacao em Enfermagem"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056846,
+    "longitude": -42.789407
+  },
+  "id": 125,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Consultorios Odontologia"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056648,
+    "longitude": -42.789327
+  },
+  "id": 126,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "PIBIC"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.05613,
+    "longitude": -42.799139
+  },
+  "id": 127,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Bloco 5 - Engenharia Civil"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "Auditorio CCA",
+  "localization": {
+    "latitude": -5.056322,
+    "longitude": -42.799509
+  },
+  "id": 128,
+  "phone": "",
+  "services": "",
+  "type": 7,
+  "email": "",
+  "name": "Auditorio"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056087,
+    "longitude": -42.799681
+  },
+  "id": 129,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Bloco 6 - Arquitetura e Urbanismo"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.05633,
+    "longitude": -42.799764
+  },
+  "id": 130,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Bloco 4 - Engenharia Cartografica e Departamento de Transportes"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056843,
+    "longitude": -42.799933
+  },
+  "id": 131,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Engenharia de Producao"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057142,
+    "longitude": -42.799973
+  },
+  "id": 132,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Engenharia Mecanica"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056934,
+    "longitude": -42.799219
+  },
+  "id": 133,
+  "phone": "",
+  "services": "",
+  "type": 2,
+  "email": "",
+  "name": "Departamento de Engenharia Eletrica"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.057207,
+    "longitude": -42.799224
+  },
+  "id": 134,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Bloco 7"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.048595,
+    "longitude": -42.786094
+  },
+  "id": 135,
+  "phone": "",
+  "services": "",
+  "type": 4,
+  "email": "",
+  "name": "Pos-graduacao e Auditorio"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.048217,
+    "longitude": -42.783534
+  },
+  "id": 136,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Residencia CT"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.048173,
+    "longitude": -42.783064
+  },
+  "id": 137,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Consultorios"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.048358,
+    "longitude": -42.78177
+  },
+  "id": 138,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Auditorio"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.048141,
+    "longitude": -42.782709
+  },
+  "id": 139,
+  "phone": "",
+  "services": "",
+  "type": 9,
+  "email": "",
+  "name": "Biblioteca"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.047632,
+    "longitude": -42.783729
+  },
+  "id": 140,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Quadra Poliesportiva"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.047184,
+    "longitude": -42.782877
+  },
+  "id": 141,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Patologia Animal"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.046762,
+    "longitude": -42.783468
+  },
+  "id": 142,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Diagnostico por Imagem"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.046706,
+    "longitude": -42.783933
+  },
+  "id": 143,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "LASAN"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.046454,
+    "longitude": -42.783645
+  },
+  "id": 144,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Clinica de grandes animais"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.046117,
+    "longitude": -42.78279
+  },
+  "id": 145,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "LASO"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.045927,
+    "longitude": -42.782256
+  },
+  "id": 146,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "DEAS"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.045204,
+    "longitude": -42.780686
+  },
+  "id": 147,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Apicultura"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.046436,
+    "longitude": -42.781154
+  },
+  "id": 148,
+  "phone": "",
+  "services": "",
+  "type": 5,
+  "email": "",
+  "name": "Espaco Integrado"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.043369,
+    "longitude": -42.783932
+  },
+  "id": 149,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "DPPA"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.043169,
+    "longitude": -42.784422
+  },
+  "id": 150,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Fitotecnia"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.041223,
+    "longitude": -42.782922
+  },
+  "id": 151,
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "email": "",
+  "name": "Zootecnia"
+}, {
+  "website": "",
+  "neighbors": ["REF01", "REF09", "Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056305,
+    "longitude": -42.789828
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "id": 152,
+  "name": "REF00"
+}, {
+  "website": "",
+  "neighbors": ["REF02", "REF08", "REF00", "REFMAT"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056305,
+    "longitude": -42.790015
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "id": 153,
+  "name": "REF01"
+}, {
+  "website": "",
+  "neighbors": ["REF01", "REF03", "REF07", "Limci", "Sala 261 - Computacao", "Rapooza Antigo", "Banheiros - DC"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056305,
+    "longitude": -42.79019
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "id": 154,
+  "name": "REF02"
+}, {
+  "website": "",
+  "neighbors": ["REF02", "REF04", "REF06"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056305,
+    "longitude": -42.79045
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "id": 155,
+  "name": "REF03"
+}, {
+  "website": "",
+  "neighbors": ["REF05", "REF03"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056305,
+    "longitude": -42.790664
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "id": 156,
+  "name": "REF04"
+}, {
+  "website": "",
+  "neighbors": ["REF04", "REF06"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056152,
+    "longitude": -42.790664
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "id": 157,
+  "name": "REF05"
+}, {
+  "website": "",
+  "neighbors": ["REF05", "Legs", "REF07", "REF03"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056152,
+    "longitude": -42.79045
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "id": 158,
+  "name": "REF06"
+}, {
+  "website": "",
+  "neighbors": ["REF02", "Legs", "REF06", "REF08", "Limci", "Sala 261 - Computacao", "Rapooza Antigo", "Banheiros - DC"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056152,
+    "longitude": -42.79019
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "id": 159,
+  "name": "REF07"
+}, {
+  "website": "",
+  "neighbors": ["REF07", "REF09", "REF01"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056152,
+    "longitude": -42.790015
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "id": 160,
+  "name": "REF08"
+}, {
+  "website": "",
+  "neighbors": ["REF08", "REF00", "Secretaria - Computacao"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056152,
+    "longitude": -42.789828
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "id": 161,
+  "name": "REF09"
+}, {
+  "website": "",
+  "neighbors": ["REF07", "REF06"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056158,
+    "longitude": -42.790359
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 6,
+  "id": 162,
+  "name": "Legs"
+}, {
+  "website": "",
+  "neighbors": ["REF07", "REF02", "Limci", "Sala 261 - Computacao", "Banheiros - DC"],
+  "description": "",
+  "localization": {
+    "latitude": -5.05619,
+    "longitude": -42.790208
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 6,
+  "id": 163,
+  "name": "Rapooza Antigo"
+}, {
+  "website": "",
+  "neighbors": ["REF07", "REF02", "Limci", "Rapooza Antigo", "Banheiros - DC"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056211,
+    "longitude": -42.790178
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 5,
+  "id": 164,
+  "name": "Sala 261 - Computacao"
+}, {
+  "website": "",
+  "neighbors": ["REF07", "REF02", "Limci", "Sala 261 - Computacao", "Rapooza Antigo"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056228,
+    "longitude": -42.790198
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 8,
+  "id": 165,
+  "name": "Banheiros - DC"
+}, {
+  "website": "",
+  "neighbors": ["REF07", "REF02", "Sala 261 - Computacao", "Rapooza Antigo", "Banheiros - DC"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056285,
+    "longitude": -42.790179
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 6,
+  "id": 166,
+  "name": "Limci"
+}, {
+  "website": "",
+  "neighbors": ["REF00", "REF09", "REFCOMP"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056225,
+    "longitude": -42.789828
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 0,
+  "id": 167,
+  "name": "Secretaria - Computacao"
+}, {
+  "website": "",
+  "neighbors": ["Secretaria - Computacao", "REFMAT"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056341,
+    "longitude": -42.789631
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "id": 168,
+  "name": "REFCOMP"
+}, {
+  "website": "",
+  "neighbors": ["Sala 62 - Matematica", "REFCOMP", "REF01"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056944,
+    "longitude": -42.789809
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 12,
+  "id": 169,
+  "name": "REFMAT"
+}, {
+  "website": "",
+  "neighbors": ["REFMAT"],
+  "description": "",
+  "localization": {
+    "latitude": -5.056921,
+    "longitude": -42.789098
+  },
+  "email": "",
+  "phone": "",
+  "services": "",
+  "type": 5,
+  "id": 170,
+  "name": "Sala 62 - Matematica"
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Centro de Ciencias Humanas e Letras - CCHL",
+  "name": "Centro de Ciencias Humanas e Letras - CCHL",
+  "localization": {
+    "latitude": -5.057707,
+    "longitude": -42.797486
+  },
+  "services": "",
+  "type": 1,
+  "id": 171,
+  "phone": "(86) 3215-5772",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Centro de Ciencias da Natureza - CCN",
+  "name": "Centro de Ciencias da Natureza - CCN",
+  "localization": {
+    "latitude": -5.0571299,
+    "longitude": -42.7900724
+  },
+  "services": "",
+  "type": 1,
+  "id": 172,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Centro de Ciencias da Saude - CCS",
+  "name": "Centro de Ciencias da Saude - CCS",
+  "localization": {
+    "latitude": -5.055164,
+    "longitude": -42.7906371
+  },
+  "services": "",
+  "type": 1,
+  "id": 173,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Centro de Ciencias Agrarias - CCA",
+  "name": "Centro de Ciencias Agrarias - CCA",
+  "localization": {
+    "latitude": -5.0491257,
+    "longitude": -42.7851117
+  },
+  "services": "",
+  "type": 1,
+  "id": 174,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Lanche da Tia",
+  "name": "Lanche da Tia",
+  "localization": {
+    "latitude": -5.059445,
+    "longitude": -42.796280
+  },
+  "services": "",
+  "type": 10,
+  "id": 175,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Assis Lanches",
+  "name": "Assis Lanches",
+  "localization": {
+    "latitude": -5.057429,
+    "longitude": -42.790170
+  },
+  "services": "",
+  "type": 10,
+  "id": 176,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Lanchonete do Tio",
+  "name": "Lanchonete do Tio",
+  "localization": {
+    "latitude": -5.0566922,
+    "longitude": -42.7889151
+  },
+  "services": "",
+  "type": 10,
+  "id": 177,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Pos Graduacao Fisica",
+  "name": "Pos Graduacao Fisica",
+  "localization": {
+    "latitude": -5.057538,
+    "longitude": -42.790045
+  },
+  "services": "",
+  "type": 4,
+  "id": 178,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Mestrado em Ciencia Politica",
+  "name": "Mestrado em Ciencia Politica",
+  "localization": {
+    "latitude": -5.0578146,
+    "longitude": -42.7975829
+  },
+  "services": "",
+  "type": 4,
+  "id": 179,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "ESTACAO DE ONIBUS - 01",
+  "name": "ESTACAO DE ONIBUS - 01",
+  "localization": {
+    "latitude": -5.058764,
+    "longitude": -42.794985
+  },
+  "services": "",
+  "type": 11,
+  "id": 180,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "ESTACAO DE ONIBUS - 09",
+  "name": "ESTACAO DE ONIBUS - 09",
+  "localization": {
+    "latitude": -5.056116,
+    "longitude": -42.804578
+  },
+  "services": "",
+  "type": 11,
+  "id": 181,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "ESTACAO DE ONIBUS - 10",
+  "name": "ESTACAO DE ONIBUS - 10",
+  "localization": {
+    "latitude": -5.054906,
+    "longitude": -42.799528
+  },
+  "services": "",
+  "type": 11,
+  "id": 182,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "ESTACAO DE ONIBUS - 11",
+  "name": "ESTACAO DE ONIBUS - 11",
+  "localization": {
+    "latitude": -5.056423,
+    "longitude": -42.796908
+  },
+  "services": "",
+  "type": 11,
+  "id": 183,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "ESTACAO DE ONIBUS - 12",
+  "name": "ESTACAO DE ONIBUS - 12",
+  "localization": {
+    "latitude": -5.057218,
+    "longitude": -42.79567
+  },
+  "services": "",
+  "type": 11,
+  "id": 184,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "ESTACAO DE ONIBUS - 13",
+  "name": "ESTACAO DE ONIBUS - 13",
+  "localization": {
+    "latitude": -5.058656,
+    "longitude": -42.795235
+  },
+  "services": "",
+  "type": 11,
+  "id": 185,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "ESTACAO DE ONIBUS - 14",
+  "name": "ESTACAO DE ONIBUS - 14",
+  "localization": {
+    "latitude": -5.047183,
+    "longitude": -42.783094
+  },
+  "services": "",
+  "type": 11,
+  "id": 186,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "ESTACAO DE ONIBUS - 15",
+  "name": "ESTACAO DE ONIBUS - 15",
+  "localization": {
+    "latitude": -5.049354,
+    "longitude": -42.785653
+  },
+  "services": "",
+  "type": 11,
+  "id": 187,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Departamento Ciencias Sociais",
+  "name": "Departamento Ciencias Sociais",
+  "localization": {
+    "latitude": -5.057436,
+    "longitude": -42.797315
+  },
+  "services": "",
+  "type": 2,
+  "id": 188,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Departamento Fisiologia",
+  "name": "Departamento Fisiologia",
+  "localization": {
+    "latitude": -5.056426,
+    "longitude": -42.790294
+  },
+  "services": "",
+  "type": 2,
+  "id": 189,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Laboratorio Contabilidade",
+  "name": "Laboratorio Contabilidade",
+  "localization": {
+    "latitude": -5.057848,
+    "longitude": -42.797922
+  },
+  "services": "",
+  "type": 6,
+  "id": 190,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Laboratorio Geoambiente",
+  "name": "Laboratorio Geoambiente",
+  "localization": {
+    "latitude": -5.057618,
+    "longitude": -42.797884
+  },
+  "services": "",
+  "type": 6,
+  "id": 191,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "NTI - CCHL",
+  "name": "NTI - CCHL",
+  "localization": {
+    "latitude": -5.057364,
+    "longitude": -42.796962
+  },
+  "services": "",
+  "type": 0,
+  "id": 192,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "PET Filosofia",
+  "name": "PET Filosofia",
+  "localization": {
+    "latitude": -5.057338,
+    "longitude": -42.7969593
+  },
+  "services": "",
+  "type": 6,
+  "id": 193,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "PET Pedagogia",
+  "name": "PET Pedagogia",
+  "localization": {
+    "latitude": -5.057952,
+    "longitude": -42.796362
+  },
+  "services": "",
+  "type": 6,
+  "id": 194,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Biblioteca Setorial - CCE",
+  "name": "Biblioteca Setorial - CCE",
+  "localization": {
+    "latitude": -5.058516,
+    "longitude": -42.795864
+  },
+  "services": "",
+  "type": 9,
+  "id": 195,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Brinquedoteca",
+  "name": "Brinquedoteca",
+  "localization": {
+    "latitude": -5.058246,
+    "longitude": -42.79605
+  },
+  "services": "",
+  "type": 0,
+  "id": 196,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Laboratorio de Parasitologia II",
+  "name": "Laboratorio de Parasitologia II",
+  "localization": {
+    "latitude": -5.055871,
+    "longitude": -42.791082
+  },
+  "services": "",
+  "type": 6,
+  "id": 197,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Laboratorio de Parasitologia I",
+  "name": "Laboratorio de Parasitologia I",
+  "localization": {
+    "latitude": -5.055655,
+    "longitude": -42.791264
+  },
+  "services": "",
+  "type": 6,
+  "id": 198,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Banheiros - Parasitologia",
+  "name": "Banheiros - Parasitologia",
+  "localization": {
+    "latitude": -5.055660,
+    "longitude": -42.791245
+  },
+  "services": "",
+  "type": 8,
+  "id": 199,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Laboratorio de Imunogenetica e Biologia Molecular - LIB",
+  "name": "Laboratorio de Imunogenetica e Biologia Molecular - LIB",
+  "localization": {
+    "latitude": -5.055088,
+    "longitude": -42.791515
+  },
+  "services": "",
+  "type": 6,
+  "id": 200,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Laboratorio de Microbiologia",
+  "name": "Laboratorio de Microbiologia",
+  "localization": {
+    "latitude": -5.05536,
+    "longitude": -42.791259
+  },
+  "services": "",
+  "type": 6,
+  "id": 201,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Banheiros - Farmacia",
+  "name": "Banheiros - Farmacia",
+  "localization": {
+    "latitude": -5.054827,
+    "longitude": -42.790523
+  },
+  "services": "",
+  "type": 8,
+  "id": 202,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Nucleo de Estudos e Pesquisas sobre Mulher e Relacoes de Genero - NEPEM",
+  "name": "Nucleo de Estudos e Pesquisas sobre Mulher e Relacoes de Genero - NEPEM",
+  "localization": {
+    "latitude": -5.054834,
+    "longitude": -42.789976
+  },
+  "services": "",
+  "type": 6,
+  "id": 203,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Coordenacao Farmacia",
+  "name": "Coordenacao Farmacia",
+  "localization": {
+    "latitude": -5.054798,
+    "longitude": -42.79043
+  },
+  "services": "",
+  "type": 3,
+  "id": 204,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Banheiros - Odontologia",
+  "name": "Banheiros - Odontologia",
+  "localization": {
+    "latitude": -5.055719,
+    "longitude": -42.789513
+  },
+  "services": "",
+  "type": 8,
+  "id": 205,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Banheiros DCE",
+  "name": "Banheiros DCE",
+  "localization": {
+    "latitude": -5.056794,
+    "longitude": -42.788914
+  },
+  "services": "",
+  "type": 8,
+  "id": 206,
+  "phone": "",
+  "email": ""
+}, {
+  "website": "",
+  "neighbors": [
+    "Secretaria - Computacao"
+  ],
+  "description": "Auditorio Quimica",
+  "name": "Auditorio Quimica",
+  "localization": {
+    "latitude": -5.058182,
+    "longitude": -42.791049
+  },
+  "services": "",
+  "type": 7,
+  "id": 207,
+  "phone": "",
+  "email": ""
+}]
