@@ -31,5 +31,5 @@ Apresentação disponível em https://github.com/armandossrecife/UFPIMAPS/blob/m
 * 21) Clique na opção API Accesse crie um projeto;
 * 22) Abrir o terminal e digitar o seguinte comando para obter o SHA1, trocando o c:\users\your_user_name\.android\debug.keystore pelo caminho do seu computador: ( keytool -list -v -keystore c:\users\your_user_name\.android\debug.keystore -alias androiddebugkey -storepass android -keypass android ) ;
 * 23) Copie o SHA1 gerado;
-* 24) Clique em Create New Android Key... e coloque o SHA1 Fingerprint gerado e o nome do projeto, separados por ponto-e-virgula, sem espaço (como em: AIzaSyDXLEO_RXbR8x4NUAjWb7hGNCnMQ5KCWro;com.ufpimaps).
+* 24) Clique em Create New Android Key... e coloque o SHA1 Fingerprint gerado e o nome do projeto, separados por ponto-e-virgula, sem espaço (como em: xxxxx;com.ufpimaps).
 * 25) Clique em Close e a API KEY estará na página que aparecerá.
