@@ -5,8 +5,7 @@ Global Positioning System) das unidades administrativas e operacionais da UFPI.
 
 Apresentação disponível em https://github.com/armandossrecife/UFPIMAPS/blob/master/docs/apresentacao.pdf
 
-## HOW TO SETUP ENVIRONMENT - ANDROID STUDIO COM GITHUB
-==
+## How to setup environment (Androi Studio com GitHub)
  
 * 1) Criar uma conta no GitHub (https://github.com);
 * 2) Baixar git para o seu sistema operacional (http://git-scm.com/downloads).
