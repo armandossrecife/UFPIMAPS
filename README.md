@@ -1,4 +1,11 @@
-HOW TO SETUP ENVIRONMENT - ANDROID STUDIO COM GITHUB
+# UFPI Maps
+
+Uma aplicação de apoio aos docentes, discentes e visitantes da UFPI que permite encontrar fisicamente a posição GPS (
+Global Positioning System) das unidades administrativas e operacionais da UFPI. 
+
+Apresentação disponível em https://github.com/armandossrecife/UFPIMAPS/blob/master/docs/apresentacao.pdf
+
+## HOW TO SETUP ENVIRONMENT - ANDROID STUDIO COM GITHUB
 ==
  
 * 1) Criar uma conta no GitHub (https://github.com);
